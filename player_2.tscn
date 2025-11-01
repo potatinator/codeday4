@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://crwntbh8rr321"]
+[gd_scene load_steps=8 format=3 uid="uid://crwntbh8rr321"]
 
-[ext_resource type="Script" uid="uid://bj718y33atxdh" path="res://player.gd" id="1_wkcja"]
+[ext_resource type="Script" uid="uid://cgsw8q72kiuo1" path="res://player.gd" id="1_wkcja"]
 
 [sub_resource type="Gradient" id="Gradient_4flbx"]
 
@@ -16,6 +16,9 @@ radius = 36.013885
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ufh5k"]
 radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3sgo"]
+radius = 22.022715
 
 [node name="player2" type="CharacterBody2D"]
 script = ExtResource("1_wkcja")
@@ -45,6 +48,13 @@ shape = SubResource("CircleShape2D_ufh5k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_x3sgo")
 
 [connection signal="area_entered" from="scare" to="." method="_on_scare_area_entered"]
 [connection signal="area_exited" from="scare" to="." method="_on_scare_area_exited"]

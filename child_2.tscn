@@ -32,13 +32,14 @@ scale = Vector2(50, 50)
 texture = SubResource("PlaceholderTexture2D_5xa7t")
 
 [node name="echildView" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 25
+collision_mask = 24
 
 [node name="VisionCone2D" type="Node2D" parent="echildView" node_paths=PackedStringArray("write_collision_polygon")]
 script = ExtResource("2_81bwv")
-angle_deg = 45
-collision_layer_mask = 4
+angle_deg = 90
+max_distance = 100.0
+collision_layer_mask = 32
 write_collision_polygon = NodePath("../CollisionPolygon2D")
 debug_shape = true
 metadata/_custom_type_script = "uid://bo744wpycscqd"

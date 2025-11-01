@@ -12,6 +12,8 @@ var globalSpeed = Vector2(0,0);
 var rotSpeed = 0;
 var stopCounter = 0;
 var startCounter = 0;
+var seenCounter = 0;
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,6 +23,15 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	scareable = !seen && inRange;
+	
+	if seen:
+		seenCounter += delta;
+	else:
+		seenCounter = 0;
+	if seenCounter > 1:
+		get_tree().reload_current_scene();
+		
+	
 	stopCounter += randf();
 	
 	localSpeed.y += randf()*variation*delta;
