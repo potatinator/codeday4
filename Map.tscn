@@ -1,68 +1,180 @@
-[gd_scene load_steps=10 format=3 uid="uid://c46awrquqf8g1"]
+[gd_scene load_steps=15 format=3 uid="uid://c46awrquqf8g1"]
 
 [ext_resource type="Texture2D" uid="uid://c3k32i5wtnok6" path="res://resources/ApartmentBody.png" id="1_ud676"]
 [ext_resource type="Texture2D" uid="uid://huh1ihsfkkll" path="res://resources/GreenBody.png" id="2_6f7pb"]
 [ext_resource type="Texture2D" uid="uid://d4krffowhp12y" path="res://resources/GreenSide.png" id="3_bhm4d"]
 [ext_resource type="Texture2D" uid="uid://civt2dlvh3g8o" path="res://resources/Brick2Body.png" id="4_fhlij"]
 [ext_resource type="Texture2D" uid="uid://wn43uonqtxc8" path="res://resources/Brick2Roof.png" id="5_dbu0r"]
+[ext_resource type="Texture2D" uid="uid://c3e5c3sl6ifgw" path="res://resources/PurpleBody.png" id="5_jrcb4"]
+[ext_resource type="Texture2D" uid="uid://cawuwkjcgv7d0" path="res://resources/PurpleSide1.png" id="6_b3mxb"]
 [ext_resource type="Texture2D" uid="uid://cu6mu6i5l4ua5" path="res://resources/GreenRoof.png" id="6_jrcb4"]
 [ext_resource type="Texture2D" uid="uid://ehn2ecswjx08" path="res://resources/Neighborhood-6.png.png" id="7_b3mxb"]
+[ext_resource type="Texture2D" uid="uid://lwk3dikkycdo" path="res://resources/WoodRoof.png" id="7_saq0m"]
+[ext_resource type="Texture2D" uid="uid://dhlewsi3vpv6e" path="res://resources/WoodBody.png" id="8_s2a0k"]
 [ext_resource type="Texture2D" uid="uid://55ayk2gi3ryi" path="res://resources/Brick1Body.png" id="8_saq0m"]
 [ext_resource type="Texture2D" uid="uid://dbm1xvbqs7nvn" path="res://resources/Brick1Roof.png" id="9_s2a0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iye0r"]
+size = Vector2(64, 14)
 
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Neighborhood 6" type="Node2D" parent="."]
+
+[node name="GreenBody" type="Sprite2D" parent="Neighborhood 6"]
+position = Vector2(-1, 48)
+texture = ExtResource("2_6f7pb")
+
+[node name="GreenSide" type="Sprite2D" parent="Neighborhood 6"]
+position = Vector2(15, 48)
+texture = ExtResource("3_bhm4d")
+
+[node name="Neighborhood6_png" type="Sprite2D" parent="Neighborhood 6"]
+position = Vector2(47, 48)
+texture = ExtResource("7_b3mxb")
+
+[node name="Brick1Body" type="Sprite2D" parent="Neighborhood 6"]
+position = Vector2(31, 48)
+texture = ExtResource("8_saq0m")
+
+[node name="Neighborhood" type="Node2D" parent="."]
+
+[node name="1" type="StaticBody2D" parent="Neighborhood"]
+
+[node name="2" type="StaticBody2D" parent="Neighborhood"]
+
+[node name="3" type="StaticBody2D" parent="Neighborhood"]
+
+[node name="4" type="StaticBody2D" parent="Neighborhood"]
+
+[node name="5" type="StaticBody2D" parent="Neighborhood"]
+
+[node name="6" type="StaticBody2D" parent="Neighborhood"]
+
+[node name="7" type="StaticBody2D" parent="Neighborhood"]
+
+[node name="8" type="StaticBody2D" parent="Neighborhood"]
+
+[node name="9" type="StaticBody2D" parent="Neighborhood"]
+
+[node name="10" type="StaticBody2D" parent="Neighborhood"]
+
+[node name="11" type="StaticBody2D" parent="Neighborhood"]
+
+[node name="12" type="StaticBody2D" parent="Neighborhood"]
+
+[node name="13" type="StaticBody2D" parent="Neighborhood"]
+
+[node name="14" type="StaticBody2D" parent="Neighborhood"]
+
+[node name="15" type="StaticBody2D" parent="Neighborhood"]
+
+[node name="16" type="StaticBody2D" parent="Neighborhood"]
+
+[node name="Neighborhood 2" type="Node2D" parent="."]
+
+[node name="1" type="StaticBody2D" parent="Neighborhood 2"]
+
+[node name="PurpleBody" type="Sprite2D" parent="Neighborhood 2/1"]
+position = Vector2(63, 0)
+texture = ExtResource("5_jrcb4")
+
+[node name="2" type="StaticBody2D" parent="Neighborhood 2"]
+
+[node name="PurpleSide1" type="Sprite2D" parent="Neighborhood 2/2"]
+position = Vector2(79, 0)
+texture = ExtResource("6_b3mxb")
+
+[node name="3" type="StaticBody2D" parent="Neighborhood 2"]
+
+[node name="Brick1Body" type="Sprite2D" parent="Neighborhood 2/3"]
+position = Vector2(95, 0)
+texture = ExtResource("8_saq0m")
+
+[node name="4" type="StaticBody2D" parent="Neighborhood 2"]
+
+[node name="Neighborhood6_png" type="Sprite2D" parent="Neighborhood 2/4"]
+position = Vector2(111, 0)
+texture = ExtResource("7_b3mxb")
+
+[node name="5" type="StaticBody2D" parent="Neighborhood 2"]
+
+[node name="6" type="StaticBody2D" parent="Neighborhood 2"]
+
+[node name="7" type="StaticBody2D" parent="Neighborhood 2"]
+
+[node name="8" type="StaticBody2D" parent="Neighborhood 2"]
+
+[node name="9" type="StaticBody2D" parent="Neighborhood 2"]
+
+[node name="WoodRoof" type="Sprite2D" parent="Neighborhood 2/9"]
+position = Vector2(63, 32)
+texture = ExtResource("7_saq0m")
+
+[node name="10" type="StaticBody2D" parent="Neighborhood 2"]
+
+[node name="11" type="StaticBody2D" parent="Neighborhood 2"]
+
+[node name="12" type="StaticBody2D" parent="Neighborhood 2"]
+
+[node name="13" type="StaticBody2D" parent="Neighborhood 2"]
+
+[node name="WoodBody" type="Sprite2D" parent="Neighborhood 2/13"]
+position = Vector2(63, 48)
+texture = ExtResource("8_s2a0k")
+
+[node name="14" type="StaticBody2D" parent="Neighborhood 2"]
+
+[node name="15" type="StaticBody2D" parent="Neighborhood 2"]
+
+[node name="16" type="StaticBody2D" parent="Neighborhood 2"]
+
+[node name="Neighborhood 1" type="StaticBody2D" parent="."]
+collision_layer = 33
+
+[node name="Brick1Roof" type="Sprite2D" parent="Neighborhood 1"]
+position = Vector2(31, 32)
+texture = ExtResource("9_s2a0k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Neighborhood 1"]
 texture_filter = 1
 position = Vector2(-1, 0)
 texture = ExtResource("1_ud676")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Brick2Roof" type="Sprite2D" parent="Neighborhood 1"]
+position = Vector2(-1, 0)
+texture = ExtResource("5_dbu0r")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Neighborhood 1"]
 texture_filter = 1
 position = Vector2(15, 0)
 texture = ExtResource("2_6f7pb")
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
+[node name="Sprite2D3" type="Sprite2D" parent="Neighborhood 1"]
 position = Vector2(31, 0)
 texture = ExtResource("3_bhm4d")
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
+[node name="Sprite2D4" type="Sprite2D" parent="Neighborhood 1"]
 position = Vector2(47, 0)
 texture = ExtResource("1_ud676")
 
-[node name="Sprite2D5" type="Sprite2D" parent="."]
+[node name="Sprite2D5" type="Sprite2D" parent="Neighborhood 1"]
 position = Vector2(-1, 16)
 texture = ExtResource("4_fhlij")
 
-[node name="Brick2Roof" type="Sprite2D" parent="."]
-position = Vector2(-1, 0)
-texture = ExtResource("5_dbu0r")
+[node name="BlueRoof" type="Sprite2D" parent="Neighborhood 1"]
+position = Vector2(-1, 16)
+texture = ExtResource("7_saq0m")
 
-[node name="ApartmentBody" type="Sprite2D" parent="."]
+[node name="BlueBody" type="Sprite2D" parent="Neighborhood 1"]
 position = Vector2(-1, 32)
-texture = ExtResource("1_ud676")
+texture = ExtResource("8_s2a0k")
 
-[node name="GreenRoof" type="Sprite2D" parent="."]
+[node name="GreenRoof" type="Sprite2D" parent="Neighborhood 1"]
 position = Vector2(-1, 32)
 texture = ExtResource("6_jrcb4")
 
-[node name="GreenBody" type="Sprite2D" parent="."]
-position = Vector2(-1, 48)
-texture = ExtResource("2_6f7pb")
-
-[node name="GreenSide" type="Sprite2D" parent="."]
-position = Vector2(15, 48)
-texture = ExtResource("3_bhm4d")
-
-[node name="Neighborhood6_png" type="Sprite2D" parent="."]
-position = Vector2(47, 48)
-texture = ExtResource("7_b3mxb")
-
-[node name="Brick1Body" type="Sprite2D" parent="."]
-position = Vector2(31, 48)
-texture = ExtResource("8_saq0m")
-
-[node name="Brick1Roof" type="Sprite2D" parent="."]
-position = Vector2(31, 32)
-texture = ExtResource("9_s2a0k")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood 1"]
+position = Vector2(23, -1)
+shape = SubResource("RectangleShape2D_iye0r")
