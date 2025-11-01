@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3xisjtgqphos"
-path="res://.godot/imported/NursingHomeLeft.png-ccf3253bf49c52f729de2819f6ec2270.ctex"
+uid="uid://584hjc51k4xj"
+path="res://.godot/imported/NursingHomeRight.png-3a5aadc8cf158a420b8e40dd309a8589.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources temp/NursingHomeLeft.png"
-dest_files=["res://.godot/imported/NursingHomeLeft.png-ccf3253bf49c52f729de2819f6ec2270.ctex"]
+source_file="res://resources/NursingHomeRight.png"
+dest_files=["res://.godot/imported/NursingHomeRight.png-3a5aadc8cf158a420b8e40dd309a8589.ctex"]
 
 [params]
 
