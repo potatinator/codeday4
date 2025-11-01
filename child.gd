@@ -13,7 +13,7 @@ var rotSpeed = 0;
 var stopCounter = 0;
 var startCounter = 0;
 var seenCounter = 0;
-
+var scared = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,38 +22,42 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	scareable = !seen && inRange;
-	
-	if seen:
-		seenCounter += delta;
-	else:
-		seenCounter = 0;
-	if seenCounter > 1:
-		get_tree().reload_current_scene();
+	if !scared:
+		scareable = !seen && inRange;
 		
-	
-	stopCounter += randf();
-	
-	localSpeed.y += randf()*variation*delta;
-	localSpeed.y -= randf()*variation*delta*0.1;
-	localSpeed.x += randf()*variation*delta*0.1;
-	localSpeed.x -= randf()*variation*delta*0.1;
-	rotSpeed += (randf()-0.5)*delta;
-	rotSpeed = clamp(rotSpeed, -0.02, 0.02);
-	localSpeed = clamp(localSpeed.length(), -speed, speed)*localSpeed.normalized();
-	globalSpeed = localSpeed.rotated(rotation);
-	rotation += rotSpeed;
-	
-	if stopCounter <= 50:
-		velocity = globalSpeed;
-		startCounter = 0;
+		if seen:
+			seenCounter += delta;
+		else:
+			seenCounter = 0;
+		if seenCounter > 0.5:
+			get_tree().reload_current_scene();
+		
+		stopCounter += randf();
+		
+		localSpeed.y += randf()*variation*delta;
+		localSpeed.y -= randf()*variation*delta*0.1;
+		localSpeed.x += randf()*variation*delta*0.1;
+		localSpeed.x -= randf()*variation*delta*0.1;
+		rotSpeed += (randf()-0.5)*delta;
+		rotSpeed = clamp(rotSpeed, -0.02, 0.02);
+		localSpeed = clamp(localSpeed.length(), -speed, speed)*localSpeed.normalized();
+		globalSpeed = localSpeed.rotated(rotation);
+		rotation += rotSpeed;
+		
+		if stopCounter <= 50:
+			velocity = globalSpeed;
+			startCounter = 0;
+		else:
+			velocity = Vector2.ZERO;
+			startCounter += randf();
+			if startCounter >= 20:
+				stopCounter = 0;
+		move_and_slide();
 	else:
-		velocity = Vector2.ZERO;
-		startCounter += randf();
-		if startCounter >= 20:
-			stopCounter = 0;
-	move_and_slide();
-	
+		position += Vector2(0, 5);
+		$CollisionShape2D.set_deferred("disabled", true);
+		if position.y > 50000:
+			queue_free();
 	$Node2D.visible = scareable;
 	
 	$Node2D.global_rotation = 0;
@@ -66,7 +70,8 @@ func scare():
 			var a = candy.instantiate();
 			a.position = position + Vector2(randi_range(-r, r), randi_range(-r, r))
 			get_parent().add_child(a);
-		queue_free();
+		scared = true;
+		#queue_free();
 pass
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
