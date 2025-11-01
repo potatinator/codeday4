@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 @export var speedBase = 200;
 @export var speedSprint = 400;
@@ -34,9 +34,10 @@ func _process(delta: float) -> void:
 			speed = speedBase;
 		
 	if(vel.length() > 0):
-		vel = vel.normalized() * speed * delta;
+		vel = vel.normalized() * speed;
 		
-	position += vel;
+	velocity = vel;
+	move_and_slide();
 	
 	HUD.setScore(score);
 	
@@ -46,7 +47,7 @@ func _process(delta: float) -> void:
 				toScare.scare();
 		else:
 			print("scare unavailible");
-	print(scareReady)
+	
 	pass
 
 

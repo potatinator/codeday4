@@ -16,7 +16,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	scareable = !seen && inRange;
 	
-	$Label.visible = scareable;
+	$Node2D.visible = scareable;
+	
+	$Node2D.global_rotation = 0;
 	
 	pass
 
