@@ -66,7 +66,7 @@ rotation = 2.6608682
 
 [node name="child6" parent="." instance=ExtResource("3_3253y")]
 position = Vector2(445, 322)
-rotation = -0.701963
+rotation = 0.18721288
 
 [node name="child7" parent="." instance=ExtResource("3_3253y")]
 position = Vector2(952, 215)

@@ -56,9 +56,10 @@ func _process(delta: float) -> void:
 	else:
 		position += Vector2(0, 5);
 		$CollisionShape2D.set_deferred("disabled", true);
+		$echildView/VisionCone2D.visible = false;
 		if position.y > 50000:
 			queue_free();
-	$Node2D.visible = scareable;
+	$Node2D.visible = scareable && !scared;
 	
 	$Node2D.global_rotation = 0;
 	
