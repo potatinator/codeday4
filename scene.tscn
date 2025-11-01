@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://cx2f5v7bfi3p8"]
+[gd_scene load_steps=5 format=3 uid="uid://cx2f5v7bfi3p8"]
+
+[ext_resource type="PackedScene" uid="uid://bb1irno2hjavh" path="res://player.tscn" id="1_ulcgi"]
+[ext_resource type="PackedScene" uid="uid://cfuxh6rj1ykyo" path="res://HUD.tscn" id="2_nxogm"]
+
+[sub_resource type="Gradient" id="Gradient_ulcgi"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nxogm"]
+gradient = SubResource("Gradient_ulcgi")
+width = 800
+height = 600
+fill_from = Vector2(0, 1)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578, 323)
+scale = Vector2(1.789, 1)
+texture = SubResource("GradientTexture2D_nxogm")
+
+[node name="Player" parent="." instance=ExtResource("1_ulcgi")]
+position = Vector2(577, 329)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_nxogm")]
