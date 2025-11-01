@@ -29,11 +29,11 @@ region = Rect2(80, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6iqoo"]
 atlas = ExtResource("2_8xjnt")
-region = Rect2(32, 16, 16, 16)
+region = Rect2(33, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jaoer"]
 atlas = ExtResource("2_8xjnt")
-region = Rect2(16, 16, 16, 16)
+region = Rect2(17, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8lhrm"]
 atlas = ExtResource("2_8xjnt")
@@ -129,7 +129,7 @@ script = ExtResource("1_wkcja")
 texture_filter = 1
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_7d0q2")
-animation = &"up"
+animation = &"right"
 
 [node name="scare" type="Area2D" parent="."]
 collision_layer = 64
