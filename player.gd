@@ -44,6 +44,16 @@ func _process(delta: float) -> void:
 		
 	if(vel.length() > 0):
 		vel = vel.normalized() * speed;
+		if vel.y > 0:
+			$AnimatedSprite2D.play("down");
+		if vel.y < 0:
+			$AnimatedSprite2D.play("up");
+		if vel.x > 0:
+			$AnimatedSprite2D.play("right");
+		if vel.x < 0:
+			$AnimatedSprite2D.play("left");
+	else:
+		$AnimatedSprite2D.stop()
 		
 	velocity = vel;
 	move_and_slide();
