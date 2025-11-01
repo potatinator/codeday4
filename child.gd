@@ -24,6 +24,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if seen:
+		seenCounter += delta;
+	if seenCounter > 0.5:
+		get_tree().reload_current_scene();
 	if !scared:
 		scareable = !seen && inRange;
 			
