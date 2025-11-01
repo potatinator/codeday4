@@ -8,7 +8,7 @@ var speed = speedBase;
 var vel = Vector2.ZERO;
 var score = 0;
 var scareReady = false;
-var toScare: Area2D;
+var toScare: CharacterBody2D;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -57,12 +57,12 @@ func _on_pickup_area_entered(area: Area2D) -> void:
 pass
 
 func _on_scare_area_entered(area: Area2D) -> void:
-	if area.name.begins_with("child"):
+	if area.get_parent().name.begins_with("child"):
 		scareReady = true;
-	toScare = area;
+	toScare = area.get_parent();
 pass
 func _on_scare_area_exited(area: Area2D) -> void:
-	if area.name.begins_with("child"):
+	if area.get_parent().name.begins_with("child"):
 		scareReady = false;
 	toScare = null;
 	pass

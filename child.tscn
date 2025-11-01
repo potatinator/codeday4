@@ -27,6 +27,7 @@ offset_bottom = -21.0
 text = "Space: scare"
 label_settings = SubResource("LabelSettings_vgl3u")
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(50, 50)
@@ -39,12 +40,11 @@ shape = SubResource("CircleShape2D_d04bu")
 collision_layer = 8
 collision_mask = 8
 
-[node name="VisionCone2D" type="Node2D" parent="echildView" node_paths=PackedStringArray("write_collision_polygon", "write_polygon2d")]
+[node name="VisionCone2D" type="Node2D" parent="echildView" node_paths=PackedStringArray("write_collision_polygon")]
 script = ExtResource("3_4bbvj")
 angle_deg = 45
 collision_layer_mask = 4
 write_collision_polygon = NodePath("../CollisionPolygon2D")
-write_polygon2d = NodePath("")
 debug_shape = true
 metadata/_custom_type_script = "uid://bo744wpycscqd"
 

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var candy: PackedScene;
 @export var r = 25;
-@export var speed = 2;
+@export var speed = 300;
 @export var variation = 100;
 var scareable = false;
 var seen = false;

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgi117qqkkrie"]
+[gd_scene load_steps=7 format=3 uid="uid://cgi117qqkkrie"]
 
 [ext_resource type="Script" uid="uid://q08w3rqlimwh" path="res://child.gd" id="1_etuno"]
 [ext_resource type="Script" uid="uid://bo744wpycscqd" path="res://godot-vision-cone-d9c57d82370efe068d955a2c94de0838d29c1278/addons/vision_cone_2d/vision_cone_2d.gd" id="2_81bwv"]
+[ext_resource type="PackedScene" uid="uid://juhodofdb8vy" path="res://candy.tscn" id="2_plck6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_plck6"]
 
@@ -12,6 +13,7 @@ radius = 32.0
 
 [node name="child2" type="CharacterBody2D"]
 script = ExtResource("1_etuno")
+candy = ExtResource("2_plck6")
 
 [node name="Node2D" type="Node2D" parent="."]
 
