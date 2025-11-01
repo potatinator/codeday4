@@ -10,6 +10,8 @@ var inRange = false;
 var localSpeed = Vector2(0,0);
 var globalSpeed = Vector2(0,0);
 var rotSpeed = 0;
+var stopCounter = 0;
+var startCounter = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,6 +21,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	scareable = !seen && inRange;
+	stopCounter += randf();
 	
 	localSpeed.y += randf()*variation*delta;
 	localSpeed.y -= randf()*variation*delta*0.1;
@@ -29,7 +32,15 @@ func _process(delta: float) -> void:
 	localSpeed = clamp(localSpeed.length(), -speed, speed)*localSpeed.normalized();
 	globalSpeed = localSpeed.rotated(rotation);
 	rotation += rotSpeed;
-	position += globalSpeed;
+	
+	if stopCounter <= 50:
+		position += globalSpeed;
+		startCounter = 0;
+	else:
+		startCounter += randf();
+		if startCounter >= 20:
+			stopCounter = 0;
+	
 	$Label.visible = scareable;
 	
 	pass
