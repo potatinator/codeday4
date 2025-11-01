@@ -19,6 +19,12 @@ position = Vector2(578, 323)
 scale = Vector2(1.789, 1)
 texture = SubResource("GradientTexture2D_nxogm")
 
+[node name="Player" parent="." node_paths=PackedStringArray("HUD") instance=ExtResource("1_ulcgi")]
+position = Vector2(577, 329)
+HUD = NodePath("../CanvasLayer")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_nxogm")]
+
 [node name="child" parent="." instance=ExtResource("3_3253y")]
 position = Vector2(254, 304)
 rotation = -0.98052716
@@ -30,9 +36,3 @@ rotation = 2.2289414
 [node name="child3" parent="." instance=ExtResource("3_3253y")]
 position = Vector2(447, 118)
 rotation = -3.025091
-
-[node name="player2" parent="." node_paths=PackedStringArray("HUD") instance=ExtResource("3_u3cyc")]
-position = Vector2(600, 346)
-HUD = NodePath("../CanvasLayer")
-
-[node name="CanvasLayer" parent="." instance=ExtResource("2_nxogm")]
