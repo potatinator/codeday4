@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx2f5v7bfi3p8"]
+[gd_scene load_steps=5 format=3 uid="uid://cx2f5v7bfi3p8"]
 
-[ext_resource type="PackedScene" path="res://player.tscn" id="1_ulcgi"]
-[ext_resource type="PackedScene" path="res://HUD.tscn" id="2_nxogm"]
-[ext_resource type="PackedScene" path="res://child.tscn" id="3_3253y"]
+[ext_resource type="PackedScene" uid="uid://cfuxh6rj1ykyo" path="res://HUD.tscn" id="2_nxogm"]
+[ext_resource type="PackedScene" uid="uid://crwntbh8rr321" path="res://player_2.tscn" id="3_u3cyc"]
 
 [sub_resource type="Gradient" id="Gradient_ulcgi"]
 
@@ -18,18 +17,6 @@ fill_from = Vector2(0, 1)
 position = Vector2(578, 323)
 scale = Vector2(1.789, 1)
 texture = SubResource("GradientTexture2D_nxogm")
-
-[node name="child" parent="." instance=ExtResource("3_3253y")]
-position = Vector2(254, 304)
-rotation = -0.98052716
-
-[node name="child2" parent="." instance=ExtResource("3_3253y")]
-position = Vector2(222, 137)
-rotation = 2.2289414
-
-[node name="child3" parent="." instance=ExtResource("3_3253y")]
-position = Vector2(447, 118)
-rotation = -3.025091
 
 [node name="player2" parent="." node_paths=PackedStringArray("HUD") instance=ExtResource("3_u3cyc")]
 position = Vector2(600, 346)

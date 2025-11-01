@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 @export var candy: PackedScene;
 @export var r = 25;
@@ -34,12 +34,14 @@ func _process(delta: float) -> void:
 	rotation += rotSpeed;
 	
 	if stopCounter <= 50:
-		position += globalSpeed;
+		velocity = globalSpeed;
 		startCounter = 0;
 	else:
+		velocity = Vector2.ZERO;
 		startCounter += randf();
 		if startCounter >= 20:
 			stopCounter = 0;
+	move_and_slide();
 	
 	$Node2D.visible = scareable;
 	
