@@ -26,31 +26,42 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !scared:
 		scareable = !seen && inRange;
+		if seen:
+			seenCounter += delta;
+		else:
+			seenCounter = 0;
+		if seenCounter > 1:
+			get_tree().reload_current_scene();
 		
 	
-	stopCounter += randf();
-	spinCounter += randf();
+		stopCounter += randf();
+		spinCounter += randf();
+		
+		localSpeed.y += randf()*variation*delta;
+		localSpeed.y -= randf()*variation*delta*0.1;
+		localSpeed.x += randf()*variation*delta*0.1;
+		localSpeed.x -= randf()*variation*delta*0.1;
+		rotSpeed += (randf()-0.5)*delta;
+		rotSpeed = clamp(rotSpeed, -0.02, 0.02);
+		localSpeed = clamp(localSpeed.length(), -speed, speed)*localSpeed.normalized();
+		globalSpeed = localSpeed.rotated(rotation);
+		if spinCounter <= 40:
+			rotation += rotSpeed;
+			spinStopper = 0;
+		else:
+			rotation += ((randf()*PI)-(PI/2));
+			spinStopper += randf();
+			if spinStopper >= 2:
+				spinCounter -= 40;
 	
-	localSpeed.y += randf()*variation*delta;
-	localSpeed.y -= randf()*variation*delta*0.1;
-	localSpeed.x += randf()*variation*delta*0.1;
-	localSpeed.x -= randf()*variation*delta*0.1;
-	rotSpeed += (randf()-0.5)*delta;
-	rotSpeed = clamp(rotSpeed, -0.02, 0.02);
-	localSpeed = clamp(localSpeed.length(), -speed, speed)*localSpeed.normalized();
-	globalSpeed = localSpeed.rotated(rotation);
-	if spinCounter <= 40:
-		rotation += rotSpeed;
-		spinStopper = 0;
-	else:
-		rotation += ((randf()*PI)-(PI/2));
-		spinStopper += randf();
-		if spinStopper >= 2:
-			spinCounter -= 40;
-
-	if stopCounter <= 50:
-		velocity = globalSpeed;
-		startCounter = 0;
+		if stopCounter <= 50:
+			velocity = globalSpeed;
+			startCounter = 0;
+		else:
+			velocity = Vector2.ZERO;
+			startCounter += randf();
+			if startCounter >= 20:
+				stopCounter = 0;
 	else:
 		position += Vector2(0, 5);
 		$CollisionShape2D.set_deferred("disabled", true);
