@@ -2,10 +2,14 @@ extends Area2D
 
 @export var candy: PackedScene;
 @export var r = 25;
-
+@export var speed = 2;
+@export var variation = 100;
 var scareable = false;
 var seen = false;
 var inRange = false;
+var localSpeed = Vector2(0,0);
+var globalSpeed = Vector2(0,0);
+var rotSpeed = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,6 +20,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	scareable = !seen && inRange;
 	
+	localSpeed.y += randf()*variation*delta;
+	localSpeed.y -= randf()*variation*delta*0.1;
+	localSpeed.x += randf()*variation*delta*0.1;
+	localSpeed.x -= randf()*variation*delta*0.1;
+	rotSpeed += (randf()-0.5)*delta;
+	rotSpeed = clamp(rotSpeed, -0.02, 0.02);
+	localSpeed = clamp(localSpeed.length(), -speed, speed)*localSpeed.normalized();
+	globalSpeed = localSpeed.rotated(rotation);
+	rotation += rotSpeed;
+	position += globalSpeed;
 	$Label.visible = scareable;
 	
 	pass
