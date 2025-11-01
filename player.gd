@@ -9,6 +9,7 @@ var vel = Vector2.ZERO;
 var score = 0;
 var scareReady = false;
 var toScare: CharacterBody2D;
+var stamina = 1;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,11 +28,19 @@ func _process(delta: float) -> void:
 		vel.x += 1;
 	if Input.is_action_pressed("sneak"):
 		speed = speedSneak;
+		if stamina < 1:
+			stamina += 0.05*delta;
 	else:
 		if Input.is_action_pressed("sprint"):
-			speed = speedSprint;
+			if stamina > 0:
+				speed = speedSprint;
+				stamina -= 0.2*delta;
+			else:
+				speed = 0;
 		else:
 			speed = speedBase;
+			if stamina < 1:
+				stamina += 0.025*delta;
 		
 	if(vel.length() > 0):
 		vel = vel.normalized() * speed;
@@ -40,7 +49,7 @@ func _process(delta: float) -> void:
 	move_and_slide();
 	
 	HUD.setScore(score);
-	
+	HUD.setStamina(stamina);
 	if Input.is_action_just_pressed("scare"):
 		if scareReady:
 			if toScare != null:
