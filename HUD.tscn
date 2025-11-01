@@ -1,14 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfuxh6rj1ykyo"]
+[gd_scene load_steps=6 format=3 uid="uid://cfuxh6rj1ykyo"]
 
 [ext_resource type="Script" uid="uid://com04hw7n0rkr" path="res://hud.gd" id="1_k5de2"]
 
 [sub_resource type="SystemFont" id="SystemFont_5xyro"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_k5de2"]
 font = SubResource("SystemFont_5xyro")
 font_size = 32
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k5de2"]
+[sub_resource type="Gradient" id="Gradient_k5de2"]
+colors = PackedColorArray(1, 0, 0.9666667, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_efote"]
+gradient = SubResource("Gradient_k5de2")
+width = 1
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_k5de2")
@@ -20,6 +26,6 @@ text = "score: "
 label_settings = SubResource("LabelSettings_k5de2")
 
 [node name="stamia bar" type="Sprite2D" parent="."]
-position = Vector2(565, 409.00003)
-scale = Vector2(184.93753, 35.312458)
-texture = SubResource("PlaceholderTexture2D_k5de2")
+position = Vector2(575, 506)
+scale = Vector2(184.938, 20)
+texture = SubResource("GradientTexture1D_efote")

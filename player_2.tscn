@@ -28,7 +28,7 @@ scale = Vector2(50, 50)
 texture = SubResource("GradientTexture1D_uk8bg")
 
 [node name="scare" type="Area2D" parent="."]
-collision_layer = 4
+collision_layer = 64
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="scare"]
