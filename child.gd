@@ -48,6 +48,29 @@ func _process(delta: float) -> void:
 			if spinStopper >= 2:
 				spinCounter -= 40;
 	
+<<<<<<< HEAD
+=======
+		stopCounter += randf();
+		spinCounter += randf();
+		
+		localSpeed.y += randf()*variation*delta;
+		localSpeed.y -= randf()*variation*delta*0.1;
+		localSpeed.x += randf()*variation*delta*0.1;
+		localSpeed.x -= randf()*variation*delta*0.1;
+		rotSpeed += (randf()-0.5)*delta;
+		rotSpeed = clamp(rotSpeed, -0.02, 0.02);
+		localSpeed = clamp(localSpeed.length(), -speed, speed)*localSpeed.normalized();
+		globalSpeed = localSpeed.rotated(rotation);
+		if spinCounter <= 40:
+			rotation += rotSpeed;
+			spinStopper = 0;
+		else:
+			rotation += ((randf()*PI)-(PI/2));
+			spinStopper += randf();
+			if spinStopper >= 2:
+				spinCounter -= 40;
+	
+>>>>>>> d4cbfd04c2eed35502a728869d50e045a096425b
 		if stopCounter <= 50:
 			velocity = globalSpeed;
 			startCounter = 0;
