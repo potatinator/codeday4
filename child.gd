@@ -41,7 +41,9 @@ func _process(delta: float) -> void:
 		if startCounter >= 20:
 			stopCounter = 0;
 	
-	$Label.visible = scareable;
+	$Node2D.visible = scareable;
+	
+	$Node2D.global_rotation = 0;
 	
 	pass
 
