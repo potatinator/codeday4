@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 				speed = speedSprint;
 				stamina -= 0.2*delta;
 			else:
-				speed = 0;
+				speed = speedBase;
 		else:
 			speed = speedBase;
 			if stamina < 1:
