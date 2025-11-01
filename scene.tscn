@@ -52,22 +52,3 @@ shape = SubResource("RectangleShape2D_u3cyc")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1275, 334)
 shape = SubResource("RectangleShape2D_u3cyc")
-
-[node name="child3" parent="." instance=ExtResource("3_3253y")]
-position = Vector2(193, 356)
-
-[node name="child4" parent="." instance=ExtResource("3_3253y")]
-position = Vector2(-16, 334)
-rotation = -1.3586226
-
-[node name="child5" parent="." instance=ExtResource("3_3253y")]
-position = Vector2(664, 120)
-rotation = 2.6608682
-
-[node name="child6" parent="." instance=ExtResource("3_3253y")]
-position = Vector2(445, 322)
-rotation = 0.18721288
-
-[node name="child7" parent="." instance=ExtResource("3_3253y")]
-position = Vector2(952, 215)
-rotation = 2.321118

@@ -27,7 +27,6 @@ func _process(delta: float) -> void:
 	if !scared:
 		scareable = !seen && inRange;
 			
-		
 		stopCounter += randf();
 		spinCounter += randf();
 		
@@ -56,6 +55,7 @@ func _process(delta: float) -> void:
 			startCounter += randf();
 			if startCounter >= 20:
 				stopCounter = 0;
+		move_and_slide();
 	else:
 		position += Vector2(0, 5);
 		$CollisionShape2D.set_deferred("disabled", true);
@@ -69,7 +69,7 @@ func _process(delta: float) -> void:
 	pass
 
 func scare():
-	if scareable:
+	if scareable && !scared:
 		for i in 5:
 			var a = candy.instantiate();
 			a.position = position + Vector2(randi_range(-r, r), randi_range(-r, r))
