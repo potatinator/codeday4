@@ -13,7 +13,8 @@ var rotSpeed = 0;
 var stopCounter = 0;
 var startCounter = 0;
 var seenCounter = 0;
-
+var spinCounter = 0;
+var spinStopper = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,6 +34,7 @@ func _process(delta: float) -> void:
 		
 	
 	stopCounter += randf();
+	spinCounter += randf();
 	
 	localSpeed.y += randf()*variation*delta;
 	localSpeed.y -= randf()*variation*delta*0.1;
@@ -42,8 +44,15 @@ func _process(delta: float) -> void:
 	rotSpeed = clamp(rotSpeed, -0.02, 0.02);
 	localSpeed = clamp(localSpeed.length(), -speed, speed)*localSpeed.normalized();
 	globalSpeed = localSpeed.rotated(rotation);
-	rotation += rotSpeed;
-	
+	if spinCounter <= 40:
+		rotation += rotSpeed;
+		spinStopper = 0;
+	else:
+		rotation += ((randf()*PI)-(PI/2));
+		spinStopper += randf();
+		if spinStopper >= 2:
+			spinCounter -= 40;
+
 	if stopCounter <= 50:
 		velocity = globalSpeed;
 		startCounter = 0;
