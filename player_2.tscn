@@ -117,14 +117,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_wkcja"]
 radius = 52.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8xjnt"]
-radius = 36.013885
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8xjnt"]
+radius = 35.0
+height = 86.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ufh5k"]
-radius = 25.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufh5k"]
+size = Vector2(44, 16)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_x3sgo"]
-radius = 22.022715
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3sgo"]
+size = Vector2(37, 56)
 
 [node name="player2" type="CharacterBody2D"]
 script = ExtResource("1_wkcja")
@@ -145,6 +146,7 @@ collision_layer = 64
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="scare"]
+position = Vector2(2.5, 0)
 shape = SubResource("CircleShape2D_wkcja")
 debug_color = Color(0.7, 0, 0, 0.41960785)
 
@@ -153,11 +155,13 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickup"]
-shape = SubResource("CircleShape2D_8xjnt")
+position = Vector2(2.5, 0)
+shape = SubResource("CapsuleShape2D_8xjnt")
 debug_color = Color(0, 0.62352943, 0, 0.25490198)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ufh5k")
+position = Vector2(2, 24)
+shape = SubResource("RectangleShape2D_ufh5k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
@@ -167,7 +171,8 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_x3sgo")
+position = Vector2(2.5, 0)
+shape = SubResource("RectangleShape2D_x3sgo")
 
 [connection signal="area_entered" from="scare" to="." method="_on_scare_area_entered"]
 [connection signal="area_exited" from="scare" to="." method="_on_scare_area_exited"]

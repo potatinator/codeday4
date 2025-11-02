@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="codeday4"
-run/main_scene="uid://cx2f5v7bfi3p8"
+run/main_scene="uid://bm05clviv5xva"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
