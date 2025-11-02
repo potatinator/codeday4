@@ -44,10 +44,9 @@ func _process(delta: float) -> void:
 		globalSpeed = localSpeed.rotated(rotation);
 		if spinCounter <= 70:
 			rotation += rotSpeed;
-			
 		else:
-			rotation += PI;
-			spinCounter = 0;
+			rotation += rotSpeed*3;
+			spinCounter -= randf()*2;
 	
 		if stopCounter <= 50:
 			velocity = globalSpeed;

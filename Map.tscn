@@ -670,8 +670,28 @@ texture = ExtResource("24_5sbaq")
 position = Vector2(507, 261)
 HUD = NodePath("../CanvasLayer")
 
-[node name="child2" parent="." instance=ExtResource("36_n5say")]
-position = Vector2(458, 445)
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.42, 0.42, 0.42, 1)
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="child2" parent="Node2D2" instance=ExtResource("36_n5say")]
+position = Vector2(458, 445)
+
+[node name="child3" parent="Node2D2" instance=ExtResource("36_n5say")]
+position = Vector2(1245, 271)
+
+[node name="child4" parent="Node2D2" instance=ExtResource("36_n5say")]
+position = Vector2(222, 203)
+
+[node name="child5" parent="Node2D2" instance=ExtResource("36_n5say")]
+position = Vector2(1142, 697)
+
+[node name="child6" parent="Node2D2" instance=ExtResource("36_n5say")]
+position = Vector2(1457, 472)
+
+[node name="child7" parent="Node2D2" instance=ExtResource("36_n5say")]
+position = Vector2(814, 355)
+
+[node name="child8" parent="Node2D2" instance=ExtResource("36_n5say")]
+position = Vector2(1680, 397)
