@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bm05clviv5xva"]
+[gd_scene load_steps=49 format=3 uid="uid://bm05clviv5xva"]
 
 [ext_resource type="Texture2D" uid="uid://dnsmjkwkihm2g" path="res://resources/roads/road2.png" id="1_lf0el"]
 [ext_resource type="Texture2D" uid="uid://c3k32i5wtnok6" path="res://resources/ApartmentBody.png" id="1_ud676"]
@@ -35,7 +35,8 @@
 [ext_resource type="Texture2D" uid="uid://ceiwjok8yx7u1" path="res://resources/PurpleSide3.png" id="32_maens"]
 [ext_resource type="PackedScene" uid="uid://cfuxh6rj1ykyo" path="res://HUD.tscn" id="34_6skux"]
 [ext_resource type="PackedScene" uid="uid://crwntbh8rr321" path="res://player_2.tscn" id="35_rox04"]
-[ext_resource type="PackedScene" uid="uid://baypgfh7ohj1y" path="res://bigChild_2.tscn" id="37_rox04"]
+[ext_resource type="PackedScene" uid="uid://cgi117qqkkrie" path="res://child_2.tscn" id="36_n5say"]
+[ext_resource type="PackedScene" uid="uid://bht2sp4i64cw7" path="res://bigChild_2.tscn" id="37_rox04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iye0r"]
 size = Vector2(64, 14)
@@ -66,6 +67,17 @@ size = Vector2(14, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4oyn"]
 size = Vector2(14, 14)
+
+[sub_resource type="Environment" id="Environment_6skux"]
+background_mode = 3
+background_canvas_max_layer = 2
+tonemap_mode = 2
+tonemap_exposure = 0.4
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 2.0
+glow_hdr_threshold = 0.4
+glow_hdr_scale = 3.0
 
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
@@ -667,13 +679,20 @@ texture = ExtResource("24_5sbaq")
 [node name="CanvasLayer" parent="." instance=ExtResource("34_6skux")]
 
 [node name="player2" parent="." node_paths=PackedStringArray("HUD") instance=ExtResource("35_rox04")]
+z_index = 1
 position = Vector2(2109, 132)
 HUD = NodePath("../CanvasLayer")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.52906674, 0.52906674, 0.52906656, 1)
+color = Color(0.55695295, 0.556953, 0.55695283, 1)
 
 [node name="Node2D2" type="Node2D" parent="."]
 
 [node name="bigChild2" parent="." instance=ExtResource("37_rox04")]
 position = Vector2(1341, 263)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6skux")
+
+[node name="child2" parent="." instance=ExtResource("36_n5say")]
+position = Vector2(1816, 203)
