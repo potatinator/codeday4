@@ -1,5 +1,6 @@
-[gd_scene load_steps=49 format=3 uid="uid://bm05clviv5xva"]
+[gd_scene load_steps=78 format=3 uid="uid://c46awrquqf8g1"]
 
+[ext_resource type="Texture2D" uid="uid://di46ece3wxgfw" path="res://resources/Grass (2).png" id="1_6d1bb"]
 [ext_resource type="Texture2D" uid="uid://dnsmjkwkihm2g" path="res://resources/roads/road2.png" id="1_lf0el"]
 [ext_resource type="Texture2D" uid="uid://c3k32i5wtnok6" path="res://resources/ApartmentBody.png" id="1_ud676"]
 [ext_resource type="Texture2D" uid="uid://huh1ihsfkkll" path="res://resources/GreenBody.png" id="2_6f7pb"]
@@ -19,20 +20,29 @@
 [ext_resource type="Texture2D" uid="uid://dbm1xvbqs7nvn" path="res://resources/Brick1Roof.png" id="9_s2a0k"]
 [ext_resource type="Texture2D" uid="uid://bom7ktdw6i8mf" path="res://resources/roads/T7.png" id="18_hniq5"]
 [ext_resource type="Texture2D" uid="uid://8q3p5yk5ubmh" path="res://resources/roads/fixed road.png" id="19_phpw6"]
+[ext_resource type="Texture2D" uid="uid://yinjw1jnjyl7" path="res://resources/roads/corner1.png" id="20_loixj"]
 [ext_resource type="Texture2D" uid="uid://c3xisjtgqphos" path="res://resources/NursingHomeLeft.png" id="20_r3woe"]
 [ext_resource type="Texture2D" uid="uid://584hjc51k4xj" path="res://resources/NursingHomeRight.png" id="21_maens"]
 [ext_resource type="Texture2D" uid="uid://cnp67pqa73thm" path="res://resources/ApartmentRoof.png" id="21_r3woe"]
+[ext_resource type="Texture2D" uid="uid://bj6tso4h4it5d" path="res://resources/NursingHomeLeftRoof.png" id="21_u660q"]
 [ext_resource type="Texture2D" uid="uid://1mkbj0eqynf3" path="res://resources/BlueRoof.png" id="22_maens"]
+[ext_resource type="Texture2D" uid="uid://cj5hm1r0r56ts" path="res://resources/NursingHomeRightRoof.png" id="22_ne152"]
 [ext_resource type="Texture2D" uid="uid://cd1c0g4rk1dco" path="res://resources/roads/corner4.png" id="23_seiha"]
 [ext_resource type="Texture2D" uid="uid://bdbuh2mc3k5g2" path="res://resources/PurpleRoof.png" id="24_5sbaq"]
 [ext_resource type="Texture2D" uid="uid://drsopvaop8tq6" path="res://resources/BlueBody.png" id="25_6skux"]
 [ext_resource type="Texture2D" uid="uid://b6j1v00vipqk2" path="res://resources/BlueSide1.png" id="26_rox04"]
 [ext_resource type="Texture2D" uid="uid://cd0m1e38731b0" path="res://resources/roads/road3.png" id="27_n5say"]
 [ext_resource type="Texture2D" uid="uid://ccstjl6ypqjel" path="res://resources/roads/road5.png" id="28_u660q"]
+[ext_resource type="Texture2D" uid="uid://c68bhtww6qyk4" path="res://resources/roads/corner3.png" id="29_brrwk"]
 [ext_resource type="Texture2D" uid="uid://blwo86rc8qvwd" path="res://resources/roads/T6.png" id="29_ne152"]
 [ext_resource type="Texture2D" uid="uid://mlcuphllbnl5" path="res://resources/BlueSide2.png" id="30_brrwk"]
 [ext_resource type="Texture2D" uid="uid://cxiw287cefyo6" path="res://resources/BlueSide3.png" id="31_28i2f"]
 [ext_resource type="Texture2D" uid="uid://ceiwjok8yx7u1" path="res://resources/PurpleSide3.png" id="32_maens"]
+[ext_resource type="Texture2D" uid="uid://bwj4g6msn2ny0" path="res://resources/roads/T4.png" id="36_28i2f"]
+[ext_resource type="Texture2D" uid="uid://rhektprw6wup" path="res://resources/PurpleSide2.png" id="39_6d1bb"]
+[ext_resource type="Texture2D" uid="uid://bg20gqgoapdin" path="res://resources/roads/corner2.png" id="40_ne152"]
+[ext_resource type="Texture2D" uid="uid://cw17uyeb6bvim" path="res://resources/FenceLeft.png" id="42_pkupc"]
+[ext_resource type="Texture2D" uid="uid://gxp25a1e7hy0" path="res://resources/FenceRight.png" id="43_vveqt"]
 [ext_resource type="PackedScene" uid="uid://cfuxh6rj1ykyo" path="res://HUD.tscn" id="34_6skux"]
 [ext_resource type="PackedScene" uid="uid://crwntbh8rr321" path="res://player_2.tscn" id="35_rox04"]
 [ext_resource type="PackedScene" uid="uid://cgi117qqkkrie" path="res://child_2.tscn" id="36_n5say"]
@@ -48,24 +58,66 @@ size = Vector2(16, 35)
 size = Vector2(64, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seiha"]
-size = Vector2(65, 15)
+size = Vector2(65, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5sbaq"]
 size = Vector2(64, 13)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fahx"]
+size = Vector2(64, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5q7v"]
+size = Vector2(16, 34)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6d1bb"]
-size = Vector2(64, 14)
+size = Vector2(64, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pkupc"]
 size = Vector2(16, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vveqt"]
-size = Vector2(15.5, 14.5)
+size = Vector2(16.25, 14.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oyveh"]
-size = Vector2(14, 13)
+size = Vector2(14, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4oyn"]
+size = Vector2(16, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_maens"]
+size = Vector2(62, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxdfw"]
+size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63kcp"]
+size = Vector2(16, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5vnb"]
+size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j65g8"]
+size = Vector2(15, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_020ee"]
+size = Vector2(49, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckdtb"]
+size = Vector2(16, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwl6j"]
+size = Vector2(16, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfs8b"]
+size = Vector2(15, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gwpe"]
+size = Vector2(16, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vphb4"]
+size = Vector2(16, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3uuf"]
 size = Vector2(14, 14)
 
 [sub_resource type="Environment" id="Environment_6skux"]
@@ -86,102 +138,166 @@ texture_filter = 1
 scale = Vector2(14, 14)
 collision_layer = 33
 
-[node name="Road2" type="Sprite2D" parent="Neighborhood 1"]
-position = Vector2(47, 16)
+[node name="Road2" type="Sprite2D" parent="Neighborhood 12"]
+position = Vector2(111, 112)
 texture = ExtResource("1_lf0el")
 
-[node name="Culdesac11" type="Sprite2D" parent="Neighborhood 1"]
-position = Vector2(15, 16)
+[node name="Culdesac11" type="Sprite2D" parent="Neighborhood 12"]
+position = Vector2(79, 112)
 texture = ExtResource("2_suv0k")
 
-[node name="Culdesac12" type="Sprite2D" parent="Neighborhood 1"]
-position = Vector2(15, 32)
+[node name="Culdesac12" type="Sprite2D" parent="Neighborhood 12"]
+position = Vector2(79, 128)
 texture = ExtResource("3_0odt2")
 
-[node name="Culdesac2" type="Sprite2D" parent="Neighborhood 1"]
-position = Vector2(31, 16)
+[node name="Culdesac2" type="Sprite2D" parent="Neighborhood 12"]
+position = Vector2(95, 112)
 texture = ExtResource("4_275sb")
 
-[node name="Culdesac4" type="Sprite2D" parent="Neighborhood 1"]
-position = Vector2(31, 32)
+[node name="Culdesac4" type="Sprite2D" parent="Neighborhood 12"]
+position = Vector2(95, 128)
 texture = ExtResource("4_275sb")
 flip_v = true
 
-[node name="Brick1Roof" type="Sprite2D" parent="Neighborhood 1"]
-position = Vector2(32, 32)
-texture = ExtResource("9_s2a0k")
-
-[node name="Sprite2D" type="Sprite2D" parent="Neighborhood 1"]
-texture_filter = 1
-position = Vector2(-1, 0)
-texture = ExtResource("1_ud676")
-
-[node name="Brick2Roof" type="Sprite2D" parent="Neighborhood 1"]
-position = Vector2(-1, 0)
-texture = ExtResource("5_dbu0r")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Neighborhood 1"]
-texture_filter = 1
-position = Vector2(15, 0)
-texture = ExtResource("2_6f7pb")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Neighborhood 1"]
-position = Vector2(31, 0)
-texture = ExtResource("3_bhm4d")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Neighborhood 1"]
-position = Vector2(47, 0)
-texture = ExtResource("1_ud676")
-
-[node name="Sprite2D5" type="Sprite2D" parent="Neighborhood 1"]
-position = Vector2(-1, 16)
-texture = ExtResource("4_fhlij")
-
-[node name="BlueRoof" type="Sprite2D" parent="Neighborhood 1"]
-position = Vector2(-1, 16)
-texture = ExtResource("7_saq0m")
-
-[node name="BlueBody" type="Sprite2D" parent="Neighborhood 1"]
-position = Vector2(-1, 32)
-texture = ExtResource("8_s2a0k")
-
-[node name="GreenRoof" type="Sprite2D" parent="Neighborhood 1"]
-position = Vector2(0, 32)
-texture = ExtResource("6_jrcb4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood 1"]
-visible = false
-position = Vector2(23, -1)
-shape = SubResource("RectangleShape2D_iye0r")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Neighborhood 1"]
-visible = false
-position = Vector2(-1, 23.5)
-shape = SubResource("RectangleShape2D_63tq4")
-
-[node name="Road1" type="Sprite2D" parent="Neighborhood 1"]
-position = Vector2(47, 32)
+[node name="Road1" type="Sprite2D" parent="Neighborhood 12"]
+position = Vector2(111, 128)
 texture = ExtResource("1_lf0el")
 flip_v = true
+
+[node name="BlueSide2" type="Sprite2D" parent="Neighborhood 12"]
+position = Vector2(63, 128)
+texture = ExtResource("30_brrwk")
+
+[node name="GreenSide" type="Sprite2D" parent="Neighborhood 12"]
+position = Vector2(63, 112)
+texture = ExtResource("3_bhm4d")
+
+[node name="PurpleRoof" type="Sprite2D" parent="Neighborhood 12"]
+z_index = 1
+position = Vector2(95, 128)
+texture = ExtResource("24_5sbaq")
+
+[node name="GreenRoof" type="Sprite2D" parent="Neighborhood 12"]
+z_index = 1
+position = Vector2(63, 128)
+texture = ExtResource("6_jrcb4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood 12"]
+position = Vector2(62.5, 110.5)
+shape = SubResource("RectangleShape2D_j65g8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Neighborhood 12"]
+position = Vector2(94.5, 94.5)
+shape = SubResource("RectangleShape2D_020ee")
+
+[node name="Neighborhood 13" type="StaticBody2D" parent="."]
+collision_layer = 33
+
+[node name="T6" type="Sprite2D" parent="Neighborhood 13"]
+position = Vector2(143, 112)
+texture = ExtResource("36_28i2f")
+flip_h = true
+flip_v = true
+
+[node name="Road4" type="Sprite2D" parent="Neighborhood 13"]
+position = Vector2(127, 112)
+texture = ExtResource("1_lf0el")
+
+[node name="Road3" type="Sprite2D" parent="Neighborhood 13"]
+position = Vector2(159, 112)
+texture = ExtResource("27_n5say")
+flip_v = true
+
+[node name="Road2" type="Sprite2D" parent="Neighborhood 13"]
+position = Vector2(127, 128)
+texture = ExtResource("1_lf0el")
+flip_v = true
+
+[node name="T4" type="Sprite2D" parent="Neighborhood 13"]
+position = Vector2(143, 128)
+texture = ExtResource("36_28i2f")
+flip_h = true
+
+[node name="Road5" type="Sprite2D" parent="Neighborhood 13"]
+position = Vector2(159, 128)
+texture = ExtResource("27_n5say")
+
+[node name="WoodBody" type="Sprite2D" parent="Neighborhood 13"]
+position = Vector2(127, 96)
+texture = ExtResource("8_s2a0k")
+
+[node name="BlueBody2" type="Sprite2D" parent="Neighborhood 13"]
+position = Vector2(175, 96)
+texture = ExtResource("25_6skux")
+
+[node name="Road6" type="Sprite2D" parent="Neighborhood 13"]
+position = Vector2(159, 96)
+texture = ExtResource("27_n5say")
+
+[node name="Road7" type="Sprite2D" parent="Neighborhood 13"]
+position = Vector2(143, 96)
+texture = ExtResource("28_u660q")
+
+[node name="GreenBody" type="Sprite2D" parent="Neighborhood 13"]
+position = Vector2(175, 112)
+texture = ExtResource("2_6f7pb")
+
+[node name="PurpleBody" type="Sprite2D" parent="Neighborhood 13"]
+position = Vector2(175, 128)
+texture = ExtResource("5_jrcb4")
+
+[node name="PurpleRoof" type="Sprite2D" parent="Neighborhood 13"]
+z_index = 1
+position = Vector2(175, 112)
+texture = ExtResource("24_5sbaq")
+
+[node name="GreenRoof" type="Sprite2D" parent="Neighborhood 13"]
+z_index = 1
+position = Vector2(175, 96)
+texture = ExtResource("6_jrcb4")
+
+[node name="WoodRoof" type="Sprite2D" parent="Neighborhood 13"]
+z_index = 1
+position = Vector2(175, 128)
+texture = ExtResource("7_saq0m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood 13"]
+position = Vector2(175, 111)
+shape = SubResource("RectangleShape2D_ckdtb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Neighborhood 13"]
+position = Vector2(127, 95)
+shape = SubResource("RectangleShape2D_wwl6j")
 
 [node name="Neighborhood 2" type="StaticBody2D" parent="."]
 scale = Vector2(14, 14)
 
-[node name="PurpleBody" type="Sprite2D" parent="Neighborhood 2"]
-position = Vector2(63, 0)
+[node name="Neighborhood 14" type="StaticBody2D" parent="."]
+collision_mask = 33
+
+[node name="PurpleBody" type="Sprite2D" parent="Neighborhood 14"]
+position = Vector2(239, 96)
 texture = ExtResource("5_jrcb4")
 
-[node name="PurpleSide1" type="Sprite2D" parent="Neighborhood 2"]
-position = Vector2(79, 0)
-texture = ExtResource("6_b3mxb")
+[node name="BlueSide3" type="Sprite2D" parent="Neighborhood 14"]
+position = Vector2(191, 96)
+texture = ExtResource("31_28i2f")
 
-[node name="Brick1Body" type="Sprite2D" parent="Neighborhood 2"]
-position = Vector2(95, 0)
-texture = ExtResource("8_saq0m")
+[node name="Road5" type="Sprite2D" parent="Neighborhood 14"]
+position = Vector2(207, 96)
+texture = ExtResource("28_u660q")
 
-[node name="Road1" type="Sprite2D" parent="Neighborhood 2"]
-position = Vector2(63, 32)
+[node name="Road3" type="Sprite2D" parent="Neighborhood 14"]
+position = Vector2(223, 96)
+texture = ExtResource("27_n5say")
+
+[node name="Road2" type="Sprite2D" parent="Neighborhood 14"]
+position = Vector2(239, 112)
 texture = ExtResource("1_lf0el")
+
+[node name="T5" type="Sprite2D" parent="Neighborhood 14"]
+position = Vector2(223, 112)
+texture = ExtResource("19_phpw6")
 flip_v = true
 
 [node name="WoodRoof" type="Sprite2D" parent="Neighborhood 2"]
@@ -189,409 +305,479 @@ z_index = 1
 position = Vector2(63, 32)
 texture = ExtResource("7_saq0m")
 
-[node name="Neighborhood6_png" type="Sprite2D" parent="Neighborhood 2"]
-position = Vector2(111, 0)
-texture = ExtResource("7_b3mxb")
+[node name="Corner1" type="Sprite2D" parent="Neighborhood 14"]
+position = Vector2(207, 128)
+texture = ExtResource("20_loixj")
 
-[node name="Road2" type="Sprite2D" parent="Neighborhood 2"]
-position = Vector2(63, 16)
-texture = ExtResource("1_lf0el")
-
-[node name="T3" type="Sprite2D" parent="Neighborhood 2"]
-position = Vector2(79, 32)
-texture = ExtResource("18_hniq5")
-
-[node name="Road3" type="Sprite2D" parent="Neighborhood 2"]
-position = Vector2(79, 16)
-texture = ExtResource("1_lf0el")
-
-[node name="Road4" type="Sprite2D" parent="Neighborhood 2"]
-position = Vector2(95, 16)
-texture = ExtResource("1_lf0el")
-
-[node name="Road5" type="Sprite2D" parent="Neighborhood 2"]
-position = Vector2(111, 16)
-texture = ExtResource("1_lf0el")
-
-[node name="T4" type="Sprite2D" parent="Neighborhood 2"]
-position = Vector2(95, 32)
-texture = ExtResource("19_phpw6")
-
-[node name="Road6" type="Sprite2D" parent="Neighborhood 2"]
-position = Vector2(111, 32)
+[node name="Road4" type="Sprite2D" parent="Neighborhood 14"]
+position = Vector2(223, 128)
 texture = ExtResource("1_lf0el")
 flip_v = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood 2"]
-visible = false
-position = Vector2(87, -1)
-shape = SubResource("RectangleShape2D_p7d8v")
+[node name="GreenSide" type="Sprite2D" parent="Neighborhood 14"]
+position = Vector2(191, 112)
+texture = ExtResource("3_bhm4d")
 
-[node name="GreenRoof" type="Sprite2D" parent="Neighborhood 2"]
-position = Vector2(111, 32)
-texture = ExtResource("6_jrcb4")
+[node name="PurpleSide2" type="Sprite2D" parent="Neighborhood 14"]
+position = Vector2(191, 128)
+texture = ExtResource("39_6d1bb")
+
+[node name="Road7" type="Sprite2D" parent="Neighborhood 14"]
+position = Vector2(239, 128)
+texture = ExtResource("1_lf0el")
+flip_v = true
+
+[node name="BlueRoof" type="Sprite2D" parent="Neighborhood 14"]
+z_index = 1
+position = Vector2(191, 128)
+texture = ExtResource("22_maens")
+
+[node name="ApartmentRoof" type="Sprite2D" parent="Neighborhood 14"]
+z_index = 1
+position = Vector2(223, 128)
+texture = ExtResource("21_r3woe")
+
+[node name="PurpleRoof" type="Sprite2D" parent="Neighborhood 14"]
+z_index = 1
+position = Vector2(239, 128)
+texture = ExtResource("24_5sbaq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood 14"]
+position = Vector2(190, 111)
+shape = SubResource("RectangleShape2D_hfs8b")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Neighborhood 14"]
+position = Vector2(239, 95)
+shape = SubResource("RectangleShape2D_1gwpe")
 
 [node name="Neighborhood 3" type="StaticBody2D" parent="."]
 scale = Vector2(14, 14)
 
-[node name="NursingHomeLeft" type="Sprite2D" parent="Neighborhood 3"]
-position = Vector2(143, 0)
-texture = ExtResource("20_r3woe")
+[node name="Brick2Body3" type="Sprite2D" parent="Neighborhood 15"]
+position = Vector2(303, 96)
+texture = ExtResource("4_fhlij")
 
-[node name="NursingHomeRight" type="Sprite2D" parent="Neighborhood 3"]
-position = Vector2(159, 0)
-texture = ExtResource("21_maens")
+[node name="Road3" type="Sprite2D" parent="Neighborhood 15"]
+position = Vector2(287, 96)
+texture = ExtResource("27_n5say")
 
-[node name="Road4" type="Sprite2D" parent="Neighborhood 3"]
-position = Vector2(127, 32)
+[node name="Road4" type="Sprite2D" parent="Neighborhood 15"]
+position = Vector2(287, 112)
+texture = ExtResource("27_n5say")
+flip_v = true
+
+[node name="Road5" type="Sprite2D" parent="Neighborhood 15"]
+position = Vector2(287, 128)
+texture = ExtResource("27_n5say")
+
+[node name="Road6" type="Sprite2D" parent="Neighborhood 15"]
+position = Vector2(271, 96)
+texture = ExtResource("28_u660q")
+
+[node name="Road7" type="Sprite2D" parent="Neighborhood 15"]
+position = Vector2(271, 112)
+texture = ExtResource("19_phpw6")
+flip_h = true
+flip_v = true
+
+[node name="Road2" type="Sprite2D" parent="Neighborhood 15"]
+position = Vector2(255, 112)
+texture = ExtResource("1_lf0el")
+
+[node name="T7" type="Sprite2D" parent="Neighborhood 15"]
+position = Vector2(271, 128)
+texture = ExtResource("19_phpw6")
+flip_h = true
+
+[node name="Road8" type="Sprite2D" parent="Neighborhood 15"]
+position = Vector2(255, 128)
 texture = ExtResource("1_lf0el")
 flip_v = true
 
-[node name="Road5" type="Sprite2D" parent="Neighborhood 3"]
-position = Vector2(175, 32)
-texture = ExtResource("1_lf0el")
-flip_v = true
+[node name="WoodRoof3" type="Sprite2D" parent="Neighborhood 15"]
+z_index = 1
+position = Vector2(303, 96)
+texture = ExtResource("7_saq0m")
 
-[node name="BlueRoof" type="Sprite2D" parent="Neighborhood 3"]
-position = Vector2(175, -16)
-texture = ExtResource("22_maens")
-
-[node name="BlueBody" type="Sprite2D" parent="Neighborhood 3"]
-position = Vector2(175, 0)
-texture = ExtResource("25_6skux")
-
-[node name="BlueRoof2" type="Sprite2D" parent="Neighborhood 3"]
-position = Vector2(175, 32)
-texture = ExtResource("22_maens")
-
-[node name="WoodBody" type="Sprite2D" parent="Neighborhood 3"]
-position = Vector2(127, 0)
+[node name="WoodBody" type="Sprite2D" parent="Neighborhood 15"]
+position = Vector2(303, 112)
 texture = ExtResource("8_s2a0k")
 
-[node name="T7" type="Sprite2D" parent="Neighborhood 3"]
-position = Vector2(143, 32)
-texture = ExtResource("18_hniq5")
+[node name="PurpleSide1" type="Sprite2D" parent="Neighborhood 15"]
+position = Vector2(255, 96)
+texture = ExtResource("6_b3mxb")
 
-[node name="FixedRoad" type="Sprite2D" parent="Neighborhood 3"]
-position = Vector2(159, 32)
-texture = ExtResource("19_phpw6")
+[node name="ApartmentRoof" type="Sprite2D" parent="Neighborhood 15"]
+z_index = 1
+position = Vector2(303, 112)
+texture = ExtResource("21_r3woe")
 
-[node name="Road2" type="Sprite2D" parent="Neighborhood 3"]
-position = Vector2(127, 16)
-texture = ExtResource("1_lf0el")
+[node name="ApartmentBody" type="Sprite2D" parent="Neighborhood 15"]
+position = Vector2(303, 128)
+texture = ExtResource("1_ud676")
 
-[node name="Road3" type="Sprite2D" parent="Neighborhood 3"]
-position = Vector2(143, 16)
-texture = ExtResource("1_lf0el")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood 15"]
+position = Vector2(303, 111)
+shape = SubResource("RectangleShape2D_vphb4")
 
-[node name="Road6" type="Sprite2D" parent="Neighborhood 3"]
-position = Vector2(159, 16)
-texture = ExtResource("1_lf0el")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Neighborhood 15"]
+position = Vector2(254, 95)
+shape = SubResource("RectangleShape2D_k3uuf")
 
-[node name="Road7" type="Sprite2D" parent="Neighborhood 3"]
-position = Vector2(175, 16)
-texture = ExtResource("1_lf0el")
+[node name="Neighborhood 16" type="StaticBody2D" parent="."]
+collision_layer = 33
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood 3"]
-visible = false
-position = Vector2(150.5, -0.5)
-shape = SubResource("RectangleShape2D_seiha")
+[node name="PurpleBody" type="Sprite2D" parent="Neighborhood 16"]
+position = Vector2(47, 144)
+texture = ExtResource("4_fhlij")
 
 [node name="Neighborhood 4" type="StaticBody2D" parent="."]
 scale = Vector2(14, 14)
 
-[node name="BlueSide1" type="Sprite2D" parent="Neighborhood 4"]
-position = Vector2(191, 0)
-texture = ExtResource("26_rox04")
+[node name="Road5" type="Sprite2D" parent="Neighborhood 16"]
+position = Vector2(15, 144)
+texture = ExtResource("28_u660q")
 
-[node name="Road2" type="Sprite2D" parent="Neighborhood 4"]
-position = Vector2(191, 16)
+[node name="Road3" type="Sprite2D" parent="Neighborhood 16"]
+position = Vector2(31, 144)
+texture = ExtResource("27_n5say")
+
+[node name="Road2" type="Sprite2D" parent="Neighborhood 16"]
+position = Vector2(47, 160)
 texture = ExtResource("1_lf0el")
 
-[node name="Road3" type="Sprite2D" parent="Neighborhood 4"]
-position = Vector2(207, 16)
-texture = ExtResource("1_lf0el")
+[node name="T5" type="Sprite2D" parent="Neighborhood 16"]
+position = Vector2(31, 160)
+texture = ExtResource("19_phpw6")
+flip_v = true
 
-[node name="GreenBody2" type="Sprite2D" parent="Neighborhood 4"]
-position = Vector2(239, 0)
+[node name="Road6" type="Sprite2D" parent="Neighborhood 16"]
+position = Vector2(15, 160)
+texture = ExtResource("28_u660q")
+flip_v = true
+
+[node name="Corner1" type="Sprite2D" parent="Neighborhood 16"]
+position = Vector2(15, 176)
+texture = ExtResource("20_loixj")
+
+[node name="Road4" type="Sprite2D" parent="Neighborhood 16"]
+position = Vector2(31, 176)
+texture = ExtResource("1_lf0el")
+flip_v = true
+
+[node name="GreenSide" type="Sprite2D" parent="Neighborhood 16"]
+position = Vector2(-1, 160)
+texture = ExtResource("8_s2a0k")
+
+[node name="PurpleSide2" type="Sprite2D" parent="Neighborhood 16"]
+position = Vector2(-1, 176)
+texture = ExtResource("4_fhlij")
+
+[node name="Road7" type="Sprite2D" parent="Neighborhood 16"]
+position = Vector2(47, 176)
+texture = ExtResource("1_lf0el")
+flip_v = true
+
+[node name="Brick2Roof" type="Sprite2D" parent="Neighborhood 16"]
+z_index = 1
+position = Vector2(-1, 160)
+texture = ExtResource("5_dbu0r")
+
+[node name="WoodRoof" type="Sprite2D" parent="Neighborhood 16"]
+z_index = 1
+position = Vector2(-1, 144)
+texture = ExtResource("7_saq0m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood 16"]
+position = Vector2(-1, 159.5)
+shape = SubResource("RectangleShape2D_obikd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Neighborhood 16"]
+position = Vector2(47, 143.5)
+shape = SubResource("RectangleShape2D_2mh31")
+
+[node name="Neighborhood 17" type="StaticBody2D" parent="."]
+collision_layer = 33
+
+[node name="BlueSide2" type="Sprite2D" parent="Neighborhood 17"]
+position = Vector2(63, 144)
 texture = ExtResource("2_6f7pb")
 
-[node name="Road4" type="Sprite2D" parent="Neighborhood 4"]
-position = Vector2(223, 16)
+[node name="Road2" type="Sprite2D" parent="Neighborhood 17"]
+position = Vector2(63, 160)
 texture = ExtResource("1_lf0el")
 
-[node name="PurpleRoof" type="Sprite2D" parent="Neighborhood 4"]
-position = Vector2(207, -16)
-texture = ExtResource("24_5sbaq")
+[node name="T3" type="Sprite2D" parent="Neighborhood 17"]
+position = Vector2(79, 176)
+texture = ExtResource("1_lf0el")
+flip_v = true
 
-[node name="PurpleSide1" type="Sprite2D" parent="Neighborhood 4"]
-position = Vector2(223, 0)
-texture = ExtResource("6_b3mxb")
+[node name="Road3" type="Sprite2D" parent="Neighborhood 17"]
+position = Vector2(79, 160)
+texture = ExtResource("1_lf0el")
 
-[node name="PurpleBody" type="Sprite2D" parent="Neighborhood 4"]
-position = Vector2(207, 0)
+[node name="Road4" type="Sprite2D" parent="Neighborhood 17"]
+position = Vector2(95, 160)
+texture = ExtResource("1_lf0el")
+
+[node name="Road6" type="Sprite2D" parent="Neighborhood 17"]
+position = Vector2(63, 176)
+texture = ExtResource("1_lf0el")
+flip_v = true
+
+[node name="Road5" type="Sprite2D" parent="Neighborhood 17"]
+position = Vector2(111, 160)
+texture = ExtResource("1_lf0el")
+
+[node name="T4" type="Sprite2D" parent="Neighborhood 17"]
+position = Vector2(95, 176)
+texture = ExtResource("1_lf0el")
+flip_v = true
+
+[node name="Road8" type="Sprite2D" parent="Neighborhood 17"]
+position = Vector2(111, 176)
+texture = ExtResource("1_lf0el")
+flip_v = true
+
+[node name="ApartmentBody2" type="Sprite2D" parent="Neighborhood 17"]
+position = Vector2(79, 144)
+texture = ExtResource("3_bhm4d")
+
+[node name="PurpleBody" type="Sprite2D" parent="Neighborhood 17"]
+position = Vector2(95, 144)
 texture = ExtResource("5_jrcb4")
 
-[node name="Road5" type="Sprite2D" parent="Neighborhood 4"]
-position = Vector2(239, 16)
-texture = ExtResource("1_lf0el")
-
-[node name="Road6" type="Sprite2D" parent="Neighborhood 4"]
-position = Vector2(191, 32)
-texture = ExtResource("1_lf0el")
-flip_v = true
-
-[node name="Road7" type="Sprite2D" parent="Neighborhood 4"]
-position = Vector2(207, 32)
-texture = ExtResource("1_lf0el")
-flip_v = true
-
-[node name="Road8" type="Sprite2D" parent="Neighborhood 4"]
-position = Vector2(223, 32)
-texture = ExtResource("1_lf0el")
-flip_v = true
-
-[node name="Road9" type="Sprite2D" parent="Neighborhood 4"]
-position = Vector2(239, 32)
-texture = ExtResource("1_lf0el")
-flip_v = true
-
-[node name="GreenRoof" type="Sprite2D" parent="Neighborhood 4"]
-position = Vector2(239, -16)
-texture = ExtResource("6_jrcb4")
-
-[node name="ApartmentRoof" type="Sprite2D" parent="Neighborhood 4"]
-position = Vector2(207, 32)
-texture = ExtResource("21_r3woe")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood 4"]
-visible = false
-position = Vector2(215, -0.5)
-shape = SubResource("RectangleShape2D_5sbaq")
+[node name="PurpleSide3" type="Sprite2D" parent="Neighborhood 17"]
+position = Vector2(111, 144)
+texture = ExtResource("32_maens")
 
 [node name="Neighborhood 6" type="StaticBody2D" parent="."]
 scale = Vector2(14, 14)
 
-[node name="Corner1" type="Sprite2D" parent="Neighborhood 6"]
-position = Vector2(15, 80)
+[node name="Neighborhood 18" type="StaticBody2D" parent="."]
+collision_layer = 33
+
+[node name="Road5" type="Sprite2D" parent="Neighborhood 18"]
+position = Vector2(143, 144)
 texture = ExtResource("28_u660q")
 
-[node name="GreenBody" type="Sprite2D" parent="Neighborhood 6"]
-position = Vector2(-1, 48)
-texture = ExtResource("2_6f7pb")
+[node name="T6" type="Sprite2D" parent="Neighborhood 18"]
+position = Vector2(143, 160)
+texture = ExtResource("29_ne152")
 
-[node name="Road4" type="Sprite2D" parent="Neighborhood 6"]
-position = Vector2(47, 80)
+[node name="Road2" type="Sprite2D" parent="Neighborhood 18"]
+position = Vector2(127, 160)
+texture = ExtResource("1_lf0el")
+
+[node name="Road3" type="Sprite2D" parent="Neighborhood 18"]
+position = Vector2(127, 176)
 texture = ExtResource("1_lf0el")
 flip_v = true
 
-[node name="GreenSide" type="Sprite2D" parent="Neighborhood 6"]
-position = Vector2(15, 48)
-texture = ExtResource("3_bhm4d")
+[node name="Road4" type="Sprite2D" parent="Neighborhood 18"]
+position = Vector2(143, 176)
+texture = ExtResource("1_lf0el")
+flip_v = true
 
-[node name="FixedRoad" type="Sprite2D" parent="Neighborhood 6"]
-position = Vector2(31, 80)
-texture = ExtResource("19_phpw6")
+[node name="Road6" type="Sprite2D" parent="Neighborhood 18"]
+position = Vector2(159, 160)
+texture = ExtResource("27_n5say")
+flip_v = true
 
-[node name="Neighborhood6_png" type="Sprite2D" parent="Neighborhood 6"]
-position = Vector2(47, 48)
-texture = ExtResource("7_b3mxb")
+[node name="Road7" type="Sprite2D" parent="Neighborhood 18"]
+position = Vector2(159, 144)
+texture = ExtResource("27_n5say")
 
-[node name="Brick1Body" type="Sprite2D" parent="Neighborhood 6"]
-position = Vector2(31, 48)
-texture = ExtResource("8_saq0m")
+[node name="Corner2" type="Sprite2D" parent="Neighborhood 18"]
+position = Vector2(159, 176)
+texture = ExtResource("40_ne152")
 
-[node name="WoodBody2" type="Sprite2D" parent="Neighborhood 6"]
-position = Vector2(-1, 64)
+[node name="WoodBody" type="Sprite2D" parent="Neighborhood 18"]
+position = Vector2(175, 144)
 texture = ExtResource("8_s2a0k")
 
-[node name="WoodRoof2" type="Sprite2D" parent="Neighborhood 6"]
-position = Vector2(-1, 48)
-texture = ExtResource("7_saq0m")
+[node name="Brick1Body" type="Sprite2D" parent="Neighborhood 18"]
+position = Vector2(175, 160)
+texture = ExtResource("8_saq0m")
 
-[node name="Road2" type="Sprite2D" parent="Neighborhood 6"]
-position = Vector2(31, 64)
-texture = ExtResource("1_lf0el")
+[node name="Brick1Roof" type="Sprite2D" parent="Neighborhood 18"]
+z_index = 1
+position = Vector2(175, 144)
+texture = ExtResource("9_s2a0k")
 
-[node name="Road3" type="Sprite2D" parent="Neighborhood 6"]
-position = Vector2(47, 64)
-texture = ExtResource("1_lf0el")
+[node name="GreenRoof" type="Sprite2D" parent="Neighborhood 18"]
+z_index = 1
+position = Vector2(175, 160)
+texture = ExtResource("6_jrcb4")
 
-[node name="ApartmentBody" type="Sprite2D" parent="Neighborhood 6"]
-position = Vector2(-1, 80)
-texture = ExtResource("1_ud676")
+[node name="GreenBody" type="Sprite2D" parent="Neighborhood 18"]
+position = Vector2(175, 176)
+texture = ExtResource("2_6f7pb")
 
-[node name="ApartmentRoof" type="Sprite2D" parent="Neighborhood 6"]
-position = Vector2(-1, 64)
-texture = ExtResource("21_r3woe")
+[node name="Brick2Body" type="Sprite2D" parent="Neighborhood 18"]
+position = Vector2(127, 144)
+texture = ExtResource("4_fhlij")
 
-[node name="Corner4" type="Sprite2D" parent="Neighborhood 6"]
-position = Vector2(15, 64)
-texture = ExtResource("23_seiha")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood 18"]
+position = Vector2(126.5, 143)
+shape = SubResource("RectangleShape2D_brrwk")
 
-[node name="WoodRoof" type="Sprite2D" parent="Neighborhood 6"]
-position = Vector2(47, 80)
-texture = ExtResource("7_saq0m")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Neighborhood 18"]
+position = Vector2(175, 159)
+shape = SubResource("RectangleShape2D_28i2f")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood 6"]
-visible = false
-position = Vector2(23, 47)
-shape = SubResource("RectangleShape2D_6d1bb")
+[node name="Neighborhood 19" type="StaticBody2D" parent="."]
+collision_layer = 33
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Neighborhood 6"]
-visible = false
-position = Vector2(-1, 71.5)
-shape = SubResource("RectangleShape2D_pkupc")
+[node name="BlueSide1" type="Sprite2D" parent="Neighborhood 19"]
+position = Vector2(207, 144)
+texture = ExtResource("26_rox04")
 
 [node name="Neighborhood 7" type="StaticBody2D" parent="."]
 scale = Vector2(14, 14)
 
-[node name="WoodBody" type="Sprite2D" parent="Neighborhood 7"]
-position = Vector2(63, 48)
-texture = ExtResource("8_s2a0k")
+[node name="GreenSide" type="Sprite2D" parent="Neighborhood 19"]
+position = Vector2(191, 176)
+texture = ExtResource("3_bhm4d")
 
-[node name="Road3" type="Sprite2D" parent="Neighborhood 7"]
-position = Vector2(95, 48)
-texture = ExtResource("27_n5say")
+[node name="Neighborhood6_png" type="Sprite2D" parent="Neighborhood 19"]
+position = Vector2(191, 160)
+texture = ExtResource("7_b3mxb")
 
-[node name="Road5" type="Sprite2D" parent="Neighborhood 7"]
-position = Vector2(79, 48)
-texture = ExtResource("28_u660q")
-
-[node name="T6" type="Sprite2D" parent="Neighborhood 7"]
-position = Vector2(79, 64)
-texture = ExtResource("29_ne152")
-
-[node name="T5" type="Sprite2D" parent="Neighborhood 7"]
-position = Vector2(95, 64)
-texture = ExtResource("19_phpw6")
-flip_v = true
-
-[node name="Road2" type="Sprite2D" parent="Neighborhood 7"]
-position = Vector2(63, 64)
+[node name="Road2" type="Sprite2D" parent="Neighborhood 19"]
+position = Vector2(239, 160)
 texture = ExtResource("1_lf0el")
 
-[node name="Road4" type="Sprite2D" parent="Neighborhood 7"]
-position = Vector2(63, 80)
+[node name="Culdesac11" type="Sprite2D" parent="Neighborhood 19"]
+position = Vector2(207, 160)
+texture = ExtResource("2_suv0k")
+
+[node name="Culdesac12" type="Sprite2D" parent="Neighborhood 19"]
+position = Vector2(207, 176)
+texture = ExtResource("3_0odt2")
+
+[node name="Culdesac2" type="Sprite2D" parent="Neighborhood 19"]
+position = Vector2(223, 160)
+texture = ExtResource("4_275sb")
+
+[node name="Culdesac4" type="Sprite2D" parent="Neighborhood 19"]
+position = Vector2(223, 176)
+texture = ExtResource("4_275sb")
+flip_v = true
+
+[node name="Road1" type="Sprite2D" parent="Neighborhood 19"]
+position = Vector2(239, 176)
 texture = ExtResource("1_lf0el")
 flip_v = true
 
-[node name="Brick2Roof" type="Sprite2D" parent="Neighborhood 7"]
-position = Vector2(63, 80)
+[node name="ApartmentBody" type="Sprite2D" parent="Neighborhood 19"]
+position = Vector2(223, 144)
+texture = ExtResource("1_ud676")
+
+[node name="PurpleBody" type="Sprite2D" parent="Neighborhood 19"]
+position = Vector2(239, 144)
+texture = ExtResource("5_jrcb4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood 19"]
+position = Vector2(190, 160.5)
+shape = SubResource("RectangleShape2D_fml5w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Neighborhood 19"]
+position = Vector2(222, 143.5)
+shape = SubResource("RectangleShape2D_r2bgk")
+
+[node name="Neighborhood 20" type="StaticBody2D" parent="."]
+collision_layer = 33
+
+[node name="Road3" type="Sprite2D" parent="Neighborhood 20"]
+position = Vector2(255, 176)
+texture = ExtResource("1_lf0el")
+flip_v = true
+
+[node name="Road4" type="Sprite2D" parent="Neighborhood 20"]
+position = Vector2(255, 160)
+texture = ExtResource("1_lf0el")
+
+[node name="PurpleSide2" type="Sprite2D" parent="Neighborhood 20"]
+position = Vector2(255, 144)
+texture = ExtResource("39_6d1bb")
+
+[node name="Brick2Roof" type="Sprite2D" parent="Neighborhood 20"]
+z_index = 1
+position = Vector2(303, 128)
 texture = ExtResource("5_dbu0r")
-
-[node name="GreenBody" type="Sprite2D" parent="Neighborhood 7"]
-position = Vector2(111, 48)
-texture = ExtResource("2_6f7pb")
-
-[node name="Road7" type="Sprite2D" parent="Neighborhood 7"]
-position = Vector2(111, 80)
-texture = ExtResource("1_lf0el")
-flip_v = true
-
-[node name="Road6" type="Sprite2D" parent="Neighborhood 7"]
-position = Vector2(111, 64)
-texture = ExtResource("1_lf0el")
-
-[node name="ApartmentRoof" type="Sprite2D" parent="Neighborhood 7"]
-position = Vector2(111, 80)
-texture = ExtResource("21_r3woe")
-
-[node name="Road8" type="Sprite2D" parent="Neighborhood 7"]
-position = Vector2(79, 80)
-texture = ExtResource("1_lf0el")
-flip_v = true
-
-[node name="Road9" type="Sprite2D" parent="Neighborhood 7"]
-position = Vector2(95, 80)
-texture = ExtResource("1_lf0el")
-flip_v = true
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Neighborhood 7"]
-visible = false
-position = Vector2(111.5, 47.25)
-shape = SubResource("RectangleShape2D_vveqt")
-
-[node name="GreenRoof" type="Sprite2D" parent="Neighborhood 7"]
-position = Vector2(79, 80)
-texture = ExtResource("6_jrcb4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood 7"]
-visible = false
-position = Vector2(62.25, 47.5)
-shape = SubResource("RectangleShape2D_vveqt")
 
 [node name="Neighborhood 8" type="StaticBody2D" parent="."]
 scale = Vector2(14, 14)
 
-[node name="GreenSide" type="Sprite2D" parent="Neighborhood 8"]
-position = Vector2(127, 48)
-texture = ExtResource("3_bhm4d")
+[node name="Corner2" type="Sprite2D" parent="Neighborhood 20"]
+position = Vector2(287, 176)
+texture = ExtResource("40_ne152")
 
-[node name="T6" type="Sprite2D" parent="Neighborhood 8"]
-position = Vector2(143, 64)
-texture = ExtResource("29_ne152")
-
-[node name="T5" type="Sprite2D" parent="Neighborhood 8"]
-position = Vector2(159, 64)
-texture = ExtResource("19_phpw6")
+[node name="Road2" type="Sprite2D" parent="Neighborhood 20"]
+position = Vector2(271, 176)
+texture = ExtResource("1_lf0el")
+flip_h = true
 flip_v = true
 
-[node name="T7" type="Sprite2D" parent="Neighborhood 8"]
-position = Vector2(143, 80)
-texture = ExtResource("18_hniq5")
-
-[node name="T4" type="Sprite2D" parent="Neighborhood 8"]
-position = Vector2(159, 80)
+[node name="FixedRoad" type="Sprite2D" parent="Neighborhood 20"]
+position = Vector2(271, 160)
 texture = ExtResource("19_phpw6")
-
-[node name="Road2" type="Sprite2D" parent="Neighborhood 8"]
-position = Vector2(127, 64)
-texture = ExtResource("1_lf0el")
-
-[node name="Road3" type="Sprite2D" parent="Neighborhood 8"]
-position = Vector2(127, 80)
-texture = ExtResource("1_lf0el")
+flip_h = true
 flip_v = true
 
-[node name="WoodRoof" type="Sprite2D" parent="Neighborhood 8"]
-position = Vector2(127, 80)
-texture = ExtResource("7_saq0m")
-
-[node name="Road5" type="Sprite2D" parent="Neighborhood 8"]
-position = Vector2(143, 48)
+[node name="Road7" type="Sprite2D" parent="Neighborhood 20"]
+position = Vector2(271, 144)
 texture = ExtResource("28_u660q")
 
-[node name="BlueBody2" type="Sprite2D" parent="Neighborhood 8"]
-position = Vector2(175, 48)
-texture = ExtResource("25_6skux")
+[node name="Brick2Body" type="Sprite2D" parent="Neighborhood 20"]
+position = Vector2(303, 144)
+texture = ExtResource("4_fhlij")
 
-[node name="Road6" type="Sprite2D" parent="Neighborhood 8"]
-position = Vector2(175, 80)
-texture = ExtResource("1_lf0el")
-flip_v = true
+[node name="WoodRoof" type="Sprite2D" parent="Neighborhood 20"]
+z_index = 1
+position = Vector2(303, 144)
+texture = ExtResource("7_saq0m")
 
-[node name="BlueRoof" type="Sprite2D" parent="Neighborhood 8"]
-position = Vector2(175, 80)
-texture = ExtResource("22_maens")
+[node name="WoodBody" type="Sprite2D" parent="Neighborhood 20"]
+position = Vector2(303, 160)
+texture = ExtResource("8_s2a0k")
 
-[node name="Road7" type="Sprite2D" parent="Neighborhood 8"]
-position = Vector2(175, 64)
-texture = ExtResource("1_lf0el")
+[node name="Brick2Roof2" type="Sprite2D" parent="Neighborhood 20"]
+z_index = 1
+position = Vector2(303, 160)
+texture = ExtResource("5_dbu0r")
 
-[node name="Road4" type="Sprite2D" parent="Neighborhood 8"]
-position = Vector2(159, 48)
-texture = ExtResource("27_n5say")
+[node name="Brick2Body2" type="Sprite2D" parent="Neighborhood 20"]
+position = Vector2(303, 176)
+texture = ExtResource("4_fhlij")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood 8"]
-visible = false
-position = Vector2(126, 47.5)
-shape = SubResource("RectangleShape2D_oyveh")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood 20"]
+position = Vector2(303, 160)
+shape = SubResource("RectangleShape2D_lidvp")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Neighborhood 8"]
-visible = false
-position = Vector2(176, 47)
-shape = SubResource("RectangleShape2D_d4oyn")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Neighborhood 20"]
+position = Vector2(254, 143.5)
+shape = SubResource("RectangleShape2D_c5d6v")
+
+[node name="fences" type="StaticBody2D" parent="."]
+collision_layer = 33
+
+[node name="FenceLeft" type="Sprite2D" parent="fences"]
+position = Vector2(-1, 176)
+texture = ExtResource("42_pkupc")
+
+[node name="FenceRight" type="Sprite2D" parent="fences"]
+position = Vector2(15, 176)
+texture = ExtResource("43_vveqt")
+
+[node name="FenceLeft2" type="Sprite2D" parent="fences"]
+position = Vector2(31, 176)
+texture = ExtResource("42_pkupc")
+
+[node name="FenceRight2" type="Sprite2D" parent="fences"]
+position = Vector2(47, 176)
+texture = ExtResource("43_vveqt")
 
 [node name="Node2D" type="Node2D" parent="."]
 scale = Vector2(14, 14)
