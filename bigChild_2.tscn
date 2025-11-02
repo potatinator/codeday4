@@ -1,6 +1,6 @@
 [gd_scene load_steps=66 format=3 uid="uid://bht2sp4i64cw7"]
 
-[ext_resource type="Script" uid="uid://c7d0qrne6s8f1" path="res://bigChild.gd" id="1_a8eks"]
+[ext_resource type="Script" path="res://bigChild.gd" id="1_a8eks"]
 [ext_resource type="PackedScene" uid="uid://juhodofdb8vy" path="res://candy.tscn" id="2_mwt1b"]
 [ext_resource type="Script" uid="uid://bo744wpycscqd" path="res://godot-vision-cone-d9c57d82370efe068d955a2c94de0838d29c1278/addons/vision_cone_2d/vision_cone_2d.gd" id="3_bheme"]
 [ext_resource type="Texture2D" uid="uid://ciif8wdquqbac" path="res://ween/bald.png" id="3_hutrm"]
@@ -537,6 +537,7 @@ position = Vector2(-0.5, 5.5)
 shape = SubResource("RectangleShape2D_5xa7t")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 position = Vector2(-1, 8)
 scale = Vector2(0.43005183, 0.5616129)
 occluder = SubResource("OccluderPolygon2D_plck6")

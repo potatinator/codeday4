@@ -33,6 +33,5 @@ size_flags_vertical = 4
 color = Color(18.892157, 18.892157, 18.892157, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
 scale = Vector2(0.18730792, 0.18730792)
 texture = ExtResource("2_pqqre")
