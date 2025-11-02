@@ -684,7 +684,7 @@ position = Vector2(2109, 132)
 HUD = NodePath("../CanvasLayer")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.55695295, 0.556953, 0.55695283, 1)
+color = Color(0.8089983, 0.8089983, 0.80899817, 1)
 
 [node name="Node2D2" type="Node2D" parent="."]
 

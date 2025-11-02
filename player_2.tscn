@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://crwntbh8rr321"]
+[gd_scene load_steps=22 format=3 uid="uid://crwntbh8rr321"]
 
 [ext_resource type="Script" uid="uid://cgsw8q72kiuo1" path="res://player.gd" id="1_wkcja"]
 [ext_resource type="Texture2D" uid="uid://cd1j47wyhyvdt" path="res://ween/oldman.png" id="2_8xjnt"]
+[ext_resource type="AudioStream" uid="uid://bwd7kiqmqh02u" path="res://spook music/wonk.wav" id="3_ufh5k"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8xjnt"]
 cull_mode = 1
@@ -173,6 +174,13 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(2.5, 0)
 shape = SubResource("RectangleShape2D_x3sgo")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AudioListener2D"]
+stream = ExtResource("3_ufh5k")
+autoplay = true
 
 [connection signal="area_entered" from="scare" to="." method="_on_scare_area_entered"]
 [connection signal="area_exited" from="scare" to="." method="_on_scare_area_exited"]
