@@ -14,11 +14,18 @@ var stopCounter = 0;
 var startCounter = 0;
 var seenCounter = 0;
 var spinCounter = 0;
-@export var sprite: AnimatedSprite2D;
+@export var sprites: Array[AnimatedSprite2D];
+var sprite: AnimatedSprite2D
+
 var scared = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	for s in sprites:
+		s.visible = false;
+	sprite = sprites.get(randi_range(0, sprites.size()-1));
+	sprite.visible = true;
+	rotation = randf()*PI;
 	pass # Replace with function body.
 
 
