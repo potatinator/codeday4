@@ -82,7 +82,7 @@ func _process(delta: float) -> void:
 	
 	HUD.setScore(score);
 	HUD.setStamina(stamina);
-	if Input.is_action_just_pressed("scare"):
+	if Input.is_action_pressed("scare"):
 		if scareReady:
 			if toScare != null:
 				if bigChild:
@@ -108,6 +108,7 @@ func _on_scare_area_entered(area: Area2D) -> void:
 	else: if area.get_parent().name.begins_with("bigChild"):
 		scareReady = true;
 		bigChild = true;
+		
 	toScare = area.get_parent();
 pass
 func _on_scare_area_exited(area: Area2D) -> void:

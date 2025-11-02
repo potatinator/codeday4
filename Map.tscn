@@ -35,7 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://ceiwjok8yx7u1" path="res://resources/PurpleSide3.png" id="32_maens"]
 [ext_resource type="PackedScene" uid="uid://cfuxh6rj1ykyo" path="res://HUD.tscn" id="34_6skux"]
 [ext_resource type="PackedScene" uid="uid://crwntbh8rr321" path="res://player_2.tscn" id="35_rox04"]
-[ext_resource type="PackedScene" uid="uid://cgi117qqkkrie" path="res://child_2.tscn" id="36_n5say"]
+[ext_resource type="PackedScene" uid="uid://baypgfh7ohj1y" path="res://bigChild_2.tscn" id="37_rox04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iye0r"]
 size = Vector2(64, 14)
@@ -667,7 +667,7 @@ texture = ExtResource("24_5sbaq")
 [node name="CanvasLayer" parent="." instance=ExtResource("34_6skux")]
 
 [node name="player2" parent="." node_paths=PackedStringArray("HUD") instance=ExtResource("35_rox04")]
-position = Vector2(507, 261)
+position = Vector2(2109, 132)
 HUD = NodePath("../CanvasLayer")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -675,23 +675,5 @@ color = Color(0.52906674, 0.52906674, 0.52906656, 1)
 
 [node name="Node2D2" type="Node2D" parent="."]
 
-[node name="child2" parent="Node2D2" instance=ExtResource("36_n5say")]
-position = Vector2(458, 445)
-
-[node name="child3" parent="Node2D2" instance=ExtResource("36_n5say")]
-position = Vector2(1245, 271)
-
-[node name="child4" parent="Node2D2" instance=ExtResource("36_n5say")]
-position = Vector2(222, 203)
-
-[node name="child5" parent="Node2D2" instance=ExtResource("36_n5say")]
-position = Vector2(1142, 697)
-
-[node name="child6" parent="Node2D2" instance=ExtResource("36_n5say")]
-position = Vector2(1457, 472)
-
-[node name="child7" parent="Node2D2" instance=ExtResource("36_n5say")]
-position = Vector2(814, 355)
-
-[node name="child8" parent="Node2D2" instance=ExtResource("36_n5say")]
-position = Vector2(1680, 397)
+[node name="bigChild2" parent="." instance=ExtResource("37_rox04")]
+position = Vector2(1341, 263)
