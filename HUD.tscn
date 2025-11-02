@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfuxh6rj1ykyo"]
+[gd_scene load_steps=8 format=3 uid="uid://cfuxh6rj1ykyo"]
 
 [ext_resource type="Script" uid="uid://com04hw7n0rkr" path="res://hud.gd" id="1_k5de2"]
+[ext_resource type="Texture2D" uid="uid://1gmhf63quk7k" path="res://StaminaBar/BarOutline.png" id="2_vow1y"]
+[ext_resource type="Texture2D" uid="uid://b84yfltobexmc" path="res://StaminaBar/BarBack.png" id="3_ne771"]
 
 [sub_resource type="SystemFont" id="SystemFont_5xyro"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_k5de2"]
 font = SubResource("SystemFont_5xyro")
 font_size = 32
+
+[sub_resource type="Gradient" id="Gradient_k5de2"]
+colors = PackedColorArray(1, 0, 0.9666667, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_efote"]
+gradient = SubResource("Gradient_k5de2")
+width = 1
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_k5de2")
@@ -16,3 +26,22 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "score: "
 label_settings = SubResource("LabelSettings_k5de2")
+
+[node name="stamia bar" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1025, 613)
+scale = Vector2(225, 16.76)
+texture = SubResource("GradientTexture1D_efote")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+texture_filter = 1
+position = Vector2(1025, 613)
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("2_vow1y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1025.0001, 613)
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("3_ne771")

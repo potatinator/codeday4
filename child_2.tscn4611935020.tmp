@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgi117qqkkrie"]
+
+[ext_resource type="Script" uid="uid://q08w3rqlimwh" path="res://child.gd" id="1_etuno"]
+[ext_resource type="Script" uid="uid://bo744wpycscqd" path="res://godot-vision-cone-d9c57d82370efe068d955a2c94de0838d29c1278/addons/vision_cone_2d/vision_cone_2d.gd" id="2_81bwv"]
+[ext_resource type="PackedScene" uid="uid://juhodofdb8vy" path="res://candy.tscn" id="2_plck6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_plck6"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5xa7t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hs8lo"]
+radius = 32.0
+
+[node name="child2" type="CharacterBody2D"]
+script = ExtResource("1_etuno")
+candy = ExtResource("2_plck6")
+r = null
+speed = null
+variation = null
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = -97.0
+offset_top = -66.0
+offset_right = 93.0
+offset_bottom = -21.0
+text = "Space: scare"
+label_settings = SubResource("LabelSettings_plck6")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(50, 50)
+texture = SubResource("PlaceholderTexture2D_5xa7t")
+
+[node name="echildView" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 24
+
+[node name="VisionCone2D" type="Node2D" parent="echildView" node_paths=PackedStringArray("write_collision_polygon")]
+script = ExtResource("2_81bwv")
+angle_deg = 90
+max_distance = 150.0
+collision_layer_mask = 32
+write_collision_polygon = NodePath("../CollisionPolygon2D")
+debug_shape = true
+metadata/_custom_type_script = "uid://bo744wpycscqd"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="echildView"]
+
+[node name="area" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area"]
+shape = SubResource("CircleShape2D_hs8lo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hs8lo")
+
+[connection signal="area_entered" from="echildView" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="echildView" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="area" to="." method="_on_area_entered"]
+[connection signal="area_exited" from="area" to="." method="_on_area_exited"]

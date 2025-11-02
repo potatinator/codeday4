@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cx2f5v7bfi3p8"]
+
+[ext_resource type="PackedScene" path="res://player.tscn" id="1_ulcgi"]
+[ext_resource type="PackedScene" path="res://HUD.tscn" id="2_nxogm"]
+[ext_resource type="PackedScene" path="res://child.tscn" id="3_3253y"]
+
+[sub_resource type="Gradient" id="Gradient_ulcgi"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nxogm"]
+gradient = SubResource("Gradient_ulcgi")
+width = 800
+height = 600
+fill_from = Vector2(0, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578, 323)
+scale = Vector2(1.789, 1)
+texture = SubResource("GradientTexture2D_nxogm")
+
+[node name="Player" parent="." node_paths=PackedStringArray("HUD") instance=ExtResource("1_ulcgi")]
+position = Vector2(577, 329)
+HUD = NodePath("../CanvasLayer")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_nxogm")]
+
+[node name="child" parent="." instance=ExtResource("3_3253y")]
+position = Vector2(254, 304)
+rotation = -0.98052716
+
+[node name="child2" parent="." instance=ExtResource("3_3253y")]
+position = Vector2(222, 137)
+rotation = 2.2289414
+
+[node name="child3" parent="." instance=ExtResource("3_3253y")]
+position = Vector2(447, 118)
+rotation = -3.025091

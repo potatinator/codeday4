@@ -3,8 +3,9 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	$ColorRect.color = hsv_to_rgb(randf(), 1, 1);
+	var col =  hsv_to_rgb(randf(), 1, 1).lightened(10);
+	$ColorRect.color = col;
+	$PointLight2D.color = col;
 	pass # Replace with function body.
 
 
