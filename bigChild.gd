@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var candy: PackedScene;
-@export var r = 25;
+@export var r = 50;
 @export var speed = 330;
 @export var variation = 100;
 var scareable = false;
@@ -29,6 +29,7 @@ func _ready() -> void:
 	sprite = sprites.get(randi_range(0, sprites.size()-1));
 	sprite.visible = true;
 	rotation = randf()*PI;
+	$Node2D/Sprite2D.scale.x = 0;
 	pass # Replace with function body.
 
 
@@ -123,7 +124,7 @@ func incrementScare():
 		scare();
 func scare():
 	if scareable && !scared:
-		for i in 5:
+		for i in 25:
 			var a = candy.instantiate();
 			a.position = position + Vector2(randi_range(-r, r), randi_range(-r, r))
 			get_parent().add_child(a);

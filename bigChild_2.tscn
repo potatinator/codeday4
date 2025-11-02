@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://baypgfh7ohj1y"]
+[gd_scene load_steps=66 format=3 uid="uid://bht2sp4i64cw7"]
 
 [ext_resource type="Script" uid="uid://c7d0qrne6s8f1" path="res://bigChild.gd" id="1_a8eks"]
 [ext_resource type="PackedScene" uid="uid://juhodofdb8vy" path="res://candy.tscn" id="2_mwt1b"]
@@ -439,6 +439,7 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_hutrm"]
+colors = PackedColorArray(2.1168277, 2.1168277, 2.1168277, 1, 2.1168277, 2.1168277, 2.1168277, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_6rnm0"]
 gradient = SubResource("Gradient_hutrm")
@@ -462,6 +463,8 @@ sprites = [NodePath("Node2D/bald"), NodePath("Node2D/capt"), NodePath("Node2D/pr
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Label" type="Label" parent="Node2D"]
+visible = false
+modulate = Color(2.1168277, 2.1168277, 2.1168277, 1)
 offset_left = -97.0
 offset_top = -66.0
 offset_right = 93.0
@@ -472,30 +475,35 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="bald" type="AnimatedSprite2D" parent="Node2D"]
+visible = false
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_3qx15")
 animation = &"down"
 
 [node name="capt" type="AnimatedSprite2D" parent="Node2D"]
+visible = false
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_0q11q")
 animation = &"down"
 
 [node name="princess" type="AnimatedSprite2D" parent="Node2D"]
+visible = false
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_m7e2g")
 animation = &"down"
 
 [node name="witch" type="AnimatedSprite2D" parent="Node2D"]
+visible = false
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_0vvbb")
 animation = &"down"
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+modulate = Color(2.1168277, 2.1168277, 2.1168277, 1)
 position = Vector2(-1.9999962, -42)
 scale = Vector2(149.92, 10)
 texture = SubResource("GradientTexture1D_6rnm0")

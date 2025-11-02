@@ -457,6 +457,8 @@ sprites = [NodePath("Node2D/bald"), NodePath("Node2D/capt"), NodePath("Node2D/pr
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Label" type="Label" parent="Node2D"]
+visible = false
+modulate = Color(2.1168277, 2.1168277, 2.1168277, 1)
 offset_left = -97.0
 offset_top = -66.0
 offset_right = 93.0
