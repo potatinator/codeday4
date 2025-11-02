@@ -85,11 +85,6 @@ animations = [{
 "name": &"left",
 "speed": 15.0
 }, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6iqoo")
@@ -143,7 +138,7 @@ occluder = SubResource("OccluderPolygon2D_8xjnt")
 texture_filter = 1
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_7d0q2")
-animation = &"new_animation"
+animation = &"down"
 
 [node name="scare" type="Area2D" parent="."]
 collision_layer = 64

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var candy: PackedScene;
 @export var r = 25;
-@export var speed = 330;
+@export var speed = 300;
 @export var variation = 100;
 var scareable = false;
 var seen = false;
@@ -14,7 +14,8 @@ var stopCounter = 0;
 var startCounter = 0;
 var seenCounter = 0;
 var spinCounter = 0;
-
+var scareCounter = 0;
+var deltaT = 0;
 var scared = false;
 
 # Called when the node enters the scene tree for the first time.
@@ -24,6 +25,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	deltaT = delta;
 	if seen:
 		seenCounter += delta;
 	if seenCounter > 0.5:
@@ -69,7 +71,11 @@ func _process(delta: float) -> void:
 	$Node2D.global_rotation = 0;
 	
 	pass
-
+func incrementScare():
+	scareCounter += deltaT;
+	$Node2D/Sprite2D.scale.x = scareCounter*149.92;
+	if scareCounter >= 1:
+		scare();
 func scare():
 	if scareable && !scared:
 		for i in 5:

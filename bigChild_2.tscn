@@ -1,18 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bb5rn4oj54c6"]
+[gd_scene load_steps=8 format=3 uid="uid://baypgfh7ohj1y"]
 
-[ext_resource type="Script" uid="uid://q08w3rqlimwh" path="res://child.gd" id="1_etuno"]
-[ext_resource type="Script" uid="uid://bo744wpycscqd" path="res://godot-vision-cone-d9c57d82370efe068d955a2c94de0838d29c1278/addons/vision_cone_2d/vision_cone_2d.gd" id="2_81bwv"]
-[ext_resource type="PackedScene" uid="uid://juhodofdb8vy" path="res://candy.tscn" id="2_plck6"]
+[ext_resource type="Script" uid="uid://q08w3rqlimwh" path="res://child.gd" id="1_t7wkk"]
+[ext_resource type="PackedScene" uid="uid://juhodofdb8vy" path="res://candy.tscn" id="2_mwt1b"]
+[ext_resource type="Script" uid="uid://bo744wpycscqd" path="res://godot-vision-cone-d9c57d82370efe068d955a2c94de0838d29c1278/addons/vision_cone_2d/vision_cone_2d.gd" id="3_bheme"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5xa7t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_plck6"]
-
-[sub_resource type="Gradient" id="Gradient_plck6"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_5xa7t"]
-gradient = SubResource("Gradient_plck6")
-width = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hs8lo"]
 radius = 32.0
@@ -22,8 +16,8 @@ cull_mode = 1
 polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
 
 [node name="child2" type="CharacterBody2D"]
-script = ExtResource("1_etuno")
-candy = ExtResource("2_plck6")
+script = ExtResource("1_t7wkk")
+candy = ExtResource("2_mwt1b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(50, 50)
@@ -36,22 +30,17 @@ offset_left = -97.0
 offset_top = -66.0
 offset_right = 93.0
 offset_bottom = -21.0
-text = "Hold Space to scare"
+text = "Space: scare"
 label_settings = SubResource("LabelSettings_plck6")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-position = Vector2(-2, -33)
-scale = Vector2(149.92, 10.14)
-texture = SubResource("GradientTexture1D_5xa7t")
 
 [node name="echildView" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 24
 
 [node name="VisionCone2D" type="Node2D" parent="echildView" node_paths=PackedStringArray("write_collision_polygon")]
-script = ExtResource("2_81bwv")
+script = ExtResource("3_bheme")
 angle_deg = 90
 max_distance = 150.0
 collision_layer_mask = 32

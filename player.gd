@@ -10,6 +10,7 @@ var score = 0;
 var scareReady = false;
 var toScare: CharacterBody2D;
 var stamina = 1;
+var bigChild = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -84,7 +85,10 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("scare"):
 		if scareReady:
 			if toScare != null:
-				toScare.scare();
+				if bigChild:
+					toScare.incrementScare();
+				else:
+					toScare.scare();
 		else:
 			print("scare unavailible");
 	
@@ -99,6 +103,10 @@ pass
 func _on_scare_area_entered(area: Area2D) -> void:
 	if area.get_parent().name.begins_with("child"):
 		scareReady = true;
+		bigChild = false;
+	else: if area.get_parent().name.begins_with("bigChild"):
+		scareReady = true;
+		bigChild = true;
 	toScare = area.get_parent();
 pass
 func _on_scare_area_exited(area: Area2D) -> void:
