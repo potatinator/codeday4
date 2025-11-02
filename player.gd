@@ -89,8 +89,6 @@ func _process(delta: float) -> void:
 					toScare.incrementScare();
 				else:
 					toScare.scare();
-		else:
-			print("scare unavailible");
 	
 	pass
 
