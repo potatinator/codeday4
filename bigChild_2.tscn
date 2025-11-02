@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://baypgfh7ohj1y"]
+[gd_scene load_steps=10 format=3 uid="uid://baypgfh7ohj1y"]
 
 [ext_resource type="Script" uid="uid://q08w3rqlimwh" path="res://child.gd" id="1_t7wkk"]
 [ext_resource type="PackedScene" uid="uid://juhodofdb8vy" path="res://candy.tscn" id="2_mwt1b"]
@@ -7,6 +7,12 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5xa7t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_plck6"]
+
+[sub_resource type="Gradient" id="Gradient_t7wkk"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mwt1b"]
+gradient = SubResource("Gradient_t7wkk")
+width = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hs8lo"]
 radius = 32.0
@@ -30,10 +36,15 @@ offset_left = -97.0
 offset_top = -66.0
 offset_right = 93.0
 offset_bottom = -21.0
-text = "Space: scare"
+text = "Hold space to scare"
 label_settings = SubResource("LabelSettings_plck6")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(1, -35)
+scale = Vector2(149.92, 10)
+texture = SubResource("GradientTexture1D_mwt1b")
 
 [node name="echildView" type="Area2D" parent="."]
 collision_layer = 0
