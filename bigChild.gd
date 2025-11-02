@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var candy: PackedScene;
 @export var r = 25;
-@export var speed = 330;
+@export var speed = 300;
 @export var variation = 100;
 var scareable = false;
 var seen = false;
@@ -14,7 +14,8 @@ var stopCounter = 0;
 var startCounter = 0;
 var seenCounter = 0;
 var spinCounter = 0;
-@export var sprite: AnimatedSprite2D;
+var scareCounter = 0;
+var deltaT = 0;
 var scared = false;
 
 # Called when the node enters the scene tree for the first time.
@@ -24,6 +25,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	deltaT = delta;
 	if seen:
 		seenCounter += delta;
 	if seenCounter > 0.5:
@@ -44,9 +46,10 @@ func _process(delta: float) -> void:
 		globalSpeed = localSpeed.rotated(rotation);
 		if spinCounter <= 70:
 			rotation += rotSpeed;
+			
 		else:
-			rotation += rotSpeed*3;
-			spinCounter -= randf()*2;
+			rotation += PI;
+			spinCounter = 0;
 	
 		if stopCounter <= 50:
 			velocity = globalSpeed;
@@ -63,47 +66,16 @@ func _process(delta: float) -> void:
 		$echildView/VisionCone2D.visible = false;
 		if position.y > 50000:
 			queue_free();
-	$Node2D/Label.visible = scareable && !scared;
+	$Node2D.visible = scareable && !scared;
 	
 	$Node2D.global_rotation = 0;
 	
-	if velocity.length() > 0:
-		sprite.play();
-		
-		if velocity.y > 0 && velocity.x > 0:
-			if velocity.y > velocity.x:
-				sprite.play("down");
-			if velocity.y < velocity.x:
-				sprite.play("right");
-		else: if velocity.y > 0 && velocity.x < 0:
-			if velocity.y > abs(velocity.x):
-				sprite.play("down");
-			if velocity.y < abs(velocity.x):
-				sprite.play("left");
-		else: if velocity.y < 0 && velocity.x > 0:
-			if abs(velocity.y) < abs(velocity.x):
-				sprite.play("left");
-			if abs(velocity.y) > abs(velocity.x):
-				sprite.play("up");
-		else: if velocity.y < 0 && velocity.x < 0:
-			if abs(velocity.y) < abs(velocity.x):
-				sprite.play("right");
-			if abs(velocity.y) > abs(velocity.x):
-				sprite.play("up");
-		else:
-			if velocity.y > 0:
-				sprite.play("down");
-			if velocity.y < 0:
-				sprite.play("up");
-			if velocity.x > 0:
-				sprite.play("right");
-			if velocity.x < 0:
-				sprite.play("left");
-	else:
-		sprite.stop();
-	
 	pass
-
+func incrementScare():
+	scareCounter += deltaT;
+	$Node2D/Sprite2D.scale.x = scareCounter*149.92;
+	if scareCounter >= 1:
+		scare();
 func scare():
 	if scareable && !scared:
 		for i in 5:
