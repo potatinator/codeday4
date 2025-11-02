@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c46awrquqf8g1"]
+[gd_scene load_steps=47 format=3 uid="uid://bm05clviv5xva"]
 
 [ext_resource type="Texture2D" uid="uid://dnsmjkwkihm2g" path="res://resources/roads/road2.png" id="1_lf0el"]
 [ext_resource type="Texture2D" uid="uid://c3k32i5wtnok6" path="res://resources/ApartmentBody.png" id="1_ud676"]
@@ -33,6 +33,9 @@
 [ext_resource type="Texture2D" uid="uid://mlcuphllbnl5" path="res://resources/BlueSide2.png" id="30_brrwk"]
 [ext_resource type="Texture2D" uid="uid://cxiw287cefyo6" path="res://resources/BlueSide3.png" id="31_28i2f"]
 [ext_resource type="Texture2D" uid="uid://ceiwjok8yx7u1" path="res://resources/PurpleSide3.png" id="32_maens"]
+[ext_resource type="PackedScene" uid="uid://cfuxh6rj1ykyo" path="res://HUD.tscn" id="34_6skux"]
+[ext_resource type="PackedScene" uid="uid://crwntbh8rr321" path="res://player_2.tscn" id="35_rox04"]
+[ext_resource type="PackedScene" uid="uid://cgi117qqkkrie" path="res://child_2.tscn" id="36_n5say"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iye0r"]
 size = Vector2(64, 14)
@@ -68,6 +71,7 @@ size = Vector2(14, 14)
 texture_filter = 1
 
 [node name="Neighborhood 1" type="StaticBody2D" parent="."]
+scale = Vector2(14, 14)
 collision_layer = 33
 
 [node name="Road2" type="Sprite2D" parent="Neighborhood 1"]
@@ -149,6 +153,7 @@ texture = ExtResource("1_lf0el")
 flip_v = true
 
 [node name="Neighborhood 2" type="StaticBody2D" parent="."]
+scale = Vector2(14, 14)
 
 [node name="PurpleBody" type="Sprite2D" parent="Neighborhood 2"]
 position = Vector2(63, 0)
@@ -168,6 +173,7 @@ texture = ExtResource("1_lf0el")
 flip_v = true
 
 [node name="WoodRoof" type="Sprite2D" parent="Neighborhood 2"]
+z_index = 1
 position = Vector2(63, 32)
 texture = ExtResource("7_saq0m")
 
@@ -214,6 +220,7 @@ position = Vector2(111, 32)
 texture = ExtResource("6_jrcb4")
 
 [node name="Neighborhood 3" type="StaticBody2D" parent="."]
+scale = Vector2(14, 14)
 
 [node name="NursingHomeLeft" type="Sprite2D" parent="Neighborhood 3"]
 position = Vector2(143, 0)
@@ -279,6 +286,7 @@ position = Vector2(150.5, -0.5)
 shape = SubResource("RectangleShape2D_seiha")
 
 [node name="Neighborhood 4" type="StaticBody2D" parent="."]
+scale = Vector2(14, 14)
 
 [node name="BlueSide1" type="Sprite2D" parent="Neighborhood 4"]
 position = Vector2(191, 0)
@@ -350,6 +358,7 @@ position = Vector2(215, -0.5)
 shape = SubResource("RectangleShape2D_5sbaq")
 
 [node name="Neighborhood 6" type="StaticBody2D" parent="."]
+scale = Vector2(14, 14)
 
 [node name="Corner1" type="Sprite2D" parent="Neighborhood 6"]
 position = Vector2(15, 80)
@@ -423,6 +432,7 @@ position = Vector2(-1, 71.5)
 shape = SubResource("RectangleShape2D_pkupc")
 
 [node name="Neighborhood 7" type="StaticBody2D" parent="."]
+scale = Vector2(14, 14)
 
 [node name="WoodBody" type="Sprite2D" parent="Neighborhood 7"]
 position = Vector2(63, 48)
@@ -499,15 +509,8 @@ visible = false
 position = Vector2(62.25, 47.5)
 shape = SubResource("RectangleShape2D_vveqt")
 
-[node name="Road6" type="Sprite2D" parent="."]
-position = Vector2(159, 96)
-texture = ExtResource("27_n5say")
-
-[node name="Road7" type="Sprite2D" parent="."]
-position = Vector2(143, 96)
-texture = ExtResource("28_u660q")
-
 [node name="Neighborhood 8" type="StaticBody2D" parent="."]
+scale = Vector2(14, 14)
 
 [node name="GreenSide" type="Sprite2D" parent="Neighborhood 8"]
 position = Vector2(127, 48)
@@ -578,58 +581,97 @@ visible = false
 position = Vector2(176, 47)
 shape = SubResource("RectangleShape2D_d4oyn")
 
-[node name="Brick2Body" type="Sprite2D" parent="."]
-position = Vector2(63, 96)
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2(14, 14)
+
+[node name="Road6" type="Sprite2D" parent="Node2D"]
+position = Vector2(158.99998, 95.99999)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("27_n5say")
+
+[node name="Road7" type="Sprite2D" parent="Node2D"]
+position = Vector2(142.99998, 95.99999)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("28_u660q")
+
+[node name="Brick2Body" type="Sprite2D" parent="Node2D"]
+position = Vector2(62.999996, 95.99999)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("4_fhlij")
 
-[node name="WoodBody" type="Sprite2D" parent="."]
-position = Vector2(127, 96)
+[node name="WoodBody" type="Sprite2D" parent="Node2D"]
+position = Vector2(126.99999, 95.99999)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("8_s2a0k")
 
-[node name="ApartmentBody" type="Sprite2D" parent="."]
-position = Vector2(111, 96)
+[node name="ApartmentBody" type="Sprite2D" parent="Node2D"]
+position = Vector2(110.99999, 95.99999)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("1_ud676")
 
-[node name="GreenSide2" type="Sprite2D" parent="."]
-position = Vector2(95, 96)
+[node name="GreenSide2" type="Sprite2D" parent="Node2D"]
+position = Vector2(94.99999, 95.99999)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("3_bhm4d")
 
-[node name="GreenBody" type="Sprite2D" parent="."]
-position = Vector2(79, 96)
+[node name="GreenBody" type="Sprite2D" parent="Node2D"]
+position = Vector2(78.99999, 95.99999)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("2_6f7pb")
 
-[node name="BlueSide2" type="Sprite2D" parent="."]
-position = Vector2(191, 48)
+[node name="BlueSide2" type="Sprite2D" parent="Node2D"]
+position = Vector2(190.99998, 47.999996)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("30_brrwk")
 
-[node name="BlueBody2" type="Sprite2D" parent="."]
-position = Vector2(175, 96)
+[node name="BlueBody2" type="Sprite2D" parent="Node2D"]
+position = Vector2(174.99998, 95.99999)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("25_6skux")
 
-[node name="ApartmentBody2" type="Sprite2D" parent="."]
-position = Vector2(207, 48)
+[node name="ApartmentBody2" type="Sprite2D" parent="Node2D"]
+position = Vector2(206.99998, 47.999996)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("1_ud676")
 
-[node name="PurpleBody" type="Sprite2D" parent="."]
-position = Vector2(223, 48)
+[node name="PurpleBody" type="Sprite2D" parent="Node2D"]
+position = Vector2(222.99998, 47.999996)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("5_jrcb4")
 
-[node name="PurpleSide3" type="Sprite2D" parent="."]
-position = Vector2(239, 48)
+[node name="PurpleSide3" type="Sprite2D" parent="Node2D"]
+position = Vector2(238.99998, 47.999996)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("32_maens")
 
-[node name="BlueSide3" type="Sprite2D" parent="."]
-position = Vector2(191, 96)
+[node name="BlueSide3" type="Sprite2D" parent="Node2D"]
+position = Vector2(190.99998, 95.99999)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("31_28i2f")
 
-[node name="GreenSide" type="Sprite2D" parent="."]
-position = Vector2(255, 0)
+[node name="GreenSide" type="Sprite2D" parent="Node2D"]
+position = Vector2(254.99998, 0)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("3_bhm4d")
 
-[node name="WoodBody2" type="Sprite2D" parent="."]
-position = Vector2(47, 96)
+[node name="WoodBody2" type="Sprite2D" parent="Node2D"]
+position = Vector2(46.999996, 95.99999)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("8_s2a0k")
 
-[node name="PurpleRoof" type="Sprite2D" parent="."]
-position = Vector2(223, 32)
+[node name="PurpleRoof" type="Sprite2D" parent="Node2D"]
+position = Vector2(222.99998, 31.999998)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("24_5sbaq")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("34_6skux")]
+
+[node name="player2" parent="." node_paths=PackedStringArray("HUD") instance=ExtResource("35_rox04")]
+position = Vector2(507, 261)
+HUD = NodePath("../CanvasLayer")
+
+[node name="child2" parent="." instance=ExtResource("36_n5say")]
+position = Vector2(458, 445)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.42, 0.42, 0.42, 1)
