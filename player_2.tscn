@@ -132,6 +132,7 @@ size = Vector2(37, 56)
 script = ExtResource("1_wkcja")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 position = Vector2(2, 0)
 scale = Vector2(0.5188113, 1.1088994)
 occluder = SubResource("OccluderPolygon2D_8xjnt")

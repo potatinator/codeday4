@@ -521,6 +521,7 @@ position = Vector2(-0.5, 5.5)
 shape = SubResource("RectangleShape2D_5xa7t")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 position = Vector2(-1, 8)
 scale = Vector2(0.43005183, 0.5616129)
 occluder = SubResource("OccluderPolygon2D_plck6")
