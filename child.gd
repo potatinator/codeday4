@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 	if seen:
 		seenCounter += delta;
 	if seenCounter > 0.5:
-		get_tree().reload_curraaaent_scene();
+		get_tree().reload_current_scene();
 	if !scared:
 		scareable = !seen && inRange;
 			

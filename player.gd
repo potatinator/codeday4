@@ -44,14 +44,35 @@ func _process(delta: float) -> void:
 		
 	if(vel.length() > 0):
 		vel = vel.normalized() * speed;
-		if vel.y > 0:
-			$AnimatedSprite2D.play("down");
-		if vel.y < 0:
-			$AnimatedSprite2D.play("up");
-		if vel.x > 0:
-			$AnimatedSprite2D.play("right");
-		if vel.x < 0:
-			$AnimatedSprite2D.play("left");
+		if vel.y > 0 && vel.x > 0:
+			if vel.y > vel.x:
+				$AnimatedSprite2D.play("down");
+			if vel.y < vel.x:
+				$AnimatedSprite2D.play("right");
+		else: if vel.y > 0 && vel.x < 0:
+			if vel.y > abs(vel.x):
+				$AnimatedSprite2D.play("down");
+			if vel.y < abs(vel.x):
+				$AnimatedSprite2D.play("left");
+		else: if vel.y < 0 && vel.x > 0:
+			if abs(vel.y) < abs(vel.x):
+				$AnimatedSprite2D.play("left");
+			if abs(vel.y) > abs(vel.x):
+				$AnimatedSprite2D.play("up");
+		else: if vel.y < 0 && vel.x < 0:
+			if abs(vel.y) < abs(vel.x):
+				$AnimatedSprite2D.play("right");
+			if abs(vel.y) > abs(vel.x):
+				$AnimatedSprite2D.play("up");
+		else:
+			if vel.y > 0:
+				$AnimatedSprite2D.play("down");
+			if vel.y < 0:
+				$AnimatedSprite2D.play("up");
+			if vel.x > 0:
+				$AnimatedSprite2D.play("right");
+			if vel.x < 0:
+				$AnimatedSprite2D.play("left");
 	else:
 		$AnimatedSprite2D.stop()
 		
