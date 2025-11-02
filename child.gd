@@ -33,6 +33,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if seen:
 		seenCounter += delta;
+	else:
+		seenCounter = 0;
 	if seenCounter > 0.5:
 		get_tree().reload_current_scene();
 	if !scared:

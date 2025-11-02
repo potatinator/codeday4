@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfuxh6rj1ykyo"]
+[gd_scene load_steps=8 format=3 uid="uid://cfuxh6rj1ykyo"]
 
 [ext_resource type="Script" uid="uid://com04hw7n0rkr" path="res://hud.gd" id="1_k5de2"]
+[ext_resource type="Texture2D" uid="uid://1gmhf63quk7k" path="res://StaminaBar/BarOutline.png" id="2_vow1y"]
+[ext_resource type="Texture2D" uid="uid://b84yfltobexmc" path="res://StaminaBar/BarBack.png" id="3_ne771"]
 
 [sub_resource type="SystemFont" id="SystemFont_5xyro"]
 subpixel_positioning = 0
@@ -26,6 +28,20 @@ text = "score: "
 label_settings = SubResource("LabelSettings_k5de2")
 
 [node name="stamia bar" type="Sprite2D" parent="."]
-position = Vector2(575, 506)
-scale = Vector2(184.938, 20)
+z_index = 1
+position = Vector2(1025, 613)
+scale = Vector2(225, 16.76)
 texture = SubResource("GradientTexture1D_efote")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+texture_filter = 1
+position = Vector2(1025, 613)
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("2_vow1y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1025.0001, 613)
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("3_ne771")
