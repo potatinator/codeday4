@@ -1,28 +1,134 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgi117qqkkrie"]
+[gd_scene load_steps=22 format=3 uid="uid://cgi117qqkkrie"]
 
 [ext_resource type="Script" uid="uid://q08w3rqlimwh" path="res://child.gd" id="1_etuno"]
 [ext_resource type="Script" uid="uid://bo744wpycscqd" path="res://godot-vision-cone-d9c57d82370efe068d955a2c94de0838d29c1278/addons/vision_cone_2d/vision_cone_2d.gd" id="2_81bwv"]
 [ext_resource type="PackedScene" uid="uid://juhodofdb8vy" path="res://candy.tscn" id="2_plck6"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5xa7t"]
+[ext_resource type="Texture2D" uid="uid://ciif8wdquqbac" path="res://ween/bald.png" id="4_5xa7t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_plck6"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs8lo"]
+atlas = ExtResource("4_5xa7t")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwf44"]
+atlas = ExtResource("4_5xa7t")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu1o7"]
+atlas = ExtResource("4_5xa7t")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhnu3"]
+atlas = ExtResource("4_5xa7t")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7bbo"]
+atlas = ExtResource("4_5xa7t")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttm5v"]
+atlas = ExtResource("4_5xa7t")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxlf3"]
+atlas = ExtResource("4_5xa7t")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brdhs"]
+atlas = ExtResource("4_5xa7t")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ubde"]
+atlas = ExtResource("4_5xa7t")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hipnd"]
+atlas = ExtResource("4_5xa7t")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m7iw"]
+atlas = ExtResource("4_5xa7t")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4avhf"]
+atlas = ExtResource("4_5xa7t")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3qx15"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs8lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwf44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uu1o7")
+}],
+"loop": true,
+"name": &"down",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhnu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7bbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttm5v")
+}],
+"loop": true,
+"name": &"left",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxlf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brdhs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ubde")
+}],
+"loop": true,
+"name": &"right",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hipnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3m7iw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4avhf")
+}],
+"loop": true,
+"name": &"up",
+"speed": 20.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_hs8lo"]
-radius = 32.0
+radius = 20.396078
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xa7t"]
+size = Vector2(33, 43)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_plck6"]
 cull_mode = 1
 polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
 
-[node name="child2" type="CharacterBody2D"]
+[node name="child2" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_etuno")
 candy = ExtResource("2_plck6")
 speed = 200
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(50, 50)
-texture = SubResource("PlaceholderTexture2D_5xa7t")
+sprite = NodePath("Node2D/AnimatedSprite2D")
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -36,9 +142,16 @@ label_settings = SubResource("LabelSettings_plck6")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_3qx15")
+animation = &"down"
+
 [node name="echildView" type="Area2D" parent="."]
+position = Vector2(0, -3)
 collision_layer = 0
-collision_mask = 24
+collision_mask = 16
 
 [node name="VisionCone2D" type="Node2D" parent="echildView" node_paths=PackedStringArray("write_collision_polygon")]
 script = ExtResource("2_81bwv")
@@ -56,13 +169,16 @@ collision_layer = 5
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area"]
+position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_hs8lo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_hs8lo")
+position = Vector2(-0.5, 5.5)
+shape = SubResource("RectangleShape2D_5xa7t")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-scale = Vector2(1.0102878, 0.9980659)
+position = Vector2(-1, 8)
+scale = Vector2(0.43005183, 0.5616129)
 occluder = SubResource("OccluderPolygon2D_plck6")
 
 [connection signal="area_entered" from="echildView" to="." method="_on_area_2d_area_entered"]

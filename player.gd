@@ -94,6 +94,7 @@ func _process(delta: float) -> void:
 func _on_pickup_area_entered(area: Area2D) -> void:
 	area.queue_free();
 	score += 1;
+	stamina += 0.05;
 pass
 
 func _on_scare_area_entered(area: Area2D) -> void:
