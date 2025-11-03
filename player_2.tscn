@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://crwntbh8rr321"]
 
-[ext_resource type="Script" uid="uid://cgsw8q72kiuo1" path="res://player.gd" id="1_wkcja"]
+[ext_resource type="Script" uid="uid://b5pglfbgenjip" path="res://Player2.cs" id="1_ufh5k"]
 [ext_resource type="Texture2D" uid="uid://cd1j47wyhyvdt" path="res://ween/oldman.png" id="2_8xjnt"]
 [ext_resource type="AudioStream" uid="uid://bwd7kiqmqh02u" path="res://spook music/wonk.wav" id="3_ufh5k"]
 
@@ -129,7 +129,7 @@ size = Vector2(44, 16)
 size = Vector2(37, 56)
 
 [node name="player2" type="CharacterBody2D"]
-script = ExtResource("1_wkcja")
+script = ExtResource("1_ufh5k")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 visible = false
