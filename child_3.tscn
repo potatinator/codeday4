@@ -449,7 +449,7 @@ width = 1
 radius = 20.396078
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xa7t"]
-size = Vector2(33, 43)
+size = Vector2(21, 21)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_plck6"]
 cull_mode = 1
@@ -464,6 +464,7 @@ sprites = [NodePath("Node2D/bald"), NodePath("Node2D/capt"), NodePath("Node2D/pr
 
 [node name="Label" type="Label" parent="Node2D"]
 modulate = Color(2.1168277, 2.1168277, 2.1168277, 1)
+z_index = 5
 offset_left = -97.0
 offset_top = -71.0
 offset_right = 93.0
@@ -499,6 +500,7 @@ animation = &"down"
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 modulate = Color(2.1168277, 2.1168277, 2.1168277, 1)
+z_index = 5
 position = Vector2(-1.9999962, -42)
 scale = Vector2(149.92, 10)
 texture = SubResource("GradientTexture1D_2dt4f")
@@ -528,7 +530,7 @@ position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_hs8lo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 5.5)
+position = Vector2(-1.5, 10.5)
 shape = SubResource("RectangleShape2D_5xa7t")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]

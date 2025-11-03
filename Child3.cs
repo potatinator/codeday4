@@ -5,9 +5,6 @@ public partial class Child3 : CharacterBody2D {
 	[Export]
 	PackedScene candy;
 
-	[Export]
-	float r =
-		25;
 
 	[Export]
 	float speed =
@@ -20,6 +17,9 @@ public partial class Child3 : CharacterBody2D {
 	[Export]
 	AnimatedSprite2D[] sprites;
 
+	[Export]
+	private float scareTime = 0.1f;
+
 	bool scareable = false;
 	bool seen = false;
 	bool inRange = false;
@@ -31,6 +31,8 @@ public partial class Child3 : CharacterBody2D {
 	float startCounter = 0;
 	float seenCounter = 0;
 	float spinCounter = 0;
+	float scareCounter = 0;
+	private float r;
 
 	private AnimatedSprite2D sprite;
 
@@ -39,14 +41,33 @@ public partial class Child3 : CharacterBody2D {
 			s.Visible = false;
 		}
 
+		((Sprite2D)GetNode("Node2D/Sprite2D")).Scale = ((Sprite2D)GetNode("Node2D/Sprite2D")).Scale with { X = 0 };
+
 		sprite = sprites[(int)GD.RandRange(0, sprites.Length - 1)];
 		sprite.Visible = true;
-		Rotation = GD.Randf() * (float)Math.PI;
+		((Area2D)GetNode("echildView")).Rotation = GD.Randf() * (float)Math.PI;
+
+		float a = 3f + (scareTime * 1f);
+		sprite.Scale = new Vector2(a, a);
+		((Area2D)GetNode("Node2D/Area2D")).Scale = new Vector2(a / 3, a / 3);
+		((Area2D)GetNode("Node2D/echildView")).Scale = new Vector2(a / 3, a / 3);
+
+		r = 25 + (scareTime * 13);
 	}
 
 
 // Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {
+		scareCounter -= 0.5f * (float)delta;
+		scareCounter = clamp(scareCounter, 0, scareTime);
+		((Sprite2D)GetNode("Node2D/Sprite2D")).Scale =
+			((Sprite2D)GetNode("Node2D/Sprite2D")).Scale with { X = scareCounter * 150 / scareTime };
+
+
+		if (scareCounter >= scareTime) {
+			scare();
+		}
+
 		if (seen) {
 			seenCounter += (float)delta;
 		} else {
@@ -71,11 +92,11 @@ public partial class Child3 : CharacterBody2D {
 			rotSpeed += (GD.Randf() - 0.5f) * (float)delta;
 			rotSpeed = clamp(rotSpeed, -0.02f, 0.02f);
 			localSpeed = clamp(localSpeed.Length(), -speed, speed) * localSpeed.Normalized();
-			globalSpeed = localSpeed.Rotated(Rotation);
+			globalSpeed = localSpeed.Rotated(((Area2D)GetNode("echildView")).Rotation);
 			if (spinCounter <= 70) {
-				Rotation += rotSpeed;
+				((Area2D)GetNode("echildView")).Rotation += rotSpeed;
 			} else {
-				Rotation += rotSpeed * 3;
+				((Area2D)GetNode("echildView")).Rotation += rotSpeed * 3;
 				spinCounter -= GD.Randf() * 2;
 			}
 
@@ -94,18 +115,22 @@ public partial class Child3 : CharacterBody2D {
 			MoveAndSlide();
 		} else {
 			Position += new Vector2(0, 5);
-			// $CollisionShape2D.set_deferred("disabled", true);
-			// $echildView / VisionCone2D.visible = false;
+			((CollisionShape2D)GetNode("CollisionShape2D")).SetDeferred("disabled", true);
+			((CollisionPolygon2D)GetNode("echildView/CollisionPolygon2D")).SetDeferred("disabled", true);
+			((Area2D)GetNode("echildView")).Visible = false;
 			if (Position.Y > 50000) {
 				QueueFree();
 			}
 		}
-		// $Node2D / Label.visible = scareable && !scared;
-		// $Node2D.global_Rotation = 0;
+		((Label)GetNode("Node2D/Label")).Visible = scareable && !scared;
+		((Sprite2D)GetNode("Node2D/Sprite2D")).Visible = scareable && !scared;
+		((Node2D)GetNode("Node2D")).GlobalRotation = 0;
 
 		if (Velocity.Length() > 0) {
 			sprite.Play();
 		}
+
+		#region "anims"
 
 		if (Velocity.Y > 0 && Velocity.X > 0) {
 			if (Velocity.Y > Velocity.X) {
@@ -158,13 +183,19 @@ public partial class Child3 : CharacterBody2D {
 				sprite.Stop();
 			}
 		}
+
+		#endregion
+	}
+
+	public void incrementScare() {
+		scareCounter += (float)GetProcessDeltaTime() * 1.5f; //times 1.5 to account for 0.5x fade 
 	}
 
 	public void scare() {
 		if (scareable && !scared) {
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < (5 + (int)(scareTime * 10)); i++) {
 				Area2D a = (Area2D)candy.Instantiate();
-				a.Position = Position + new Vector2((int)GD.RandRange(-r, r), (int)GD.RandRange(-r, r));
+				a.Position = Position + new Vector2((int)GD.RandRange(-r, r), 0).Rotated(GD.Randf()*2f*(float)Math.PI);
 				GetParent().AddChild(a);
 				scared = true;
 			}

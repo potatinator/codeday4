@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://bm05clviv5xva"]
+[gd_scene load_steps=81 format=3 uid="uid://bm05clviv5xva"]
 
 [ext_resource type="Texture2D" uid="uid://di46ece3wxgfw" path="res://resources/Grass (2).png" id="1_6d1bb"]
 [ext_resource type="Texture2D" uid="uid://dnsmjkwkihm2g" path="res://resources/roads/road2.png" id="1_lf0el"]
@@ -45,9 +45,6 @@
 [ext_resource type="Texture2D" uid="uid://gxp25a1e7hy0" path="res://resources/FenceRight.png" id="43_vveqt"]
 [ext_resource type="PackedScene" uid="uid://crwntbh8rr321" path="res://player_2.tscn" id="44_pkupc"]
 [ext_resource type="PackedScene" uid="uid://cfuxh6rj1ykyo" path="res://HUD.tscn" id="44_vveqt"]
-[ext_resource type="PackedScene" uid="uid://cgi117qqkkrie" path="res://child_2.tscn" id="46_oyveh"]
-[ext_resource type="PackedScene" uid="uid://bht2sp4i64cw7" path="res://bigChild_2.tscn" id="47_d4oyn"]
-[ext_resource type="PackedScene" uid="uid://dkbx8s2u48uyf" path="res://child_3.tscn" id="48_8fahx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iye0r"]
 size = Vector2(64, 14)
@@ -153,8 +150,14 @@ size = Vector2(319, 2)
 
 [sub_resource type="Environment" id="Environment_vveqt"]
 background_mode = 3
-tonemap_mode = 3
+tonemap_mode = 2
+tonemap_exposure = 0.75
+tonemap_white = 16.0
 glow_enabled = true
+glow_intensity = 1.0
+glow_bloom = 1.0
+glow_blend_mode = 4
+glow_hdr_threshold = 0.0
 
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
@@ -3858,102 +3861,3 @@ environment = SubResource("Environment_vveqt")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.446777, 0.44677705, 0.44677705, 1)
-
-[node name="child2" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(1679, 315)
-
-[node name="child3" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(660, 251)
-
-[node name="child4" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(1278, 721)
-
-[node name="child5" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(543, 1031)
-
-[node name="child6" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(2045, 959)
-
-[node name="child7" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(1323, 949)
-
-[node name="child8" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(2501, 217)
-
-[node name="child9" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(2345, 1028)
-
-[node name="child10" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(2024, 1297)
-
-[node name="child11" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(3923, 182)
-
-[node name="child12" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(3163, 172)
-
-[node name="child13" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(3619, 1073)
-
-[node name="child14" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(3533, 1142)
-
-[node name="child15" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(3540, 980)
-
-[node name="child16" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(2079, 1550)
-
-[node name="child17" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(2180, 1656)
-
-[node name="child18" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(497, 2455)
-
-[node name="child19" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(208, 2273)
-
-[node name="child20" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(3863, 2338)
-
-[node name="child21" parent="." instance=ExtResource("46_oyveh")]
-position = Vector2(3863, 2177)
-
-[node name="bigChild" parent="." instance=ExtResource("47_d4oyn")]
-position = Vector2(2054, 2347)
-
-[node name="bigChild2" parent="." instance=ExtResource("47_d4oyn")]
-position = Vector2(1958, 2388)
-
-[node name="bigChild3" parent="." instance=ExtResource("47_d4oyn")]
-position = Vector2(570, 2370)
-
-[node name="bigChild4" parent="." instance=ExtResource("47_d4oyn")]
-position = Vector2(1255, 1501)
-
-[node name="bigChild5" parent="." instance=ExtResource("47_d4oyn")]
-position = Vector2(1177, 1616)
-
-[node name="bigChild6" parent="." instance=ExtResource("47_d4oyn")]
-position = Vector2(212, 849)
-
-[node name="bigChild7" parent="." instance=ExtResource("47_d4oyn")]
-position = Vector2(318, 895)
-
-[node name="bigChild8" parent="." instance=ExtResource("47_d4oyn")]
-position = Vector2(3653, 1561)
-
-[node name="bigChild9" parent="." instance=ExtResource("47_d4oyn")]
-position = Vector2(3644, 1635)
-
-[node name="bigChild10" parent="." instance=ExtResource("47_d4oyn")]
-position = Vector2(2937, 1768)
-
-[node name="bigChild11" parent="." instance=ExtResource("47_d4oyn")]
-position = Vector2(3393, 441)
-
-[node name="bigChild12" parent="." instance=ExtResource("47_d4oyn")]
-position = Vector2(3301, 391)
-
-[node name="child22" parent="." instance=ExtResource("48_8fahx")]
-position = Vector2(2040, 320)

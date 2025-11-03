@@ -80,15 +80,15 @@ func _process(delta: float) -> void:
 	velocity = vel;
 	move_and_slide();
 	
+	stamina = clamp(stamina, 0, 1);
+	
 	HUD.setScore(score);
 	HUD.setStamina(stamina);
+	
 	if Input.is_action_pressed("scare"):
 		if scareReady:
 			if toScare != null:
-				if bigChild:
-					toScare.incrementScare();
-				else:
-					toScare.scare();
+				toScare.incrementScare();
 	
 	pass
 
