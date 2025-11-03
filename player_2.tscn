@@ -181,6 +181,7 @@ current = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AudioListener2D"]
 stream = ExtResource("3_ufh5k")
+volume_db = -14.136
 autoplay = true
 
 [connection signal="area_entered" from="scare" to="." method="_on_scare_area_entered"]

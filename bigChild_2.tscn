@@ -463,7 +463,6 @@ sprites = [NodePath("Node2D/bald"), NodePath("Node2D/capt"), NodePath("Node2D/pr
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Label" type="Label" parent="Node2D"]
-visible = false
 modulate = Color(2.1168277, 2.1168277, 2.1168277, 1)
 offset_left = -97.0
 offset_top = -66.0
@@ -475,28 +474,24 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="bald" type="AnimatedSprite2D" parent="Node2D"]
-visible = false
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_3qx15")
 animation = &"down"
 
 [node name="capt" type="AnimatedSprite2D" parent="Node2D"]
-visible = false
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_0q11q")
 animation = &"down"
 
 [node name="princess" type="AnimatedSprite2D" parent="Node2D"]
-visible = false
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_m7e2g")
 animation = &"down"
 
 [node name="witch" type="AnimatedSprite2D" parent="Node2D"]
-visible = false
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_0vvbb")
@@ -516,9 +511,11 @@ collision_mask = 16
 [node name="VisionCone2D" type="Node2D" parent="echildView" node_paths=PackedStringArray("write_collision_polygon")]
 script = ExtResource("3_bheme")
 angle_deg = 90
+ray_count = 25
 max_distance = 150.0
 collision_layer_mask = 32
 write_collision_polygon = NodePath("../CollisionPolygon2D")
+debug_lines = true
 debug_shape = true
 metadata/_custom_type_script = "uid://bo744wpycscqd"
 
