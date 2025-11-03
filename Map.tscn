@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://bm05clviv5xva"]
+[gd_scene load_steps=82 format=3 uid="uid://bm05clviv5xva"]
 
 [ext_resource type="Texture2D" uid="uid://di46ece3wxgfw" path="res://resources/Grass (2).png" id="1_6d1bb"]
 [ext_resource type="Texture2D" uid="uid://dnsmjkwkihm2g" path="res://resources/roads/road2.png" id="1_lf0el"]
@@ -45,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://gxp25a1e7hy0" path="res://resources/FenceRight.png" id="43_vveqt"]
 [ext_resource type="PackedScene" uid="uid://crwntbh8rr321" path="res://player_2.tscn" id="44_pkupc"]
 [ext_resource type="PackedScene" uid="uid://cfuxh6rj1ykyo" path="res://HUD.tscn" id="44_vveqt"]
+[ext_resource type="PackedScene" uid="uid://dkbx8s2u48uyf" path="res://child_3.tscn" id="46_oyveh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iye0r"]
 size = Vector2(64, 14)
@@ -3861,3 +3862,15 @@ environment = SubResource("Environment_vveqt")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.446777, 0.44677705, 0.44677705, 1)
+
+[node name="child2" parent="." node_paths=PackedStringArray("sprites") instance=ExtResource("46_oyveh")]
+position = Vector2(2092, 362)
+sprites = []
+
+[node name="child3" parent="." node_paths=PackedStringArray("sprites") instance=ExtResource("46_oyveh")]
+position = Vector2(1655, 230)
+sprites = []
+
+[node name="child4" parent="." node_paths=PackedStringArray("sprites") instance=ExtResource("46_oyveh")]
+position = Vector2(2439, 354)
+sprites = []
