@@ -514,6 +514,7 @@ collision_mask = 16
 [node name="VisionCone2D" type="Node2D" parent="echildView" node_paths=PackedStringArray("write_collision_polygon")]
 script = ExtResource("7_sofio")
 angle_deg = 90
+ray_count = 13
 max_distance = 150.0
 collision_layer_mask = 32
 write_collision_polygon = NodePath("../CollisionPolygon2D")
