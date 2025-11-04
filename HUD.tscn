@@ -27,21 +27,33 @@ offset_bottom = 23.0
 text = "score: "
 label_settings = SubResource("LabelSettings_k5de2")
 
-[node name="stamia bar" type="Sprite2D" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="stamia bar" type="Sprite2D" parent="Control"]
 z_index = 1
-position = Vector2(913, 606)
+position = Vector2(-199, -2)
 scale = Vector2(225, 16.76)
 texture = SubResource("GradientTexture1D_efote")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
 z_index = 2
 texture_filter = 1
-position = Vector2(1025, 613)
+position = Vector2(-87, 5)
 scale = Vector2(7.5, 7.5)
 texture = ExtResource("2_vow1y")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="Control"]
 texture_filter = 1
-position = Vector2(1025.0001, 613)
+position = Vector2(-86.99988, 5)
 scale = Vector2(7.5, 7.5)
 texture = ExtResource("3_ne771")

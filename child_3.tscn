@@ -462,6 +462,7 @@ speed = 200.0
 sprites = [NodePath("Node2D/bald"), NodePath("Node2D/capt"), NodePath("Node2D/princess"), NodePath("Node2D/witch")]
 
 [node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1.5, -11)
 
 [node name="Label" type="Label" parent="Node2D"]
 modulate = Color(2.1168277, 2.1168277, 2.1168277, 1)
@@ -507,32 +508,36 @@ scale = Vector2(149.92, 10)
 texture = SubResource("GradientTexture1D_2dt4f")
 
 [node name="echildView" type="Area2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(1.5, -14)
 collision_layer = 0
 collision_mask = 16
 
-[node name="VisionCone2D" type="Node2D" parent="echildView" node_paths=PackedStringArray("write_collision_polygon")]
+[node name="VisionCone2D" type="Node2D" parent="echildView" node_paths=PackedStringArray("write_collision_polygon", "write_polygon2d")]
 script = ExtResource("7_sofio")
 angle_deg = 90
-ray_count = 13
+ray_count = 5
 max_distance = 150.0
 collision_layer_mask = 32
 write_collision_polygon = NodePath("../CollisionPolygon2D")
-debug_shape = true
+write_polygon2d = NodePath("../Polygon2D")
 metadata/_custom_type_script = "uid://bo744wpycscqd"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="echildView"]
 
+[node name="Polygon2D" type="Polygon2D" parent="echildView"]
+color = Color(0, 0, 1, 0.45882353)
+
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 5
-collision_mask = 64
+position = Vector2(1.5, -11)
+collision_layer = 37
+collision_mask = 96
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_hs8lo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 10.5)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_5xa7t")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
@@ -547,7 +552,6 @@ avoidance_enabled = true
 radius = 30.0
 neighbor_distance = 100.0
 max_neighbors = 100
-debug_enabled = true
 
 [connection signal="area_entered" from="echildView" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="echildView" to="." method="_on_area_2d_area_exited"]

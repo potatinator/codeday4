@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://chi25urn48v4r"]
+
+[ext_resource type="Script" uid="uid://cxhls0ovh2oel" path="res://Shop1.cs" id="1_i2w8p"]
+
+[node name="shop1" type="CanvasLayer"]
+script = ExtResource("1_i2w8p")
+
+[node name="back" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14406255, 0.14406255, 0.14406255, 1)
+
+[node name="textbox" type="ColorRect" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.28485, 0.2848504, 0.28485018, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="textbox"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 528.0
+offset_top = -172.0
+offset_right = 1128.0
+offset_bottom = -22.0
+grow_vertical = 0
+
+[node name="items" type="ColorRect" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 500.0
+grow_vertical = 2
+color = Color(0.22670749, 0.22670749, 0.22670746, 1)
+
+[node name="ItemList" type="ItemList" parent="items"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+auto_width = true

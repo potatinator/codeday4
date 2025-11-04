@@ -14,5 +14,5 @@ func setScore(score: int):
 	$Label.text = "stolen candy: " + str(score);
 pass
 func setStamina(stamina: float):
-	$"stamia bar".scale.x = stamina*225;
+	$"Control/stamia bar".scale.x = stamina*225;
 	pass

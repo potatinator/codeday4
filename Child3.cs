@@ -20,27 +20,37 @@ public partial class Child3 : CharacterBody2D {
     [Export]
     private float scareTime = 0.1f;
 
-    bool scareable = false;
-    bool seen = false;
-    bool inRange = false;
-    bool scared = false;
-    Vector2 localSpeed = new Vector2(0, 0);
-    Vector2 globalSpeed = new Vector2(0, 0);
-    float rotSpeed = 0;
-    float stopCounter = 0;
-    float startCounter = 0;
-    float seenCounter = 0;
-    float spinCounter = 0;
-    float scareCounter = 0;
-    private float r;
-    private NavigationAgent2D nav = null;
-    Vector2 home = Vector2.Zero;
-    private float homeTime = 0f;
+    [Export]
+    private Color noSpot = new Color(0, 1, 0, 0.1f);
+
+    [Export]
+    private Color spot = new Color(1, 0, 0, 0.1f);
+
+    bool              scareable    = false;
+    bool              seen         = false;
+    bool              inRange      = false;
+    bool              scared       = false;
+    bool              paused       = false;
+    float             rotSpeed     = 0;
+    float             stopCounter  = 0;
+    float             startCounter = 0;
+    float             seenCounter  = 0;
+    float             spinCounter  = 0;
+    float             scareCounter = 0;
+    float             r;
+    float             homeTime    = 0f;
+    NavigationAgent2D nav         = null;
+    Vector2           localSpeed  = new Vector2(0, 0);
+    Vector2           globalSpeed = new Vector2(0, 0);
+    Vector2           home        = Vector2.Zero;
+    private float     spawnDelay  = 0;
 
     private AnimatedSprite2D sprite;
 
     public override void _Ready() {
-        home = Position;
+        spawnDelay = GD.RandRange(0, 120);
+        scared     = true;
+        home       = Position;
         foreach (AnimatedSprite2D s in sprites) {
             s.Visible = false;
         }
@@ -48,26 +58,30 @@ public partial class Child3 : CharacterBody2D {
 
         ((Sprite2D)GetNode("Node2D/Sprite2D")).Scale = ((Sprite2D)GetNode("Node2D/Sprite2D")).Scale with { X = 0 };
 
-        sprite = sprites[(int)GD.RandRange(0, sprites.Length - 1)];
-        sprite.Visible = true;
+        sprite                                   = sprites[(int)GD.RandRange(0, sprites.Length - 1)];
+        sprite.Visible                           = true;
         ((Area2D)GetNode("echildView")).Rotation = GD.Randf() * (float)Math.PI;
 
         float a = 3f + (scareTime * 1f);
-        sprite.Scale = new Vector2(a, a);
-        ((Area2D)GetNode("Area2D")).Scale = new Vector2(a / 3, a / 3);
+        sprite.Scale                          = new Vector2(a, a);
+        ((Area2D)GetNode("Area2D")).Scale     = new Vector2(a / 3, a / 3);
         ((Area2D)GetNode("echildView")).Scale = new Vector2(a / 3, a / 3);
 
         r = 25 + (scareTime * 13);
 
-        nav.MaxSpeed = speed;
-        regenPath();
+        nav.MaxSpeed                                     = speed;
+        nav.TargetPosition                               = Position;
+        GetNode<Polygon2D>("echildView/Polygon2D").Color = noSpot;
     }
 
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta) {
+        if (spawnDelay > 0) {
+            spawnDelay -= (float)delta;
+        }
         scareCounter -= 0.5f * (float)delta;
-        scareCounter = clamp(scareCounter, 0, scareTime);
+        scareCounter =  clamp(scareCounter, 0, scareTime);
         ((Sprite2D)GetNode("Node2D/Sprite2D")).Scale =
             ((Sprite2D)GetNode("Node2D/Sprite2D")).Scale with { X = scareCounter * 150 / scareTime };
 
@@ -82,7 +96,7 @@ public partial class Child3 : CharacterBody2D {
             seenCounter = 0;
         }
 
-        if (seenCounter > 0.5) {
+        if (seenCounter > 0.5 && !paused) {
             GetTree().ReloadCurrentScene();
         }
 
@@ -94,7 +108,6 @@ public partial class Child3 : CharacterBody2D {
 
             scareable = !seen && inRange;
 
-            ((Area2D)GetNode("echildView")).Rotation = Velocity.Angle() - (float)Math.PI/2f;
             //
             // if (stopCounter <= 50) {
             //     // Velocity = globalSpeed;
@@ -111,35 +124,38 @@ public partial class Child3 : CharacterBody2D {
             ((CollisionShape2D)GetNode("CollisionShape2D")).SetDeferred("disabled", true);
             ((CollisionPolygon2D)GetNode("echildView/CollisionPolygon2D")).SetDeferred("disabled", true);
             ((Area2D)GetNode("echildView")).Visible = false;
-            // nav.DebugEnabled                        = false;
-            nav.Velocity = (Position - nav.GetNextPathPosition()) * -speed;
+            nav.Velocity                            = (Position - nav.GetNextPathPosition()) * -speed;
 
             if (Position.DistanceTo(nav.GetTargetPosition()) < 50) {
-                Visible = false;
+                Visible  =  false;
                 homeTime += (float)delta;
             } else {
                 homeTime = 0f;
             }
-            if (homeTime >= 10) {
+            if (homeTime >= 10 && spawnDelay <= 0) {
                 scared = false;
                 ((CollisionShape2D)GetNode("CollisionShape2D")).SetDeferred("disabled", false);
                 ((CollisionPolygon2D)GetNode("echildView/CollisionPolygon2D")).SetDeferred("disabled", false);
                 ((Area2D)GetNode("echildView")).Visible = true;
-                nav.DebugEnabled = true;
-                Visible = true;
+                Visible                                 = true;
             }
         }
-        MoveAndSlide();
-        ((Label)GetNode("Node2D/Label")).Visible = scareable && !scared;
+
+        if (!paused) {
+            ((Area2D)GetNode("echildView")).Rotation +=
+                clamp(calcPID(Velocity.Rotated(-(float)Math.PI / 2f).Angle(),
+                              ((Area2D)GetNode("echildView")).Rotation), -0.1f, 0.1f);
+            MoveAndSlide();
+        }
+        ((Label)GetNode("Node2D/Label")).Visible       = scareable && !scared;
         ((Sprite2D)GetNode("Node2D/Sprite2D")).Visible = scareable && !scared;
-        ((Node2D)GetNode("Node2D")).GlobalRotation = 0;
+        ((Node2D)GetNode("Node2D")).GlobalRotation     = 0;
 
         if (Velocity.Length() > 0) {
             sprite.Play();
         }
 
         #region "anims"
-
         if (Velocity.Y > 0 && Velocity.X > 0) {
             if (Velocity.Y > Velocity.X) {
                 sprite.Play("down");
@@ -191,12 +207,17 @@ public partial class Child3 : CharacterBody2D {
                 sprite.Stop();
             }
         }
-
         #endregion
+
+        if (paused) {
+            sprite.Pause();
+        }
     }
 
     public void incrementScare() {
+        // if (!paused) {
         scareCounter += (float)GetProcessDeltaTime() * 1.5f; //times 1.5 to account for 0.5x fade 
+        // }
     }
 
     public void scare() {
@@ -213,11 +234,13 @@ public partial class Child3 : CharacterBody2D {
     }
 
     public void _on_area_2d_area_entered(Area2D area) {
-        seen = true;
+        seen                                             = true;
+        GetNode<Polygon2D>("echildView/Polygon2D").Color = spot;
     }
 
     public void _on_area_2d_area_exited(Area2D area) {
-        seen = false;
+        seen                                             = false;
+        GetNode<Polygon2D>("echildView/Polygon2D").Color = noSpot;
     }
 
     public void _on_area_entered(Area2D area) {
@@ -239,5 +262,44 @@ public partial class Child3 : CharacterBody2D {
     private void regenPath() {
         nav.TargetPosition =
             NavigationServer2D.MapGetRandomPoint(NavigationServer2D.GetMaps()[0], nav.NavigationLayers, true);
+    }
+
+    public void pause() {
+        paused = true;
+    }
+
+    public void play() {
+        paused = false;
+    }
+
+    //PI -> -PI
+    private float calcPID(float s, float p) {
+        float set  = wrap(s);
+        float pos  = wrap(p);
+        float err1 = set - pos;
+        float err2 = (set) - (pos + (float)Math.PI * 2f);
+        float err3 = (set) - (pos - (float)Math.PI * 2f);
+        float err  = absMin(err1, absMin(err2, err3));
+        if (Math.Abs(err) > Math.PI) {
+            GD.Print("pid error :" + err1 + ", " + err2 + ", " + err3);
+            GD.Print("chose: " + err);
+            GD.Print("set: " + set + ", " + pos);
+        }
+        return err * 0.1f;
+    }
+
+    private float wrap(float i) {
+        float o = i;
+        while (o > Math.PI) {
+            o -= (float)Math.PI * 2f;
+        }
+        while (o < -Math.PI) {
+            o += (float)Math.PI * 2f;
+        }
+        return o;
+    }
+
+    private float absMin(float a, float b) {
+        return Math.Abs(a) < Math.Abs(b) ? a : b;
     }
 }
