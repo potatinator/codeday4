@@ -458,6 +458,7 @@ polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
 [node name="child2" type="CharacterBody2D" node_paths=PackedStringArray("sprites")]
 script = ExtResource("1_2dt4f")
 candy = ExtResource("2_xhrtr")
+speed = 200.0
 sprites = [NodePath("Node2D/bald"), NodePath("Node2D/capt"), NodePath("Node2D/princess"), NodePath("Node2D/witch")]
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -501,7 +502,7 @@ animation = &"down"
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 modulate = Color(2.1168277, 2.1168277, 2.1168277, 1)
 z_index = 5
-position = Vector2(-1.9999962, -42)
+position = Vector2(-76.00001, -46)
 scale = Vector2(149.92, 10)
 texture = SubResource("GradientTexture1D_2dt4f")
 
@@ -521,11 +522,11 @@ metadata/_custom_type_script = "uid://bo744wpycscqd"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="echildView"]
 
-[node name="area" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 collision_layer = 5
 collision_mask = 64
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_hs8lo")
 
@@ -539,7 +540,16 @@ position = Vector2(-1, 8)
 scale = Vector2(0.43005183, 0.5616129)
 occluder = SubResource("OccluderPolygon2D_plck6")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_max_distance = 1000.0
+avoidance_enabled = true
+radius = 30.0
+neighbor_distance = 100.0
+max_neighbors = 100
+debug_enabled = true
+
 [connection signal="area_entered" from="echildView" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="echildView" to="." method="_on_area_2d_area_exited"]
-[connection signal="area_entered" from="area" to="." method="_on_area_entered"]
-[connection signal="area_exited" from="area" to="." method="_on_area_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_exited"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

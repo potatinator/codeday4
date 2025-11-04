@@ -1,126 +1,148 @@
 using Godot;
 using System;
 
-public partial class Player2 : CharacterBody2D
-{
-	
-[Export]
- var speedBase = 200;
-[Export]
- var speedSprint = 400;
-[Export]
- var speedSneak = 100;
-[Export]
- CanvasLayer HUD;
-float speed = speedBase;
-Vector2 vel = Vector2.ZERO;
-int score = 0;
-bool scareReady = false;
-CharacterBody2D toScare;
-var stamina = 1;
-var bigChild = false;
+public partial class Player2 : CharacterBody2D {
+    [Export]
+    float speedBase = 200;
+    [Export]
+    float speedSprint = 400;
+    [Export]
+    float speedSneak = 100;
+    [Export]
+    CanvasLayer hud;
+    GodotObject  HUD;
+    float        speed      = 200;
+    Vector2      vel        = Vector2.Zero;
+    int          score      = 0;
+    bool         scareReady = false;
+    GodotObject  toScare;
+    float        stamina   = 1;
+    bool         bigChild  = false;
+    private bool canSprint = true;
 
-# Called when the node enters the scene tree for the first time.
-private void _ready() -> void{
-	} # Replace with private voidtion body.
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready() {
+        HUD = hud;
+    }
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-private void _process(delta{ float) -> void{
-	vel = Vector2.ZERO;
-	if (Input.IsActionPressed("move_down"){
-		vel.y += 1;
-	if (Input.IsActionPressed("move_up"){
-		vel.y -= 1;
-	if (Input.IsActionPressed("move_left"){
-		vel.x -= 1;
-	if (Input.IsActionPressed("move_right"){
-		vel.x += 1;
-	if (Input.IsActionPressed("sneak"){
-		speed = speedSneak;
-		if (stamina < 1{
-			stamina += 0.05*delta;
-	else{
-		if (Input.IsActionPressed("sprint"){
-			if (stamina > 0{
-				speed = speedSprint;
-				stamina -= 0.2*delta;
-			else{
-				speed = speedBase;
-		else{
-			speed = speedBase;
-			if (stamina < 1{
-				stamina += 0.025*delta;
-		
-	if(vel.length() > 0){
-		vel = vel.normalized() * speed;
-		if (vel.y > 0 && vel.x > 0{
-			if (vel.y > vel.x{
-				$AnimatedSprite2D.play("down");
-			if (vel.y < vel.x{
-				$AnimatedSprite2D.play("right");
-		else{ if (vel.y > 0 && vel.x < 0{
-			if (vel.y > abs(vel.x){
-				$AnimatedSprite2D.play("down");
-			if (vel.y < abs(vel.x){
-				$AnimatedSprite2D.play("left");
-		else{ if (vel.y < 0 && vel.x > 0{
-			if (abs(vel.y) < abs(vel.x){
-				$AnimatedSprite2D.play("left");
-			if (abs(vel.y) > abs(vel.x){
-				$AnimatedSprite2D.play("up");
-		else{ if (vel.y < 0 && vel.x < 0{
-			if (abs(vel.y) < abs(vel.x){
-				$AnimatedSprite2D.play("right");
-			if (abs(vel.y) > abs(vel.x){
-				$AnimatedSprite2D.play("up");
-		else{
-			if (vel.y > 0{
-				$AnimatedSprite2D.play("down");
-			if (vel.y < 0{
-				$AnimatedSprite2D.play("up");
-			if (vel.x > 0{
-				$AnimatedSprite2D.play("right");
-			if (vel.x < 0{
-				$AnimatedSprite2D.play("left");
-	else{
-		$AnimatedSprite2D.stop()
-		
-	velocity = vel;
-	move_and_slide();
-	
-	stamina = clamp(stamina, 0, 1);
-	
-	HUD.setScore(score);
-	HUD.setStamina(stamina);
-	
-	if (Input.IsActionPressed("scare"){
-		if (scareReady{
-			if (toScare != null{
-				toScare.incrementScare();
-	
-	}
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta) {
+        vel = Vector2.Zero;
+        if (Input.IsActionPressed("move_down")) {
+            vel.Y += 1;
+        }
+        if (Input.IsActionPressed("move_up")) {
+            vel.Y -= 1;
+        }
+        if (Input.IsActionPressed("move_left")) {
+            vel.X -= 1;
+        }
+        if (Input.IsActionPressed("move_right")) {
+            vel.X += 1;
+        }
+        if (Input.IsActionPressed("sneak")) {
+            speed = speedSneak;
+        } else {
+            if (Input.IsActionPressed("sprint")) {
+                if (canSprint) {
+                    speed = speedSprint;
+                    if (stamina <= 0) {
+                        canSprint = false;
+                    }
+                } else {
+                    speed = speedBase;
+                }
+            } else {
+                speed     = speedBase;
+                canSprint = stamina > 0.05;
+            }
+        }
 
+        if (vel.Length() > 0) {
+            vel = vel.Normalized() * speed;
+            if (vel.Y > 0 && vel.X > 0) {
+                if (vel.Y > vel.X) {
+                    ((AnimatedSprite2D)GetNode("AnimatedSprite2D")).Play("down");
+                }
+                if (vel.Y < vel.X) {
+                    ((AnimatedSprite2D)GetNode("AnimatedSprite2D")).Play("right");
+                }
+            } else if (vel.Y > 0 && vel.X < 0) {
+                if (vel.Y > Math.Abs(vel.X)) {
+                    ((AnimatedSprite2D)GetNode("AnimatedSprite2D")).Play("down");
+                }
+                if (vel.Y < Math.Abs(vel.X)) {
+                    ((AnimatedSprite2D)GetNode("AnimatedSprite2D")).Play("left");
+                }
+            } else if (vel.Y < 0 && vel.X > 0) {
+                if (Math.Abs(vel.Y) < Math.Abs(vel.X)) {
+                    ((AnimatedSprite2D)GetNode("AnimatedSprite2D")).Play("left");
+                }
+                if (Math.Abs(vel.Y) > Math.Abs(vel.X)) {
+                    ((AnimatedSprite2D)GetNode("AnimatedSprite2D")).Play("up");
+                }
+            } else if (vel.Y < 0 && vel.X < 0) {
+                if (Math.Abs(vel.Y) < Math.Abs(vel.X)) {
+                    ((AnimatedSprite2D)GetNode("AnimatedSprite2D")).Play("right");
+                }
+                if (Math.Abs(vel.Y) > Math.Abs(vel.X)) {
+                    ((AnimatedSprite2D)GetNode("AnimatedSprite2D")).Play("up");
+                }
+            } else {
+                if (vel.Y > 0) {
+                    ((AnimatedSprite2D)GetNode("AnimatedSprite2D")).Play("down");
+                }
+                if (vel.Y < 0) {
+                    ((AnimatedSprite2D)GetNode("AnimatedSprite2D")).Play("up");
+                }
+                if (vel.X > 0) {
+                    ((AnimatedSprite2D)GetNode("AnimatedSprite2D")).Play("right");
+                }
+                if (vel.X < 0) {
+                    ((AnimatedSprite2D)GetNode("AnimatedSprite2D")).Play("left");
+                }
+            }
+        } else {
+            ((AnimatedSprite2D)GetNode("AnimatedSprite2D")).Stop();
+        }
+        
+        stamina += 0.025f * (float)delta + (1.1f*speedBase-vel.Length()) * 0.002f * (float)delta;
+        
+        Velocity = vel;
+        MoveAndSlide();
 
-private void _on_pickup_area_entered(area{ Area2D) -> void{
-	area.queue_free();
-	score += 1;
-	stamina += 0.05;
-}
+        stamina = Math.Clamp(stamina, 0, 1);
 
-private void _on_scare_area_entered(area{ Area2D) -> void{
-	if (area.get_parent().name.begins_with("child"){
-		scareReady = true;
-		bigChild = false;
-	else{ if (area.get_parent().name.begins_with("bigChild"){
-		scareReady = true;
-		bigChild = true;
-		
-	toScare = area.get_parent();
-}
-private void _on_scare_area_exited(area{ Area2D) -> void{
-	if (area.get_parent().name.begins_with("child"){
-		scareReady = false;
-	toScare = null;
-	}
+        HUD.Call("setScore", score);
+        HUD.Call("setStamina", stamina);
 
+        if (Input.IsActionPressed("scare")) {
+            if (scareReady) {
+                if (toScare != null) {
+                    toScare.Call("incrementScare");
+                }
+            }
+        }
+    }
+
+    public void _on_pickup_area_entered(Area2D area) {
+        area.QueueFree();
+        score   += 1;
+        stamina += 0.05f;
+    }
+
+    public void _on_scare_area_entered(Area2D area) {
+        if (area.GetParent().Name.ToString().Contains("child")) {
+            scareReady = true;
+            bigChild   = false;
+            toScare    = area.GetParent();
+        }
+    }
+
+    public void _on_scare_area_exited(Area2D area) {
+        if (area.GetParent().Name.ToString().Contains("child")) {
+            scareReady = false;
+            toScare    = null;
+        }
+    }
 }
