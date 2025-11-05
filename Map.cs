@@ -25,6 +25,7 @@ public partial class Map : Node2D {
                 n.Call("pause");
             }
         }
+        GetNode("player2").Set("paused", true);
         paused = true;
     }
 
@@ -35,5 +36,13 @@ public partial class Map : Node2D {
                 n.Call("play");
             }
         }
+        GetNode("player2").Set("paused", false);
+    }
+
+    public void _on_area_2d_area_entered(Area2D area) {
+        GetNode<Label>("Label").Visible = true;
+    }
+    public void _on_area_2d_area_exited(Area2D area) {
+        GetNode<Label>("Label").Visible = false;
     }
 }

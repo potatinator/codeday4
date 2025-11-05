@@ -18,7 +18,8 @@ public partial class Player2 : CharacterBody2D {
     GodotObject  toScare;
     float        stamina   = 1;
     bool         bigChild  = false;
-    private bool canSprint = true;
+    public bool canSprint = true;
+    public bool paused    = false;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready() {
@@ -58,7 +59,7 @@ public partial class Player2 : CharacterBody2D {
             }
         }
 
-        if (vel.Length() > 0) {
+        if (vel.Length() > 0 && !paused) {
             vel = vel.Normalized() * speed;
             if (vel.Y > 0 && vel.X > 0) {
                 if (vel.Y > vel.X) {
@@ -107,9 +108,11 @@ public partial class Player2 : CharacterBody2D {
         }
         
         stamina += 0.025f * (float)delta + (1.1f*speedBase-vel.Length()) * 0.002f * (float)delta;
-        
-        Velocity = vel;
-        MoveAndSlide();
+
+        if (!paused) {
+            Velocity = vel;
+            MoveAndSlide();
+        }
 
         stamina = Math.Clamp(stamina, 0, 1);
 

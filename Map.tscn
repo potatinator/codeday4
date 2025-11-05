@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://bm05clviv5xva"]
+[gd_scene load_steps=86 format=3 uid="uid://bm05clviv5xva"]
 
 [ext_resource type="Texture2D" uid="uid://di46ece3wxgfw" path="res://resources/Grass (2).png" id="1_6d1bb"]
 [ext_resource type="Script" uid="uid://d1foo55ogvggj" path="res://Map.cs" id="1_d4oyn"]
@@ -49,10 +49,9 @@
 [ext_resource type="PackedScene" uid="uid://dkbx8s2u48uyf" path="res://child_3.tscn" id="46_oyveh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vveqt"]
-vertices = PackedVector2Array(1892, 800, 2308, 786, 3698, 786, 3684, 1202, 3204, 1202, 1920, 1195, 1696, 1188, 4100, 114, 4100, 2500.1094, 3684, 1888, 3684, 1458, 3698, 516, 1920, 2130, 2308, 2502.7031, 128, 2505.8594, 800, 2144, 128, 114, 3414, 516, 2308, 1202, 1920, 1874, 1892, 544, 2308, 544, 2788, 2502, 2788, 2130, 3684, 2130, 2795, 1888, 2795, 1202, 3204, 1458, 1010, 1874, 1010, 1458, 1636, 1465, 1636, 1458, 1920, 1465, 1696, 1195, 800, 1188, 800, 1174, 1025.75, 800, 1412, 791.25, 1636, 800, 800, 2130, 516, 2144, 128, 786, 516, 1174, 738.25, 786, 738.25, 800, 738.25, 540.5, 738.25, 544, 128, 544, 3414, 530, 2532, 530, 2532, 544, 1699.5, 531.75, 1699.5, 544, 1412, 531.75, 1025.75, 540.5, 1636, 791.25)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10, 2), PackedInt32Array(2, 10, 3), PackedInt32Array(7, 2, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 7, 11, 17), PackedInt32Array(18, 13, 12, 19), PackedInt32Array(1, 0, 20, 21), PackedInt32Array(8, 22, 23, 24), PackedInt32Array(9, 25, 26, 27), PackedInt32Array(19, 28, 29, 30), PackedInt32Array(29, 31, 30), PackedInt32Array(19, 30, 32), PackedInt32Array(18, 19, 32), PackedInt32Array(18, 32, 5), PackedInt32Array(5, 33, 6), PackedInt32Array(6, 34, 35, 36, 37, 38), PackedInt32Array(15, 39, 12), PackedInt32Array(40, 15, 14), PackedInt32Array(40, 14, 41, 42), PackedInt32Array(42, 41, 43, 44), PackedInt32Array(35, 42, 44, 36), PackedInt32Array(45, 46, 47, 16), PackedInt32Array(17, 48, 49, 16), PackedInt32Array(49, 50, 21, 16), PackedInt32Array(16, 21, 20, 51), PackedInt32Array(20, 52, 51), PackedInt32Array(16, 51, 53), PackedInt32Array(45, 16, 53, 54), PackedInt32Array(54, 53, 37, 36), PackedInt32Array(37, 55, 38), PackedInt32Array(6, 38, 0), PackedInt32Array(8, 24, 9), PackedInt32Array(27, 10, 9), PackedInt32Array(4, 27, 26), PackedInt32Array(5, 4, 26), PackedInt32Array(5, 26, 18)])
+vertices = PackedVector2Array(1892, 800, 2308, 786, 3698, 786, 3684, 1202, 3204, 1202, 1920, 1195, 1696, 1188, 4100, 114, 4100, 2500.1094, 3684, 1888, 3684, 1458, 3698, 516, 1920, 2130, 2308, 2502.7031, 128, 2505.8594, 800, 2144, 2335, 114, 3414, 516, 2335, 236, 2308, 1202, 1920, 1874, 1892, 544, 2308, 544, 2788, 2502, 2788, 2130, 3684, 2130, 3414, 530, 2532, 530, 2532, 544, 1868, 236, 1699.5, 544, 1699.5, 531.75, 1412, 791.25, 1636, 791.25, 1636, 800, 2795, 1888, 2795, 1202, 3204, 1458, 1010, 1874, 1010, 1458, 1636, 1465, 1636, 1458, 1920, 1465, 1696, 1195, 800, 1188, 800, 1174, 1025.75, 800, 800, 2130, 516, 2144, 128, 786, 516, 1174, 738.25, 786, 738.25, 800, 738.25, 540.5, 738.25, 544, 128, 544, 128, 114, 1025.75, 540.5, 1868, 114, 1412, 531.75)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10, 2), PackedInt32Array(2, 10, 3), PackedInt32Array(7, 2, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 7, 11, 17, 18), PackedInt32Array(19, 13, 12, 20), PackedInt32Array(1, 0, 21, 22), PackedInt32Array(8, 23, 24, 25), PackedInt32Array(17, 26, 27, 18), PackedInt32Array(18, 27, 28, 22, 29), PackedInt32Array(29, 22, 21), PackedInt32Array(29, 21, 30, 31), PackedInt32Array(32, 33, 34), PackedInt32Array(9, 35, 36, 37), PackedInt32Array(20, 38, 39, 40), PackedInt32Array(39, 41, 40), PackedInt32Array(20, 40, 42), PackedInt32Array(19, 20, 42), PackedInt32Array(19, 42, 5), PackedInt32Array(5, 43, 6), PackedInt32Array(6, 44, 45, 46, 32, 34), PackedInt32Array(15, 47, 12), PackedInt32Array(48, 15, 14), PackedInt32Array(48, 14, 49, 50), PackedInt32Array(50, 49, 51, 52), PackedInt32Array(45, 50, 52, 46), PackedInt32Array(53, 54, 55, 56), PackedInt32Array(57, 53, 56, 58, 29, 59), PackedInt32Array(29, 31, 59), PackedInt32Array(57, 59, 32, 46), PackedInt32Array(6, 34, 0), PackedInt32Array(8, 25, 9), PackedInt32Array(37, 10, 9), PackedInt32Array(4, 37, 36), PackedInt32Array(5, 4, 36), PackedInt32Array(5, 36, 19)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(52, 42, 38, 2536, 4179, 2530, 4191, -20)])
-parsed_geometry_type = 1
 agent_radius = 30.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iye0r"]
@@ -156,6 +155,12 @@ size = Vector2(14, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_df044"]
 size = Vector2(319, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhrnc"]
+size = Vector2(407, 132)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4oyn"]
+radius = 47.07441
 
 [sub_resource type="Environment" id="Environment_vveqt"]
 background_mode = 3
@@ -3863,6 +3868,24 @@ texture = ExtResource("43_vveqt")
 position = Vector2(150.5, 184)
 shape = SubResource("RectangleShape2D_df044")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D"]
+position = Vector2(2114, 84)
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
+position = Vector2(-12.5, 56)
+shape = SubResource("RectangleShape2D_fhrnc")
+
+[node name="Area2D" type="Area2D" parent="NavigationRegion2D"]
+position = Vector2(2114, 84)
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Area2D"]
+position = Vector2(0, -18)
+shape = SubResource("CircleShape2D_d4oyn")
+
 [node name="CanvasLayer" parent="." instance=ExtResource("44_vveqt")]
 
 [node name="player2" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("44_pkupc")]
@@ -4035,3 +4058,16 @@ position = Vector2(2899, 132)
 
 [node name="child54" parent="kids" instance=ExtResource("46_oyveh")]
 position = Vector2(2970, 125)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+modulate = Color(2.1168277, 2.1168277, 2.1168277, 1)
+offset_left = 2036.0
+offset_right = 2199.0
+offset_bottom = 23.0
+text = "Press E to enter shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="NavigationRegion2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="NavigationRegion2D/Area2D" to="." method="_on_area_2d_area_exited"]

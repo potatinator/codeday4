@@ -1,9 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://chi25urn48v4r"]
+[gd_scene load_steps=7 format=3 uid="uid://chi25urn48v4r"]
 
 [ext_resource type="Script" uid="uid://cxhls0ovh2oel" path="res://Shop1.cs" id="1_i2w8p"]
+[ext_resource type="PackedScene" uid="uid://ckeeiqmff0axv" path="res://upgrade_ui.tscn" id="2_gceiw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gceiw"]
+bg_color = Color(0.3665946, 0.3665946, 0.36659455, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3x4t"]
+bg_color = Color(0.50928617, 0.5092862, 0.509286, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0nxk"]
+
+[sub_resource type="Theme" id="Theme_1igvb"]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_gceiw")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_j3x4t")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_v0nxk")
 
 [node name="shop1" type="CanvasLayer"]
 script = ExtResource("1_i2w8p")
+upgradeWidget = ExtResource("2_gceiw")
 
 [node name="back" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -21,7 +36,7 @@ anchor_bottom = 1.0
 offset_top = -200.0
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0.28485, 0.2848504, 0.28485018, 1)
+color = Color(0.19793725, 0.19793725, 0.19793719, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="textbox"]
 layout_mode = 1
@@ -41,11 +56,48 @@ offset_right = 500.0
 grow_vertical = 2
 color = Color(0.22670749, 0.22670749, 0.22670746, 1)
 
-[node name="ItemList" type="ItemList" parent="items"]
+[node name="MarginContainer" type="MarginContainer" parent="items"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-auto_width = true
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="ScrollContainer" type="ScrollContainer" parent="items/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_1igvb")
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="items/MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="upgrade ui" parent="items/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_gceiw")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="upgrade ui2" parent="items/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_gceiw")]
+layout_mode = 2
+
+[node name="upgrade ui3" parent="items/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_gceiw")]
+layout_mode = 2
+
+[node name="upgrade ui4" parent="items/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_gceiw")]
+layout_mode = 2
+
+[node name="upgrade ui5" parent="items/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_gceiw")]
+layout_mode = 2
+
+[node name="upgrade ui6" parent="items/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_gceiw")]
+layout_mode = 2
+
+[node name="upgrade ui7" parent="items/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_gceiw")]
+layout_mode = 2
