@@ -214,9 +214,9 @@ public partial class Child3 : CharacterBody2D {
         }
     }
 
-    public void incrementScare() {
+    public void incrementScare(float rate) {
         // if (!paused) {
-        scareCounter += (float)GetProcessDeltaTime() * 1.5f; //times 1.5 to account for 0.5x fade 
+        scareCounter += (float)GetProcessDeltaTime() * 1.5f * rate; //times 1.5 to account for 0.5x fade 
         // }
     }
 

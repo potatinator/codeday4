@@ -18,8 +18,9 @@ public partial class Player2 : CharacterBody2D {
     GodotObject  toScare;
     float        stamina   = 1;
     bool         bigChild  = false;
-    public bool canSprint = true;
-    public bool paused    = false;
+    public bool  canSprint = true;
+    public bool  paused    = false;
+    public float scareRate = 1f;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready() {
@@ -122,7 +123,7 @@ public partial class Player2 : CharacterBody2D {
         if (Input.IsActionPressed("scare")) {
             if (scareReady) {
                 if (toScare != null) {
-                    toScare.Call("incrementScare");
+                    toScare.Call("incrementScare", scareRate);
                 }
             }
         }

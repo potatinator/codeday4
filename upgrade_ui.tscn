@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckeeiqmff0axv"]
+[gd_scene load_steps=5 format=3 uid="uid://ckeeiqmff0axv"]
 
 [ext_resource type="Script" uid="uid://dpbq5yqfoq6r5" path="res://UpgradeWidget.cs" id="1_j3xiq"]
+[ext_resource type="Theme" uid="uid://bwxe8ab30w62j" path="res://upgrade_ui.tres" id="2_hherc"]
+[ext_resource type="Texture2D" uid="uid://cq46a2yxejac8" path="res://button2.png" id="3_i04x0"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j3xiq"]
 
@@ -10,7 +12,9 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 500.0
 offset_bottom = 100.0
+focus_mode = 2
 script = ExtResource("1_j3xiq")
+disabledImage = ExtResource("3_i04x0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -19,17 +23,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0.14509805, 0.14509805, 0.14509805, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(200, 100)
+custom_minimum_size = Vector2(200, 25)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 125.0
+offset_top = 10.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 text = "Test label of DOOOOM"
 vertical_alignment = 1
 
@@ -43,4 +51,54 @@ grow_vertical = 2
 texture = SubResource("PlaceholderTexture2D_j3xiq")
 expand_mode = 2
 
+[node name="lv" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 141.0
+offset_top = 60.0
+offset_right = -40.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "level X/Y"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lv up" type="Button" parent="."]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_hherc")
+icon_alignment = 1
+expand_icon = true
+
+[node name="lv down" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 110.0
+offset_top = -40.0
+offset_right = 140.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_hherc")
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="pressed" from="lv up" to="." method="_on_lv_up_pressed"]
+[connection signal="pressed" from="lv down" to="." method="_on_lv_down_pressed"]

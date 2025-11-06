@@ -28,6 +28,33 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.14406255, 0.14406255, 0.14406255, 1)
 
+[node name="how" type="RichTextLabel" parent="back"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -627.0
+offset_top = 107.0
+offset_right = -22.0
+offset_bottom = 424.0
+grow_horizontal = 0
+theme_override_font_sizes/normal_font_size = 24
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+
+[node name="title" type="RichTextLabel" parent="back"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -629.0
+offset_top = 21.0
+offset_right = -42.0
+offset_bottom = 83.0
+grow_horizontal = 0
+theme_override_font_sizes/normal_font_size = 32
+text = "Lorem ipsum dolor sit amet"
+horizontal_alignment = 1
+
 [node name="textbox" type="ColorRect" parent="."]
 anchors_preset = 12
 anchor_top = 1.0
@@ -38,7 +65,7 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(0.19793725, 0.19793725, 0.19793719, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="textbox"]
+[node name="desc" type="RichTextLabel" parent="textbox"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -48,6 +75,8 @@ offset_top = -172.0
 offset_right = 1128.0
 offset_bottom = -22.0
 grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 20
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
 
 [node name="items" type="ColorRect" parent="."]
 anchors_preset = 9
@@ -64,7 +93,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
+theme_override_constants/margin_top = 75
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
@@ -79,25 +108,3 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 12
-
-[node name="upgrade ui" parent="items/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_gceiw")]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="upgrade ui2" parent="items/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_gceiw")]
-layout_mode = 2
-
-[node name="upgrade ui3" parent="items/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_gceiw")]
-layout_mode = 2
-
-[node name="upgrade ui4" parent="items/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_gceiw")]
-layout_mode = 2
-
-[node name="upgrade ui5" parent="items/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_gceiw")]
-layout_mode = 2
-
-[node name="upgrade ui6" parent="items/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_gceiw")]
-layout_mode = 2
-
-[node name="upgrade ui7" parent="items/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_gceiw")]
-layout_mode = 2

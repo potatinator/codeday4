@@ -460,6 +460,8 @@ script = ExtResource("1_2dt4f")
 candy = ExtResource("2_xhrtr")
 speed = 200.0
 sprites = [NodePath("Node2D/bald"), NodePath("Node2D/capt"), NodePath("Node2D/princess"), NodePath("Node2D/witch")]
+noSpot = Color(0, 1, 0, 0.19607843)
+spot = Color(18.892157, 0, 0, 0.19607843)
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(1.5, -11)

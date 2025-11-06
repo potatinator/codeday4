@@ -18,16 +18,19 @@ colors = PackedColorArray(1, 0, 0.9666667, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_k5de2")
 width = 1
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_k5de2")
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 112.0
+offset_bottom = 57.0
 text = "score: "
 label_settings = SubResource("LabelSettings_k5de2")
 
 [node name="Control" type="Control" parent="."]
+z_index = -1
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
