@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Map : Node2D {
     private bool paused  = false;
@@ -52,5 +53,13 @@ public partial class Map : Node2D {
     public void _on_area_2d_area_exited(Area2D area) {
         GetNode<Label>("Label").Visible = false;
         canShop                         = false;
+    }
+
+    public List<Child3> getAllChildren() {
+        List<Child3> l = new List<Child3>();
+        foreach (Node n in GetNode("kids").GetChildren()) {
+            l.Add((Child3)n);
+        }
+        return l;
     }
 }

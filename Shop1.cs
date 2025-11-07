@@ -11,9 +11,11 @@ public partial class Shop1 : CanvasLayer {
     List<Upgrade> upgrades = new List<Upgrade>();
     // Called when the node enters the scene tree for the first time.
     public override void _Ready() {
-        upgrades.Add(new TestUpgrade());
-        upgrades.Add(new ScareUpgrade((Player2)player));
+        upgrades.Add(new ScareUpgrade((Player2)player, (Map)GetParent()));
+        upgrades.Add(new HardUpgrade((Player2)player, (Map)GetParent()));
         // TODO: add new upgrades to shop here
+        
+        
         foreach (Upgrade u in upgrades) {
             var w = upgradeWidget.Instantiate();
             u.init();

@@ -38,17 +38,19 @@ public partial class Child3 : CharacterBody2D {
     float             spinCounter  = 0;
     float             scareCounter = 0;
     float             r;
-    float             homeTime    = 0f;
-    NavigationAgent2D nav         = null;
-    Vector2           localSpeed  = new Vector2(0, 0);
-    Vector2           globalSpeed = new Vector2(0, 0);
-    Vector2           home        = Vector2.Zero;
-    private float     spawnDelay  = 0;
+    float             homeTime          = 0f;
+    NavigationAgent2D nav               = null;
+    Vector2           localSpeed        = new Vector2(0, 0);
+    Vector2           globalSpeed       = new Vector2(0, 0);
+    Vector2           home              = Vector2.Zero;
+    private float     spawnDelay        = 0;
+    public  bool      cantScareWhenSeen = true;
+    public  float     candyMult         = 1f;
 
     private AnimatedSprite2D sprite;
 
     public override void _Ready() {
-        spawnDelay = GD.RandRange(0, 120);
+        spawnDelay = GD.RandRange(0, 60);
         scared     = true;
         home       = Position;
         foreach (AnimatedSprite2D s in sprites) {
@@ -106,7 +108,7 @@ public partial class Child3 : CharacterBody2D {
             }
             nav.Velocity = (Position - nav.GetNextPathPosition()) * -speed;
 
-            scareable = !seen && inRange;
+            scareable = (!seen || !cantScareWhenSeen) && inRange;
 
             //
             // if (stopCounter <= 50) {
@@ -222,7 +224,7 @@ public partial class Child3 : CharacterBody2D {
 
     public void scare() {
         if (scareable && !scared) {
-            for (int i = 0; i < (5 + (int)(scareTime * 10)); i++) {
+            for (int i = 0; i < (5 + (int)(scareTime * 10))*candyMult; i++) {
                 Area2D a = (Area2D)candy.Instantiate();
                 a.Position = Position +
                              new Vector2((int)GD.RandRange(-r, r), 0).Rotated(GD.Randf() * 2f * (float)Math.PI);
