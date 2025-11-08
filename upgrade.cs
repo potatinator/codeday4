@@ -45,18 +45,6 @@ public struct UpgradeData {
     public Texture2D   icon;
     public float       costFactor;
 }
-
-public class TestUpgrade : Upgrade {
-    public override void init() {
-        base.init();
-        data.name        = "Test";
-        data.description = "Test description";
-        data.hovertext   = "Test hovertext";
-        data.cost        = 1;
-        data.maxLevel    = 5;
-        data.icon        = new PlaceholderTexture2D();
-    }
-}
 public class ScareUpgrade : Upgrade {
     private Player2 p;
     private Map m;
@@ -142,6 +130,7 @@ public class BribeUpgrade : Upgrade {
     }
 
     public override void upgrade() {
+        base.upgrade();
         p.lives++;
     }
 }
