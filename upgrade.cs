@@ -7,8 +7,7 @@ public class Upgrade {
 
     public virtual void init() {
         data.level       = 0;
-        data.priority    = 1;
-        data.costFactor  = 0.25f;
+        data.costFactor  = 1f;
         data.name        = "";
         data.description = "";
         data.hovertext   = "";
@@ -27,7 +26,11 @@ public class Upgrade {
     }
 
     public virtual int getCost() {
-        return (int)(data.cost * Math.Pow((1+data.level), (1 + data.costFactor)));
+        return (int)((data.cost * (data.level + 1) * data.costFactor) - ((data.cost*(data.level + 1) * data.costFactor) % 5));
+    }
+
+    public int getRoundCost(int cost) {
+        return (cost - (cost % 5));
     }
 }
 public struct UpgradeData {
@@ -40,8 +43,7 @@ public struct UpgradeData {
      */
     public int         level;
     public int         maxLevel;
-    public int         tier;
-    public int         priority;
+
     public Texture2D   icon;
     public float       costFactor;
 }
@@ -57,7 +59,7 @@ public class ScareUpgrade : Upgrade {
         data.name        = "Scary Mask";
         data.description = "Scare faster, +25% per level";
         data.hovertext   = "Its time to get spooky";
-        data.cost        = 10;
+        data.cost        = 15;
         data.maxLevel    = -1;
         data.costFactor  = 0.1f;
         data.icon        = GD.Load<Texture2D>("res://oni2.png");
@@ -78,6 +80,10 @@ public class ScareUpgrade : Upgrade {
             }
         }
     }
+
+    public override int getCost() {
+        return getRoundCost((int)(Math.Ceiling(data.cost + (Math.Pow((1.25*(data.level)), 2)) + (2.75*(data.level+1)))));
+    }
 }
 public class HardUpgrade : Upgrade {
     private Player2 p;
@@ -89,21 +95,21 @@ public class HardUpgrade : Upgrade {
         data.name        = "Late Night";
         // data.description = ;
         data.hovertext  = "Hardcore trick-or-treaters are hard to scare, but they have more candy";
-        data.cost       = 500;
+        data.cost       = 50;
         data.maxLevel   = -1;
         data.costFactor = 1;
         data.icon       = GD.Load<Texture2D>("res://clock1.png");
     }
 
     public override int getCost() {
-        return data.cost += (data.level*100);
+        return getRoundCost((int)(data.cost + Math.Pow((12.5*data.level), 2) + (12.5*data.level)));
     }
 
     public override void update(float delta) {
         base.update(delta);
-        p.scareRate      = p.scareRate / (float)((((data.level+1)*(2f))-1));
-        p.candyMult = (float)(((data.level+1)*(2f))-1);
-        data.description = "kids take "+(float)(data.level*2f)+"X the time to scare, but drop "+(float)(data.level*2f)+"X the candy\ndoubles per level";
+        p.scareRate      = p.scareRate / (float)Math.Ceiling(0.5*(Math.Pow((data.level+1), 1.5)));
+        p.candyMult = (float)(int)(Math.Pow((data.level+1), 1.5f)+1);
+        data.description = "kids take "+(float)(float)Math.Ceiling(0.5*(Math.Pow((data.level+1), 1.5)))+"X the time to scare, but drop "+(float)(int)(Math.Pow((data.level+1), 1.5f)+1)+"X the candy\ndoubles per level";
     }
 
 }
@@ -125,7 +131,7 @@ public class BribeUpgrade : Upgrade {
     }
 
     public override int getCost() {
-        return 100 + (50*data.level);
+        return getRoundCost((int)(50 + (50*p.lives)));
             
     }
 
