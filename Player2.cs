@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Player2 : CharacterBody2D {
     [Export]
@@ -14,8 +15,7 @@ public partial class Player2 : CharacterBody2D {
     float        speed      = 200;
     Vector2      vel        = Vector2.Zero;
     int          score      = 0;
-    bool         scareReady = false;
-    GodotObject  toScare;
+    List<GodotObject>  toScare = new List<GodotObject>();
     float        stamina   = 1;
     bool         bigChild  = false;
     public bool  canSprint = true;
@@ -128,11 +128,9 @@ public partial class Player2 : CharacterBody2D {
         HUD.Call("setStamina", stamina);
 
         if (Input.IsActionPressed("scare")) {
-            if (scareReady) {
-                if (toScare != null) {
-                    toScare.Call("incrementScare", scareRate);
+                if (toScare.Count > 0) {
+                    toScare[0].Call("incrementScare", scareRate);
                 }
-            }
         }
     }
 
@@ -144,16 +142,13 @@ public partial class Player2 : CharacterBody2D {
 
     public void _on_scare_area_entered(Area2D area) {
         if (area.GetParent().Name.ToString().Contains("child")) {
-            scareReady = true;
-            bigChild   = false;
-            toScare    = area.GetParent();
+            toScare.Add(area.GetParent());
         }
     }
 
     public void _on_scare_area_exited(Area2D area) {
         if (area.GetParent().Name.ToString().Contains("child")) {
-            scareReady = false;
-            toScare    = null;
+            toScare.Remove(area.GetParent());
         }
     }
 }
