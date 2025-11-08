@@ -111,7 +111,7 @@ public class HardUpgrade : Upgrade {
         base.update(delta);
         p.scareRate      = p.scareRate / (float)Math.Pow(2f, data.level);
         p.candyMult = (float)Math.Pow(2f, data.level);
-        data.description = "kids take "+(float)Math.Pow(2f, data.level)+"X the time to scare, but drop "+(float)Math.Pow(2f, data.level)+"X the candy\ndoubles per level";
+        data.description = "kids take "+(float)Math.Pow(2f, data.level)+"X the time to scare, but drop"+(float)Math.Pow(2f, data.level) +"X the candy\ndoubles per level";
     }
 
 }

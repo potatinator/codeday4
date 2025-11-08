@@ -1,0 +1,57 @@
+[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://bgqjevic8vv3i"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_yu7lo"]
+output_port_for_preview = 0
+input_name = "screen_uv"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_dqkpj"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(100, 100)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_fvnn8"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(0, 1, 0)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_mgms1"]
+default_input_values = [0, Vector2(0, 0)]
+op_type = 0
+function = 23
+
+[sub_resource type="VisualShaderNodeDotProduct" id="VisualShaderNodeDotProduct_itmi5"]
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+
+
+
+void fragment() {
+// VectorOp:6
+	vec3 n_in6p0 = vec3(0.00000, 0.00000, 0.00000);
+	vec3 n_in6p1 = vec3(0.00000, 1.00000, 0.00000);
+	vec3 n_out6p0 = n_in6p0 * n_in6p1;
+
+
+// Output:0
+	COLOR.rgb = n_out6p0;
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/vertex/0/position = Vector2(640, 20)
+nodes/fragment/0/position = Vector2(760, 220)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_yu7lo")
+nodes/fragment/3/position = Vector2(-460, 160)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_dqkpj")
+nodes/fragment/5/position = Vector2(-120, 160)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_fvnn8")
+nodes/fragment/6/position = Vector2(540, 200)
+nodes/fragment/7/node = SubResource("VisualShaderNodeVectorFunc_mgms1")
+nodes/fragment/7/position = Vector2(80, 200)
+nodes/fragment/8/node = SubResource("VisualShaderNodeDotProduct_itmi5")
+nodes/fragment/8/position = Vector2(300, 300)
+nodes/fragment/connections = PackedInt32Array(3, 0, 5, 0, 6, 0, 0, 0, 5, 0, 7, 0)
