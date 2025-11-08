@@ -1898,7 +1898,7 @@ player = NodePath("../player2")
 environment = SubResource("Environment_vveqt")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.446777, 0.44677705, 0.44677705, 1)
+color = Color(0.66245234, 0.66245234, 0.6624523, 1)
 
 [node name="Label" type="Label" parent="."]
 visible = false
