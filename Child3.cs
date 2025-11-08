@@ -45,6 +45,7 @@ public partial class Child3 : CharacterBody2D {
     Vector2           home              = Vector2.Zero;
     private float     spawnDelay        = 0;
     public  bool      cantScareWhenSeen = true;
+    public  Player2   player; 
 
     private AnimatedSprite2D sprite;
 
@@ -98,7 +99,10 @@ public partial class Child3 : CharacterBody2D {
         }
 
         if (seenCounter > 0.5 && !paused) {
-            GetTree().ReloadCurrentScene();
+            if (player != null) {
+                player.lives--;
+                seenCounter = -0.5f;
+            }
         }
 
         if (!scared) {

@@ -13,6 +13,7 @@ public partial class Shop1 : CanvasLayer {
     public override void _Ready() {
         upgrades.Add(new ScareUpgrade((Player2)player, (Map)GetParent()));
         upgrades.Add(new HardUpgrade((Player2)player));
+        upgrades.Add(new BribeUpgrade((Player2)player));
         // TODO: add new upgrades to shop here
         
         

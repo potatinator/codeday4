@@ -7,6 +7,9 @@ public partial class Map : Node2D {
     private bool canShop = false;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready() {
+        foreach (Child3 c in getAllChildren()) {
+            c.player = (Player2)GetNode("player2");
+        }
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

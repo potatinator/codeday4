@@ -27,7 +27,7 @@ public class Upgrade {
     }
 
     public virtual int getCost() {
-        return (int)(data.cost * Math.Pow((10+data.level), (1 + data.costFactor)));
+        return (int)(data.cost * Math.Pow((1+data.level), (1 + data.costFactor)));
     }
 }
 public struct UpgradeData {
@@ -69,7 +69,7 @@ public class ScareUpgrade : Upgrade {
         data.name        = "Scary Mask";
         data.description = "Scare faster, +25% per level";
         data.hovertext   = "Its time to get spooky";
-        data.cost        = 1;
+        data.cost        = 10;
         data.maxLevel    = -1;
         data.costFactor  = 0.1f;
         data.icon        = GD.Load<Texture2D>("res://oni2.png");
@@ -101,10 +101,14 @@ public class HardUpgrade : Upgrade {
         data.name        = "Late Night";
         // data.description = ;
         data.hovertext  = "Hardcore trick-or-treaters are hard to scare, but they have more candy";
-        data.cost       = 5;
+        data.cost       = 500;
         data.maxLevel   = -1;
         data.costFactor = 1;
         data.icon       = GD.Load<Texture2D>("res://clock1.png");
+    }
+
+    public override int getCost() {
+        return data.cost += (data.level*100);
     }
 
     public override void update(float delta) {
@@ -114,4 +118,30 @@ public class HardUpgrade : Upgrade {
         data.description = "kids take "+(float)(data.level*2f)+"X the time to scare, but drop "+(float)(data.level*2f)+"X the candy\ndoubles per level";
     }
 
+}
+public class BribeUpgrade : Upgrade {
+    private Player2 p;
+    public BribeUpgrade(Player2 player) {
+        this.p = player;
+    }
+    public override void init() {
+        base.init();
+        data.name        = "Bribe";
+        data.description = "Gets you another bribe";
+        data.hovertext   = "Keeps those pesky cops away";
+        data.cost        = 1;
+        data.maxLevel    = -1;
+        data.costFactor  = 0.1f;
+        data.icon        = new PlaceholderTexture2D();
+        
+    }
+
+    public override int getCost() {
+        return 100 + (50*data.level);
+            
+    }
+
+    public override void upgrade() {
+        p.lives++;
+    }
 }

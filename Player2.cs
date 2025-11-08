@@ -22,6 +22,7 @@ public partial class Player2 : CharacterBody2D {
     public bool  paused    = false;
     public float scareRate = 1f;
     public float candyMult = 1f;
+    public int   lives     = 2;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready() {
@@ -30,6 +31,9 @@ public partial class Player2 : CharacterBody2D {
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta) {
+        if (lives <= 0) {
+            GetTree().ReloadCurrentScene();
+        }
         vel = Vector2.Zero;
         if (Input.IsActionPressed("move_down")) {
             vel.Y += 1;
@@ -118,7 +122,9 @@ public partial class Player2 : CharacterBody2D {
 
         stamina = Math.Clamp(stamina, 0, 1);
 
+
         HUD.Call("setScore", score);
+        HUD.Call("setLives", lives);
         HUD.Call("setStamina", stamina);
 
         if (Input.IsActionPressed("scare")) {

@@ -26,7 +26,15 @@ offset_left = 12.0
 offset_top = 12.0
 offset_right = 112.0
 offset_bottom = 57.0
-text = "score: "
+text = "Score: "
+label_settings = SubResource("LabelSettings_k5de2")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 13.0
+offset_top = 51.0
+offset_right = 113.0
+offset_bottom = 96.0
+text = "bribes: "
 label_settings = SubResource("LabelSettings_k5de2")
 
 [node name="Control" type="Control" parent="."]

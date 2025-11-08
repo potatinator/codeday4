@@ -11,7 +11,11 @@ func _process(delta: float) -> void:
 	pass
 
 func setScore(score: int):
-	$Label.text = "stolen candy: " + str(score);
+	$Label.text = "Stolen candy: " + str(score);
+pass
+
+func setLives(lives: int):
+	$Label2.text = "Bribes: " + str((lives-1));
 pass
 func setStamina(stamina: float):
 	$"Control/stamia bar".scale.x = stamina*225;
