@@ -139,6 +139,7 @@ public partial class Child3 : CharacterBody2D {
                 ((CollisionPolygon2D)GetNode("echildView/CollisionPolygon2D")).SetDeferred("disabled", false);
                 ((Area2D)GetNode("echildView")).Visible = true;
                 Visible                                 = true;
+                spawnDelay                              = 10;
             }
         }
 

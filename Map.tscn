@@ -482,7 +482,7 @@ position = Vector2(-7, 306)
 texture = ExtResource("1_6d1bb")
 
 [node name="Grass(2)70" type="Sprite2D" parent="NavigationRegion2D/map/grass"]
-position = Vector2(9, 306)
+position = Vector2(8.999995, 305.64285)
 texture = ExtResource("1_6d1bb")
 
 [node name="Grass(2)71" type="Sprite2D" parent="NavigationRegion2D/map/grass"]

@@ -27,7 +27,7 @@ public class Upgrade {
     }
 
     public virtual int getCost() {
-        return (int)(data.cost * Math.Pow((1 + data.costFactor), data.level));
+        return (int)(data.cost * Math.Pow((10+data.level), (1 + data.costFactor)));
     }
 }
 public struct UpgradeData {
@@ -109,9 +109,9 @@ public class HardUpgrade : Upgrade {
 
     public override void update(float delta) {
         base.update(delta);
-        p.scareRate      = p.scareRate / (float)Math.Pow(2f, data.level);
-        p.candyMult = (float)Math.Pow(2f, data.level);
-        data.description = "kids take "+(float)Math.Pow(2f, data.level)+"X the time to scare, but drop "+(float)Math.Pow(2f, data.level)+"X the candy\ndoubles per level";
+        p.scareRate      = p.scareRate / (float)((((data.level+1)*(2f))-1));
+        p.candyMult = (float)(((data.level+1)*(2f))-1);
+        data.description = "kids take "+(float)(data.level*2f)+"X the time to scare, but drop "+(float)(data.level*2f)+"X the candy\ndoubles per level";
     }
 
 }
