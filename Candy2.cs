@@ -4,7 +4,7 @@ using System;
 public partial class Candy2 : Area2D {
     // Called when the node enters the scene tree for the first time.
     public override void _Ready() {
-        Color col = HSVToRGB(GD.Randf(), 1f, 1f).Lightened(5);
+        Color col = HSVToRGB(GD.Randf(), 1f, 1f);
         ((ColorRect)GetNode("ColorRect")).Color = col;
     }
 
