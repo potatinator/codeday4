@@ -45,7 +45,6 @@ public partial class Child3 : CharacterBody2D {
     Vector2           home              = Vector2.Zero;
     private float     spawnDelay        = 0;
     public  bool      cantScareWhenSeen = true;
-    public  float     candyMult         = 1f;
 
     private AnimatedSprite2D sprite;
 
@@ -224,7 +223,7 @@ public partial class Child3 : CharacterBody2D {
 
     public void scare() {
         if (scareable && !scared) {
-            for (int i = 0; i < (5 + (int)(scareTime * 10))*candyMult; i++) {
+            for (int i = 0; i < (5 + (int)(scareTime * 10)); i++) {
                 Area2D a = (Area2D)candy.Instantiate();
                 a.Position = Position +
                              new Vector2((int)GD.RandRange(-r, r), 0).Rotated(GD.Randf() * 2f * (float)Math.PI);

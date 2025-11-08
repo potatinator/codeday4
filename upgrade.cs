@@ -71,7 +71,7 @@ public class ScareUpgrade : Upgrade {
         data.hovertext   = "Its time to get spooky";
         data.cost        = 1;
         data.maxLevel    = -1;
-        data.costFactor  = 0.125f;
+        data.costFactor  = 0.1f;
         data.icon        = GD.Load<Texture2D>("res://oni2.png");
 
     }
@@ -93,33 +93,25 @@ public class ScareUpgrade : Upgrade {
 }
 public class HardUpgrade : Upgrade {
     private Player2 p;
-    private Map     m;
-    public HardUpgrade(Player2 player, Map m) {
+    public HardUpgrade(Player2 player) {
         this.p = player;
-        this.m = m;
     }
     public override void init() {
         base.init();
         data.name        = "Late Night";
         // data.description = ;
-        data.hovertext = "The kids are too tired to be scared, but they have more candy";
-        data.cost      = 5;
-        data.maxLevel  = -1;
-        data.icon      = GD.Load<Texture2D>("res://clock1.png");
+        data.hovertext  = "Hardcore trick-or-treaters are hard to scare, but they have more candy";
+        data.cost       = 5;
+        data.maxLevel   = -1;
+        data.costFactor = 1;
+        data.icon       = GD.Load<Texture2D>("res://clock1.png");
     }
 
     public override void update(float delta) {
         base.update(delta);
         p.scareRate      = p.scareRate / (float)Math.Pow(2f, data.level);
+        p.candyMult = (float)Math.Pow(2f, data.level);
         data.description = "kids take "+(float)Math.Pow(2f, data.level)+"X the time to scare, but drop "+(float)Math.Pow(2f, data.level)+"X the candy\ndoubles per level";
-    }
-    public override void upgrade() {
-        base.upgrade();
-        if (data.level > 0) {
-            foreach (Child3 c in m.getAllChildren()) {
-                c.candyMult = (float)Math.Pow(2f, data.level);
-            }
-        }
     }
 
 }

@@ -21,6 +21,7 @@ public partial class Player2 : CharacterBody2D {
     public bool  canSprint = true;
     public bool  paused    = false;
     public float scareRate = 1f;
+    public float candyMult = 1f;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready() {
@@ -131,8 +132,8 @@ public partial class Player2 : CharacterBody2D {
 
     public void _on_pickup_area_entered(Area2D area) {
         area.QueueFree();
-        score   += 1;
-        stamina += 0.05f;
+        score   += 1 * (int)candyMult;
+        stamina += 0.05f * candyMult;
     }
 
     public void _on_scare_area_entered(Area2D area) {

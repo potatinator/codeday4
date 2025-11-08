@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://bm05clviv5xva"]
+[gd_scene load_steps=88 format=3 uid="uid://bm05clviv5xva"]
 
 [ext_resource type="Texture2D" uid="uid://di46ece3wxgfw" path="res://resources/Grass (2).png" id="1_6d1bb"]
 [ext_resource type="Script" uid="uid://d1foo55ogvggj" path="res://Map.cs" id="1_d4oyn"]
@@ -48,6 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://cfuxh6rj1ykyo" path="res://HUD.tscn" id="44_vveqt"]
 [ext_resource type="PackedScene" uid="uid://dkbx8s2u48uyf" path="res://child_3.tscn" id="46_oyveh"]
 [ext_resource type="PackedScene" uid="uid://chi25urn48v4r" path="res://shop1.tscn" id="48_8fahx"]
+[ext_resource type="Texture2D" uid="uid://6l0jllrmxfyt" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="49_k5q7v"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vveqt"]
 vertices = PackedVector2Array(1892, 800, 2308, 786, 3698, 786, 3684, 1202, 3204, 1202, 1920, 1195, 1696, 1188, 4100, 114, 4100, 2500.1094, 3684, 1888, 3684, 1458, 3698, 516, 1920, 2130, 2308, 2502.7031, 128, 2505.8594, 800, 2144, 2335, 114, 3414, 516, 2335, 236, 2308, 1202, 1920, 1874, 1892, 544, 2308, 544, 2788, 2502, 2788, 2130, 3684, 2130, 3414, 530, 2532, 530, 2532, 544, 1868, 236, 1699.5, 544, 1699.5, 531.75, 1412, 791.25, 1636, 791.25, 1636, 800, 2795, 1888, 2795, 1202, 3204, 1458, 1010, 1874, 1010, 1458, 1636, 1465, 1636, 1458, 1920, 1465, 1696, 1195, 800, 1188, 800, 1174, 1025.75, 800, 800, 2130, 516, 2144, 128, 786, 516, 1174, 738.25, 786, 738.25, 800, 738.25, 540.5, 738.25, 544, 128, 544, 128, 114, 1025.75, 540.5, 1868, 114, 1412, 531.75)
@@ -177,6 +178,10 @@ glow_hdr_threshold = 0.0
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_d4oyn")
+
+[node name="player2" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("44_pkupc")]
+position = Vector2(2108, 80)
+hud = NodePath("../HUD")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_vveqt")
@@ -3893,15 +3898,21 @@ player = NodePath("../player2")
 
 [node name="HUD" parent="." instance=ExtResource("44_vveqt")]
 
-[node name="player2" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("44_pkupc")]
-position = Vector2(2108, 80)
-hud = NodePath("../HUD")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vveqt")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.446777, 0.44677705, 0.44677705, 1)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+modulate = Color(2.1168277, 2.1168277, 2.1168277, 1)
+offset_left = 2036.0
+offset_right = 2199.0
+offset_bottom = 23.0
+text = "Press E to enter shop"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="kids" type="Node2D" parent="."]
 
@@ -4064,15 +4075,18 @@ position = Vector2(2899, 132)
 [node name="child54" parent="kids" instance=ExtResource("46_oyveh")]
 position = Vector2(2970, 125)
 
-[node name="Label" type="Label" parent="."]
-visible = false
-modulate = Color(2.1168277, 2.1168277, 2.1168277, 1)
-offset_left = 2036.0
-offset_right = 2199.0
-offset_bottom = 23.0
-text = "Press E to enter shop"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(2281, 121)
+texture = ExtResource("49_k5q7v")
+texture_scale = 0.7
+
+[node name="ColorRect" type="ColorRect" parent="PointLight2D"]
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 30.0
+offset_bottom = 27.0
+scale = Vector2(0.52131253, 0.51386046)
+color = Color(3682719500000, 3682719500000, 3682719500000, 1)
 
 [connection signal="area_entered" from="NavigationRegion2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="NavigationRegion2D/Area2D" to="." method="_on_area_2d_area_exited"]

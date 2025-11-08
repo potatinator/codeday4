@@ -12,7 +12,7 @@ public partial class Shop1 : CanvasLayer {
     // Called when the node enters the scene tree for the first time.
     public override void _Ready() {
         upgrades.Add(new ScareUpgrade((Player2)player, (Map)GetParent()));
-        upgrades.Add(new HardUpgrade((Player2)player, (Map)GetParent()));
+        upgrades.Add(new HardUpgrade((Player2)player));
         // TODO: add new upgrades to shop here
         
         

@@ -138,6 +138,7 @@ scale = Vector2(0.5188113, 1.1088994)
 occluder = SubResource("OccluderPolygon2D_8xjnt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 texture_filter = 1
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_7d0q2")

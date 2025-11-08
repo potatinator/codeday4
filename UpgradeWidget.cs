@@ -23,13 +23,12 @@ public partial class UpgradeWidget : Control {
             } else {
                 GetNode<RichTextLabel>("lv").Text = "Level " + u.data.level + ", Cost: " + u.getCost() + " Candy";
             }
-            GetNode<RichTextLabel>("lv").Visible      = true;
             GetNode<Button>("lv down").Visible = true;
         } else {
-            GetNode<RichTextLabel>("lv").Visible      = false;
+                GetNode<RichTextLabel>("lv").Text = "Cost: " + u.getCost() + " Candy";
             GetNode<Button>("lv down").Visible = false;
         }
-        if (!s.canCharge(u.data.cost) || (u.data.level >= u.data.maxLevel  && u.data.maxLevel > 0)) {
+        if (!s.canCharge(u.getCost()) || (u.data.level >= u.data.maxLevel  && u.data.maxLevel > 0)) {
             GetNode<Button>("lv up").Disabled = true;
             GetNode<Button>("lv up").Icon = disabledImage;
         } else {
