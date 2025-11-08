@@ -24,8 +24,8 @@ void vertex() {
 }
 
 void fragment() {
-	float a = 15.0;
-	float b = 5.0;
+	float a = 25.0;
+	float b = 10.0;
 	float c = random(vec2(float(int((UV*vec2(a)).x)), float(int((UV*vec2(b)).y)))/vec2(a)).x;
 	c = clamp(c, 0, 1);
 	//if(c > 0.25){
