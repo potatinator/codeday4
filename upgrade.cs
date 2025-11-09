@@ -108,8 +108,8 @@ public class HardUpgrade : Upgrade {
     public override void update(float delta) {
         base.update(delta);
         p.scareRate      = p.scareRate / (float)Math.Ceiling(0.5*(Math.Pow((data.level+1), 1.5)));
-        p.candyMult = (float)(int)(Math.Pow((data.level+1), 1.5f)+1);
-        data.description = "kids take "+(float)(float)Math.Ceiling(0.5*(Math.Pow((data.level+1), 1.5)))+"X the time to scare, but drop "+(float)(int)(Math.Pow((data.level+1), 1.5f)+1)+"X the candy\ndoubles per level";
+        p.candyMult = (float)(int)(Math.Pow((data.level+1), 1.5f));
+        data.description = "kids take "+(float)(float)Math.Ceiling(0.5*(Math.Pow((data.level+2), 1.5)))+"X the time to scare, but drop "+(float)(int)(Math.Pow((data.level+2), 1.5f))+"X the candy\ncurrently: "+(float)(float)Math.Ceiling(0.5*(Math.Pow((data.level+1), 1.5)))+"X scare time, "+(float)(int)(Math.Pow((data.level+1), 1.5f))+"X candy";
     }
 
 }

@@ -32,13 +32,10 @@ public partial class Child3 : CharacterBody2D {
     bool              scared       = false;
     bool              paused       = false;
     float             rotSpeed     = 0;
-    float             stopCounter  = 0;
-    float             startCounter = 0;
     float             seenCounter  = 0;
-    float             spinCounter  = 0;
     float             scareCounter = 0;
     float             r;
-    float             homeTime          = 0f;
+    float             homeTime          = 10f;
     NavigationAgent2D nav               = null;
     Vector2           localSpeed        = new Vector2(0, 0);
     Vector2           globalSpeed       = new Vector2(0, 0);
@@ -143,7 +140,7 @@ public partial class Child3 : CharacterBody2D {
                 ((CollisionPolygon2D)GetNode("echildView/CollisionPolygon2D")).SetDeferred("disabled", false);
                 ((Area2D)GetNode("echildView")).Visible = true;
                 Visible                                 = true;
-                spawnDelay                              = 10;
+                // spawnDelay                              = 10;
             }
         }
 
